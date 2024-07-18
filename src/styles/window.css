@@ -1,0 +1,26 @@
+.window {
+    background: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  
+  .window-header {
+    background: #0078d7;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab; 
+  }
+  
+  .window-content {
+    flex-grow: 1;
+    padding: 10px;
+    overflow: auto;
+    cursor: default; /* Default cursor for non-draggable area */
+    color: black;
+  }
+  
