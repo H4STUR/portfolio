@@ -13,9 +13,10 @@ const Desktop = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [windows, setWindows] = useState([]);
   const [icons, setIcons] = useState([
-    { id: 1, title: 'My Computer', initialPosition: { x: PADDING, y: PADDING } },
-    { id: 2, title: 'Recycle Bin', initialPosition: { x: GRID_SIZE + PADDING, y: PADDING } },
-    { id: 3, title: 'Folder', initialPosition: { x: GRID_SIZE * 2 + PADDING, y: PADDING } },
+    { id: 1, type: 'My Computer', title: 'My Computer', initialPosition: { x: PADDING, y: PADDING } },
+    { id: 2, type: 'Recycle Bin', title: 'Recycle Bin', initialPosition: { x: GRID_SIZE + PADDING, y: PADDING } },
+    { id: 3, type: 'Folder', title: 'Folder', initialPosition: { x: GRID_SIZE * 2 + PADDING, y: PADDING } },
+    { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: PADDING, y: GRID_SIZE * 2 + PADDING } },
   ]);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const Desktop = () => {
   return (
     <div className="desktop" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
       {icons.map(icon => (
-        <Icon key={icon.id} title={icon.title} initialPosition={icon.initialPosition} onDoubleClick={() => openWindow(icon.title)} />
+        <Icon key={icon.id} type={icon.type} title={icon.title} initialPosition={icon.initialPosition} onDoubleClick={() => openWindow(icon.title)} />
       ))}
       {windows.map(win => (
         <Window key={win.id} id={win.id} title={win.title} onClose={closeWindow} position={win.position} />

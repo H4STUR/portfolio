@@ -8,11 +8,11 @@ import folderIcon from '../assets/images/folder-icon.png';
 
 const GRID_SIZE = 80;
 
-const Icon = ({ title, onDoubleClick, initialPosition }) => {
+const Icon = ({ type, title, onDoubleClick, initialPosition }) => {
   const [position, setPosition] = useState(initialPosition);
 
-  const getImageSrc = (title) => {
-    switch (title) {
+  const getImageSrc = (type) => {
+    switch (type) {
       case "My Computer":
         return myComputerIcon;
       case "Recycle Bin":
@@ -39,7 +39,7 @@ const Icon = ({ title, onDoubleClick, initialPosition }) => {
       enableResizing={false}
     >
       <div className="icon" onDoubleClick={onDoubleClick}>
-        <img src={getImageSrc(title)} alt={title} />
+        <img src={getImageSrc(type)} alt={title} />
         <span>{title}</span>
       </div>
     </Rnd>

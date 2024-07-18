@@ -5,7 +5,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    box-sizing: border-box; 
   }
   
   body, html {

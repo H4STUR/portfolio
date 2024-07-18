@@ -2,6 +2,11 @@ import React from 'react';
 import '../styles/startMenu.css';
 
 const StartMenu = () => {
+
+  const handleShutDown = () => {
+    window.close();
+  };
+
   return (
     <div className="start-menu">
       <ul>
@@ -11,7 +16,7 @@ const StartMenu = () => {
         <li>Search</li>
         <li>Help</li>
         {/* <li>Run</li> */}
-        <li>Shut Down</li>
+        <li onClick={handleShutDown}>Shut Down</li>
       </ul>
     </div>
   );
