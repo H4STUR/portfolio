@@ -1,0 +1,28 @@
+.start-menu {
+    position: fixed;
+    bottom: 40px; /* Adjust to be above the taskbar */
+    left: 0;
+    width: 200px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .start-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .start-menu ul li {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #0078d7;
+  }
+  
+  .start-menu ul li:hover {
+    background-color: #309df7;
+    color: white;
+  }
+  
