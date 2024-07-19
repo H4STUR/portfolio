@@ -5,6 +5,7 @@ import Taskbar from './Taskbar';
 import LoadingScreen from './LoadingScreen';
 import '../styles/desktop.css';
 import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
+import windowsLogo from '../assets/images/windows-logo.png'; // Replace with the actual Windows logo path
 
 const GRID_SIZE = 80;
 const PADDING = 20; // The same padding value as in CSS

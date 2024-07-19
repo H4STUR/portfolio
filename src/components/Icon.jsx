@@ -46,4 +46,16 @@ const Icon = ({ type, title, onDoubleClick, initialPosition }) => {
   );
 };
 
+{/* <Rnd
+className="window"
+default={{
+  x: position.x,
+  y: position.y,
+  width: 300,
+  height: 200,
+}}
+bounds="parent"
+dragHandleClassName="window-header"
+> */}
+
 export default Icon;
