@@ -7,8 +7,10 @@ import recycleBinIcon from '../assets/images/recycle-bin-icon-xp.png';
 import folderIcon from '../assets/images/folder-icon.png';
 
 const GRID_SIZE = 80;
+const CELL_MARGIN = 20;
+const CELL_SIZE = GRID_SIZE + CELL_MARGIN;
 
-const Icon = ({ type, title, onDoubleClick, initialPosition }) => {
+const Icon = ({ id, type, title, onDoubleClick, initialPosition, moveIcon }) => {
   const [position, setPosition] = useState(initialPosition);
 
   const getImageSrc = (type) => {
@@ -25,8 +27,9 @@ const Icon = ({ type, title, onDoubleClick, initialPosition }) => {
   };
 
   const onDragStop = (e, d) => {
-    const [snappedX, snappedY] = snapToGrid(d.x, d.y, GRID_SIZE);
-    setPosition({ x: snappedX, y: snappedY });
+    const [snappedX, snappedY] = snapToGrid(d.x - CELL_MARGIN, d.y - CELL_MARGIN, CELL_SIZE);
+    setPosition({ x: snappedX + CELL_MARGIN, y: snappedY + CELL_MARGIN });
+    moveIcon(id, { x: snappedX + CELL_MARGIN, y: snappedY + CELL_MARGIN });
   };
 
   return (
@@ -36,6 +39,7 @@ const Icon = ({ type, title, onDoubleClick, initialPosition }) => {
       position={position}
       onDragStop={onDragStop}
       enableResizing={false}
+      dragHandleClassName="icon"
     >
       <div className="icon" onDoubleClick={onDoubleClick}>
         <img src={getImageSrc(type)} alt={title} />

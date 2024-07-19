@@ -7,23 +7,25 @@ import '../styles/desktop.css';
 import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
 import windowsLogo from '../assets/images/windows-logo.png'; // Replace with the actual Windows logo path
 
-const GRID_SIZE = 80;
-const PADDING = 20; // The same padding value as in CSS
+const GRID_SIZE = 80; // Base size of the grid cell
+const CELL_MARGIN = 20; // Additional margin between cells
+const CELL_SIZE = GRID_SIZE + CELL_MARGIN; // Effective size of each cell including margin
+const PADDING = 20; // Padding from the edge of the desktop
 
 const Desktop = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [windows, setWindows] = useState([]);
   const [icons, setIcons] = useState([
     { id: 1, type: 'My Computer', title: 'My Computer', initialPosition: { x: PADDING, y: PADDING } },
-    { id: 2, type: 'Recycle Bin', title: 'Recycle Bin', initialPosition: { x: GRID_SIZE + PADDING, y: PADDING } },
-    { id: 3, type: 'Folder', title: 'Folder', initialPosition: { x: GRID_SIZE * 2 + PADDING, y: PADDING } },
-    { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: PADDING, y: GRID_SIZE * 2 + PADDING } },
+    { id: 2, type: 'Recycle Bin', title: 'Recycle Bin', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING } },
+    { id: 3, type: 'Folder', title: 'Folder', initialPosition: { x: CELL_SIZE * 2 + PADDING, y: PADDING } },
+    { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: PADDING, y: CELL_SIZE + PADDING } },
   ]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2); // 2 seconds
+    }, 2000); // 2 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -36,6 +38,14 @@ const Desktop = () => {
     setWindows(windows.filter(window => window.id !== id));
   };
 
+  const moveIcon = (id, offset) => {
+    setIcons((prevIcons) =>
+      prevIcons.map((icon) =>
+        icon.id === id ? { ...icon, initialPosition: { x: offset.x, y: offset.y } } : icon
+      )
+    );
+  };
+
   if (isLoading) {
     return <LoadingScreen />;
   }
@@ -43,7 +53,7 @@ const Desktop = () => {
   return (
     <div className="desktop" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
       {icons.map(icon => (
-        <Icon key={icon.id} type={icon.type} title={icon.title} initialPosition={icon.initialPosition} onDoubleClick={() => openWindow(icon.title)} />
+        <Icon key={icon.id} {...icon} onDoubleClick={() => openWindow(icon.title)} moveIcon={moveIcon} />
       ))}
       {windows.map(win => (
         <Window key={win.id} id={win.id} title={win.title} onClose={closeWindow} position={win.position} />
