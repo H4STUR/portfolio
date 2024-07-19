@@ -26,7 +26,7 @@ const Desktop = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2);
+    }, 2000);
     /*
     2000 for app
     2 for dev
