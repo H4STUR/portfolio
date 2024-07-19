@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/loadingScreen.css';
-import windowsLogo from '../assets/images/windows-logo.png'; // Replace with the actual Windows logo path
-import profileImage from '../assets/images/pepenolif.jpg'; // Replace with the actual profile picture path
+import windowsLogo from '../assets/images/windows-logo.png'; //windows logo
+import profileImage from '../assets/images/pepenolif.jpg'; //profile img
 
 const LoadingScreen = () => {
   return (
     <div className="loading-screen">
       <div className="left-section">
         <img src={windowsLogo} alt="Windows Logo" className="windows-logo" />
-        <h1>Windows<span className="logo-xd">XD</span></h1>
+        <h1>System<span className="logo-xd">XD</span></h1>
         <p>To begin, click your user name</p>
       </div>
       <div className="right-section">

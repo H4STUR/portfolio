@@ -3,6 +3,7 @@ import '../styles/taskbar.css';
 import StartMenu from './StartMenu';
 import Clock from './Clock';
 import windowsLogo from '../assets/images/windows-logo.png'; // Replace with the actual Windows logo path
+import CMD_icon from '../assets/images/CMD-icon.png'; // Replace with the actual Windows logo path
 
 
 const Taskbar = () => {
@@ -24,6 +25,7 @@ const Taskbar = () => {
         </div>
         <div className="taskbar-icons">
           {/* Add taskbar icons here */}
+          <img src={CMD_icon} alt="Profile" className="taskbar-icon" />
         </div>
         <div className="taskbar-clock">
           <Clock />

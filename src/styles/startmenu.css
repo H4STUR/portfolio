@@ -1,28 +1,128 @@
-.start-menu {
-    position: fixed;
-    bottom: 40px; /* Adjust to be above the taskbar */
-    left: 0;
-    width: 200px;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
+.start-menu 
+{
+  position: fixed;
+  bottom: 40px; /* Adjust to be above the taskbar */
+  left: 0;
+  width: 25%;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.start-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.start-menu ul li {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #0078d7;
+}
+
+.start-menu ul li:hover {
+  background-color: #309df7;
+  color: white;
+}
   
-  .start-menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .start-menu ul li {
-    padding: 10px;
-    cursor: pointer;
-    background-color: #0078d7;
-  }
-  
-  .start-menu ul li:hover {
-    background-color: #309df7;
-    color: white;
-  }
-  
+.start-menu-top
+{
+  display: flex;
+  background-color: #006abe;
+}
+
+.start-menu-middle
+{
+  display: flex;
+}
+
+.start-menu-middle-left, .start-menu-middle-right
+{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: left;
+}
+
+.start-menu-middle-left
+{
+  background-color: #f7fcf8;
+}
+
+.start-menu-middle-right
+{
+  background: linear-gradient(to right, #cde5f9, #f7fcf8);
+}
+
+.start-menu-middle-left ul li
+{
+  padding-left: 20px;
+  background-color: unset;
+  color: black;
+}
+
+.start-menu-middle-right ul li
+{
+  padding-left: 20px;
+  background-color: unset;
+  color: black;
+}
+
+.start-menu-bottom
+{
+  display: flex;
+  flex-direction: row;
+  background-color: #006abe;
+  justify-content: end;
+}
+
+.start-menu-bottom ul
+{
+  display: flex;
+}
+.start-menu-bottom ul li
+{
+  color: white;
+  background-color: unset;
+  font-size: .9em;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+}
+
+.x-button
+{
+  padding: 10px;
+  background-color: #be0000;
+}
+
+.profile-name
+{
+  font-size: 1.5em;
+}
+
+.start-menu-profile-picture
+{
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.shutdown-icon
+{
+  width: 40px;
+  height: 40px;
+}
+
+.restart-icon
+{
+  width: 32px;
+  height: 32px;
+  padding-right: 5px;
+}

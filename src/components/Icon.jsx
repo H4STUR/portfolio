@@ -4,7 +4,8 @@ import { snapToGrid } from '../utils/grid';
 import '../styles/icon.css';
 import myComputerIcon from '../assets/images/computer-icon-xp.png';
 import recycleBinIcon from '../assets/images/recycle-bin-icon-xp.png';
-import folderIcon from '../assets/images/folder-icon.png';
+import folderIcon from '../assets/images/folder-xp-icon.png';
+import PDFIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
 
 const GRID_SIZE = 80;
 const CELL_MARGIN = 20;
@@ -21,6 +22,8 @@ const Icon = ({ id, type, title, onDoubleClick, initialPosition, moveIcon }) => 
         return recycleBinIcon;
       case "Folder":
         return folderIcon;
+      case "PDF":
+        return PDFIcon;
       default:
         return '/icons/default-icon.png'; // Default icon
     }

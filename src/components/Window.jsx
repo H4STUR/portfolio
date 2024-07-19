@@ -9,15 +9,15 @@ const Window = ({ id, title, onClose, position }) => {
       default={{
         x: position.x,
         y: position.y,
-        width: 300,
-        height: 200,
+        width: 600,
+        height: 400,
       }}
       bounds="parent"
       dragHandleClassName="window-header"
     >
       <div className="window-header">
         <span>{title}</span>
-        <button onClick={() => onClose(id)}>X</button>
+        <button className="close-button" onClick={() => onClose(id)}>X</button>
       </div>
       <div className="window-content">
         {title === 'Folder' ? (

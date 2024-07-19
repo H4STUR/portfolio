@@ -1,13 +1,14 @@
 .window {
     background: white;
-    border: 1px solid black;
+    border: 5px solid #006abe;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
   }
   
   .window-header {
-    background: #0078d7;
+    background: #006abe;
     color: white;
     padding: 5px;
     display: flex;
@@ -24,3 +25,14 @@
     color: black;
   }
   
+  .close-button
+  {
+    background-color: #ec1925;
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5em;
+  }

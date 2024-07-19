@@ -16,16 +16,21 @@ const Desktop = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [windows, setWindows] = useState([]);
   const [icons, setIcons] = useState([
-    { id: 1, type: 'My Computer', title: 'My Computer', initialPosition: { x: PADDING, y: PADDING } },
-    { id: 2, type: 'Recycle Bin', title: 'Recycle Bin', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING } },
+    { id: 1, type: 'Recycle Bin', title: 'Recycle Bin', initialPosition:{ x: PADDING, y: PADDING } } ,
+    { id: 2, type: 'My Computer', title: 'My Computer', initialPosition: { x: PADDING, y: CELL_SIZE + PADDING } },
     { id: 3, type: 'Folder', title: 'Folder', initialPosition: { x: CELL_SIZE * 2 + PADDING, y: PADDING } },
-    { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: PADDING, y: CELL_SIZE + PADDING } },
+    { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING } },
+    { id: 4, type: 'PDF', title: 'CV', initialPosition: { x: CELL_SIZE * 5 + PADDING, y: CELL_SIZE * 2 + PADDING } },
   ]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // 2 seconds
+    }, 2);
+    /*
+    2000 for app
+    2 for dev
+    */
 
     return () => clearTimeout(timer);
   }, []);
