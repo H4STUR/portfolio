@@ -35,7 +35,6 @@ const Icon = ({ type, title, onDoubleClick, initialPosition }) => {
       size={{ width: 80, height: 100 }}
       position={position}
       onDragStop={onDragStop}
-      dragGrid={[GRID_SIZE, GRID_SIZE]}
       enableResizing={false}
     >
       <div className="icon" onDoubleClick={onDoubleClick}>
@@ -45,17 +44,5 @@ const Icon = ({ type, title, onDoubleClick, initialPosition }) => {
     </Rnd>
   );
 };
-
-{/* <Rnd
-className="window"
-default={{
-  x: position.x,
-  y: position.y,
-  width: 300,
-  height: 200,
-}}
-bounds="parent"
-dragHandleClassName="window-header"
-> */}
 
 export default Icon;

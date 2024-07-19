@@ -1,19 +1,23 @@
 .icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    width: 80px;
-    height: 100px;
-  }
-  .icon img {
-    width: 64px;
-    height: 64px;
-  }
-  .icon span {
-    margin-top: 5px;
-    color: white;
-    text-align: center;
-    font-size: 12px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+  width: 80px;
+  height: 100px;
+  user-select: none; /* Prevent text selection while dragging */
+}
+.icon img {
+  width: 64px;
+  height: 64px;
+  pointer-events: none; /* Prevent image from capturing drag events */
+}
+.icon span {
+  margin-top: 5px;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+}
+.icon:active {
+  cursor: grabbing;
+}
