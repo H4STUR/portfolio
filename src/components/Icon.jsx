@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Rnd } from 'react-rnd';
 import '../styles/icon.css';
+
+import { snapToGrid } from '../utils/grid';
+
 import myComputerIcon from '../assets/images/computer-icon-xp.png';
 import recycleBinIcon from '../assets/images/Icons/bin.ico';
 import fileIcon from '../assets/images/Icons/txt.ico';
@@ -9,6 +12,8 @@ import folderIcon from '../assets/images/folder-xp-icon.png';
 import pdfIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
 
 const GRID_SIZE = 80;
+const CELL_MARGIN = 20;
+const CELL_SIZE = GRID_SIZE + CELL_MARGIN;
 
 const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, draggable = true, imageOverride = null }) => {
   const [position, setPosition] = useState(initialPosition);
@@ -33,8 +38,8 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
   };
 
   const onDragStop = (e, d) => {
-    const [snappedX, snappedY] = [d.x, d.y];
-    setPosition({ x: snappedX, y: snappedY });
+    const [snappedX, snappedY] = snapToGrid(d.x, d.y, CELL_SIZE);
+    setPosition({ x: snappedX + CELL_MARGIN, y: snappedY + CELL_MARGIN });
     moveIcon && moveIcon(snappedX, snappedY);
   };
 

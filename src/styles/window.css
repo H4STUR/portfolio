@@ -41,3 +41,8 @@
 {
   color: black;
 }
+
+.folder-content
+{
+  display: flex;
+}
