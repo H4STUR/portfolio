@@ -25,8 +25,11 @@ const Desktop = () => {
   const [icons, setIcons] = useState([
     { id: 1, type: 'Recycle Bin', title: 'Recycle Bin', initialPosition: { x: PADDING, y: PADDING }, template: '/RecycleBinTemplate' },
     { id: 2, type: 'My Computer', title: 'My Computer', initialPosition: { x: PADDING, y: CELL_SIZE + PADDING }, template: '/MyComputerTemplate' },
-    { id: 3, type: 'Folder', title: 'Folder', initialPosition: { x: CELL_SIZE * 2 + PADDING, y: PADDING }, template: '/FolderTemplate' },
-    { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING }, template: '/FolderTemplate' },
+    { id: 3, type: 'Folder', title: 'Folder', initialPosition: { x: CELL_SIZE * 2 + PADDING, y: PADDING }, template: '/FolderTemplate', icons: [
+      { id: 6, type: 'PDF', title: 'Nested CV', initialPosition: { x: 0, y: 0 }, template: '/PDFTemplate' },
+      { id: 7, type: 'Folder', title: 'Nested Folder', initialPosition: { x: 80, y: 0 }, template: '/FolderTemplate', icons: [] },
+    ] },
+    { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING }, template: '/FolderTemplate', icons: [] },
     { id: 5, type: 'PDF', title: 'CV', initialPosition: { x: CELL_SIZE * 5 + PADDING, y: CELL_SIZE * 2 + PADDING }, template: '/PDFTemplate' },
   ]);
 
@@ -38,8 +41,8 @@ const Desktop = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const openWindow = (type, title, template) => {
-    setWindows([...windows, { id: windows.length, type, title, position: { x: 100, y: 100 }, template }]);
+  const openWindow = (type, title, template, icons = []) => {
+    setWindows([...windows, { id: windows.length, type, title, position: { x: 100, y: 100 }, template, icons }]);
   };
 
   const closeWindow = (id) => {
@@ -61,18 +64,18 @@ const Desktop = () => {
   return (
     <div className="desktop" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
       {icons.map(icon => (
-        <Icon key={icon.id} {...icon} onDoubleClick={() => openWindow(icon.type, icon.title, icon.template)} moveIcon={moveIcon} />
+        <Icon key={icon.id} {...icon} onDoubleClick={() => openWindow(icon.type, icon.title, icon.template, icon.icons)} moveIcon={moveIcon} />
       ))}
       {windows.map(win => {
         switch (win.type) {
           case 'Recycle Bin':
-            return <RecycleBin key={win.id} {...win} onClose={closeWindow} template={win.template} />;
+            return <RecycleBin key={win.id} {...win} onClose={closeWindow} />;
           case 'My Computer':
-            return <MyComputer key={win.id} {...win} onClose={closeWindow} template={win.template} />;
+            return <MyComputer key={win.id} {...win} onClose={closeWindow} />;
           case 'Folder':
-            return <FolderWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
+            return <FolderWindow key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
           case 'file':
-            return <FileWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
+            return <FileWindow key={win.id} {...win} onClose={closeWindow} />;
           case 'PDF':
             return <PDFWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
           // handle other icon types

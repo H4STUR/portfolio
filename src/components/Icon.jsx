@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import { Rnd } from 'react-rnd';
-import { snapToGrid } from '../utils/grid';
 import '../styles/icon.css';
 import myComputerIcon from '../assets/images/computer-icon-xp.png';
 import recycleBinIcon from '../assets/images/recycle-bin-icon-xp.png';
 import folderIcon from '../assets/images/folder-xp-icon.png';
-import PDFIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
+import pdfIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
 
 const GRID_SIZE = 80;
-const CELL_MARGIN = 20;
-const CELL_SIZE = GRID_SIZE + CELL_MARGIN;
 
-const Icon = ({ id, type, title, onDoubleClick, initialPosition, moveIcon }) => {
+const Icon = ({ type, title, initialPosition, onDoubleClick, moveIcon, draggable = true }) => {
   const [position, setPosition] = useState(initialPosition);
 
   const getImageSrc = (type) => {
@@ -23,16 +20,16 @@ const Icon = ({ id, type, title, onDoubleClick, initialPosition, moveIcon }) => 
       case "Folder":
         return folderIcon;
       case "PDF":
-        return PDFIcon;
+        return pdfIcon;
       default:
         return '/icons/default-icon.png'; // Default icon
     }
   };
 
   const onDragStop = (e, d) => {
-    const [snappedX, snappedY] = snapToGrid(d.x - CELL_MARGIN, d.y - CELL_MARGIN, CELL_SIZE);
-    setPosition({ x: snappedX + CELL_MARGIN, y: snappedY + CELL_MARGIN });
-    moveIcon(id, { x: snappedX + CELL_MARGIN, y: snappedY + CELL_MARGIN });
+    const [snappedX, snappedY] = [d.x, d.y];
+    setPosition({ x: snappedX, y: snappedY });
+    moveIcon && moveIcon(snappedX, snappedY);
   };
 
   return (
@@ -40,9 +37,9 @@ const Icon = ({ id, type, title, onDoubleClick, initialPosition, moveIcon }) => 
       bounds="parent"
       size={{ width: 80, height: 100 }}
       position={position}
-      onDragStop={onDragStop}
+      onDragStop={draggable ? onDragStop : null}
       enableResizing={false}
-      dragHandleClassName="icon"
+      disableDragging={!draggable}
     >
       <div className="icon" onDoubleClick={onDoubleClick}>
         <img src={getImageSrc(type)} alt={title} />
