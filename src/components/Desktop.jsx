@@ -31,6 +31,8 @@ const Desktop = () => {
     ] },
     { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING }, template: '/FolderTemplate', icons: [] },
     { id: 5, type: 'PDF', title: 'CV', initialPosition: { x: CELL_SIZE * 5 + PADDING, y: CELL_SIZE * 2 + PADDING }, template: '/PDFTemplate' },
+    { id: 6, type: 'File', title: 'Notes', initialPosition: { x: PADDING, y: CELL_SIZE * 4 + PADDING }, template: '/NotesTemplate' },
+    { id: 6, type: 'Link', title: 'GitHub', initialPosition: { x: PADDING, y: CELL_SIZE * 5 + PADDING }, template: 'https://github.com/H4STUR' },
   ]);
 
   useEffect(() => {
@@ -64,7 +66,9 @@ const Desktop = () => {
   return (
     <div className="desktop" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
       {icons.map(icon => (
-        <Icon key={icon.id} {...icon} onDoubleClick={() => openWindow(icon.type, icon.title, icon.template, icon.icons)} moveIcon={moveIcon} />
+        icon.type === 'Link'
+        ? <Icon key={icon.id} {...icon} onDoubleClick={() => window.open(icon.template, '_blank', 'noopener,noreferrer')} moveIcon={moveIcon} />
+        : <Icon key={icon.id} {...icon} onDoubleClick={() => openWindow(icon.type, icon.title, icon.template, icon.icons)} moveIcon={moveIcon} />
       ))}
       {windows.map(win => {
         switch (win.type) {
@@ -78,13 +82,15 @@ const Desktop = () => {
             return <FileWindow key={win.id} {...win} onClose={closeWindow} />;
           case 'PDF':
             return <PDFWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
+          case 'File':
+            return <FileWindow key={win.id} {...win} onClose={closeWindow} />;
           // handle other icon types
           default:
             return null;
         }
       })}
-      <Taskbar />
-    </div>
+      <Taskbar openWindow={openWindow} />
+      </div>
   );
 };
 

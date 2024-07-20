@@ -43,6 +43,7 @@
   color: white;
   font-size: 16px;
   margin-right: 20px;
+  cursor: default;
 }
 
 .windows-logo-taskbar {
@@ -50,8 +51,17 @@
   height: 1.4em;
 }
 
-.taskbar-icon {
+.taskbar-icons > .icon{
   height: 30px;
   width: 30px;
   margin-left: 10px; /* Adds space between icons */
+}
+.taskbar-icons > .icon > img{
+  height: 30px;
+  width: 30px;
+  margin-left: 10px; /* Adds space between icons */
+}
+
+.taskbar-icons > .icon > span{
+  display: none;
 }
