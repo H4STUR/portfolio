@@ -2,7 +2,7 @@ import React from 'react';
 import { Rnd } from 'react-rnd';
 import '../styles/window.css';
 
-const Window = ({ id, title, onClose, position }) => {
+const Window = ({ id, title, onClose, position, children }) => {
   return (
     <Rnd
       className="window"
@@ -17,18 +17,10 @@ const Window = ({ id, title, onClose, position }) => {
     >
       <div className="window-header">
         <span>{title}</span>
-        <button className="close-button" onClick={() => onClose(id)}>X</button>
+        <button onClick={() => onClose(id)}>X</button>
       </div>
       <div className="window-content">
-        {title === 'Folder' ? (
-          <div>
-            <p>This is a folder XD</p>
-          </div>
-        ) : (
-          <div>
-            <p>This is the content of {title}.</p>
-          </div>
-        )}
+        {children}
       </div>
     </Rnd>
   );
