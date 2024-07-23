@@ -3,6 +3,10 @@ import '../styles/startMenu.css';
 import profileImage from '../assets/images/pepenolif.jpg'; //profile img
 import shutdown_btn from '../assets/images/shutdown-button-xp.png'; //profile img
 import restart_btn from '../assets/images/restart-button-xp.png'; //profile img
+import cmdIcon from '../assets/images/Icons/cmd.ico';
+import runIcon from '../assets/images/Icons/run.ico';
+
+
 const StartMenu = () => {
 
   const handleShutDown = () => {
@@ -22,8 +26,9 @@ const StartMenu = () => {
     </div>
     <div className='start-menu-middle'>
         <div className="start-menu-middle-left">
-            <ul>
+            <ul class="start-menu-elements">
               <li>Programs</li>
+              <li><img src={cmdIcon} alt="CMD" className="start-menu-icon" /> Command Prompt</li>
               <li>Settings</li>
               <li>Search</li>
               <li>Help</li>
@@ -32,9 +37,11 @@ const StartMenu = () => {
             </ul>
           </div>
         <div className="start-menu-middle-right">
-          <ul>
+          <ul class="start-menu-elements">
             <li>My Documents</li>
             <li>My Computer</li>
+            <hr></hr>
+            <li><img src={runIcon} alt="CMD" className="start-menu-icon" />Run...</li>
           </ul>
         </div>
     </div>

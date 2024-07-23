@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 40px; /* Adjust to be above the taskbar */
   left: 0;
-  width: 25%;
+  width: 30%;
   background-color: white;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -125,4 +125,11 @@
   width: 32px;
   height: 32px;
   padding-right: 5px;
+}
+
+.start-menu-elements > li
+{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

@@ -24,6 +24,13 @@ const Taskbar = ({ openWindow }) => {
         </div>
         <div className="taskbar-icons">
           <Icon
+            type="CMD"
+            title="CMD"
+            initialPosition={{ x: 0, y: 0 }}
+            onClick={() => openWindow('CMD', 'Command Prompt', '/CMDTemplate')}
+            draggable={false} // Disable dragging for taskbar icons
+          />
+          <Icon
             type="File"
             title="CMD"
             initialPosition={{ x: 0, y: 0 }}

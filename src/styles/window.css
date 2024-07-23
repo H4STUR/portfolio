@@ -1,48 +1,44 @@
 .window {
-    background: white;
-    border: 5px solid #006abe;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: white;
+  border: 5px solid #006abe;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
 
-  }
-  
-  .window-header {
-    background: #006abe;
-    color: white;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: grab; 
-  }
-  
-  .window-content {
-    flex-grow: 1;
-    padding: 10px;
-    overflow: auto;
-    cursor: default; /* Default cursor for non-draggable area */
-    color: black;
-  }
-  
-  .close-button
-  {
-    background-color: #ec1925;
-    padding: 0px;
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 1.5em;
-  }
+.window-header {
+  background: #006abe;
+  color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab; 
+}
 
-.folder-content .icon span
-{
+.window-content {
+  flex-grow: 1;
+  padding: 10px;
+  overflow: auto;
+  cursor: default; /* Default cursor for non-draggable area */
   color: black;
 }
 
-.folder-content
-{
+.close-button {
+  background-color: #ec1925;
+  padding: 0px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5em;
+}
+
+.folder-content .icon span {
+  color: black;
+}
+
+.folder-content {
   display: flex;
 }

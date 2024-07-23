@@ -8,6 +8,8 @@ const loadTemplate = async (template) => {
     //PDF
       case 'PDFTemplate':
         return (await import('../Templates/PDF/PDFTemplate')).default;
+      case 'CV':
+        return (await import('../Templates/PDF/CV')).default;
     //Other
       case 'RecycleBinTemplate':
         return (await import('../Templates/RecycleBinTemplate')).default;

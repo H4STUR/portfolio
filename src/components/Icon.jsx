@@ -4,12 +4,16 @@ import '../styles/icon.css';
 
 import { snapToGrid } from '../utils/grid';
 
+import defaultIcon from '../assets/images/Icons/default.ico';
 import myComputerIcon from '../assets/images/computer-icon-xp.png';
-import recycleBinIcon from '../assets/images/Icons/bin.ico';
+import recycleBinIcon from '../assets/images/Icons/bin-full.ico';
 import fileIcon from '../assets/images/Icons/txt.ico';
 import linkIcon from '../assets/images/Icons/explorer.ico';
 import folderIcon from '../assets/images/folder-xp-icon.png';
 import pdfIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
+// import cmdIcon from '../assets/images/CMD-icon.png';
+import cmdIcon from '../assets/images/Icons/cmd.ico';
+
 
 const GRID_SIZE = 80;
 const CELL_MARGIN = 20;
@@ -32,8 +36,10 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
         return fileIcon;
       case "Link":
         return linkIcon;
+      case "CMD":
+        return cmdIcon;
       default:
-        return '/icons/default-icon.png'; // Default icon
+        return defaultIcon; // Default icon
     }
   };
 

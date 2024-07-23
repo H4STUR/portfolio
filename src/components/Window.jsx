@@ -2,10 +2,10 @@ import React from 'react';
 import { Rnd } from 'react-rnd';
 import '../styles/window.css';
 
-const Window = ({ id, title, onClose, position, children }) => {
+const Window = ({ id, title, onClose, position, children, className = null }) => {
   return (
     <Rnd
-      className="window"
+      className= {className ? className : "window"} id={id} 
       default={{
         x: position.x,
         y: position.y,
