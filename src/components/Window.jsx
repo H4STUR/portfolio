@@ -5,7 +5,8 @@ import '../styles/window.css';
 const Window = ({ id, title, onClose, position, children, className = null }) => {
   return (
     <Rnd
-      className= {className ? className : "window"} id={id} 
+      className={className ? className : "window"}
+      id={id}
       default={{
         x: position.x,
         y: position.y,
@@ -17,7 +18,7 @@ const Window = ({ id, title, onClose, position, children, className = null }) =>
     >
       <div className="window-header">
         <span>{title}</span>
-        <button onClick={() => onClose(id)}>X</button>
+        <button onClick={() => onClose(id)} className="close-button">X</button>
       </div>
       <div className="window-content">
         {children}

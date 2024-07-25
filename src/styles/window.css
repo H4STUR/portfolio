@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  overflow: hidden; /* Ensure the window itself does not show scrollbars */
 }
 
 .window-header {
@@ -13,15 +14,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: grab; 
+  cursor: grab;
 }
 
 .window-content {
   flex-grow: 1;
   padding: 10px;
-  overflow: auto;
+  overflow: auto; /* Enable scrolling within the content area */
   cursor: default; /* Default cursor for non-draggable area */
   color: black;
+  height: 85%;; /* Inherit the height to make the content area flexible */
 }
 
 .close-button {
@@ -37,7 +39,6 @@
 
 .folder-content .icon span {
   color: black;
-  text-shadow: none;
 }
 
 .folder-content {
