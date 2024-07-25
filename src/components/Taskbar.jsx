@@ -34,7 +34,7 @@ const Taskbar = ({ openWindow }) => {
             type="File"
             title="CMD"
             initialPosition={{ x: 0, y: 0 }}
-            onClick={() => openWindow('File', 'Command Prompt', '/FileTemplate')}
+            onClick={() => openWindow('File', 'Notepad', '/FileTemplate')}
             draggable={false} // Disable dragging for taskbar icons
           />
         </div>

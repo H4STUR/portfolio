@@ -37,6 +37,7 @@
 
 .folder-content .icon span {
   color: black;
+  text-shadow: none;
 }
 
 .folder-content {

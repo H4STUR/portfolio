@@ -11,7 +11,16 @@ const Clock = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <span>{time.toLocaleTimeString()}</span>;
+  const formattedTime = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const formattedDate = time.toLocaleDateString();
+
+  return (
+    <div>
+      <span>{formattedTime}</span>
+      <br />
+      <span>{formattedDate}</span>
+    </div>
+  );
 };
 
 export default Clock;

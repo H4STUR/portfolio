@@ -41,9 +41,10 @@
 .taskbar-clock {
   margin-left: auto; /* Pushes clock to the right */
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   margin-right: 20px;
   cursor: default;
+  line-height: normal;
 }
 
 .windows-logo-taskbar {
