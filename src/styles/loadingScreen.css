@@ -11,6 +11,7 @@
   color: white;
   font-family: Arial, sans-serif;
   gap: 50px;
+  z-index: 9999;
 }
 
 .left-section, .right-section {
@@ -78,4 +79,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.black-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 10000; /* Higher than loading screen */
+  animation: turn-off 0.15s ease 0s 1, turned-off 1s ease 0.15s infinite,
+		white-dot 0.35s ease 0.15s 1;
+}
+
+@keyframes turn-off {
+	0% {
+		border-width: 0vh;
+		border-left-width: 0vw;
+		border-right-width: 0vw;
+	}
+	50% {
+		border-width: 19.65vw;
+		border-left-width: 10vw;
+		border-right-width: 10vw;
+	}
+	100% {
+		border-width: 19.65vw;
+		border-left-width: 35.1vw;
+		border-right-width: 35.1vw;
+	}
+}
+@keyframes turned-off {
+	0% {
+		border-width: 19.65vw;
+		border-left-width: 35.1vw;
+		border-right-width: 35.1vw;
+		background: #111111;
+	}
+	100% {
+		border-width: 19.65vw;
+		border-left-width: 35.1vw;
+		border-right-width: 35.1vw;
+		background: #111111;
+	}
+}
+@keyframes white-dot {
+	0% {
+		background: #ffffff80;
+	}
+	100% {
+		background: #111111;
+	}
 }
