@@ -3,13 +3,13 @@ import Window from '../Window';
 import loadTemplate from './templateLoader';
 
 const FileWindow = ({ id, title, onClose, position, template }) => {
-  const [TemplateComponent, setTemplateComponent] = useState(null);
+  const [content, setContent] = useState('');
 
   useEffect(() => {
     const loadComponent = async () => {
       try {
         const component = await loadTemplate(template);
-        setTemplateComponent(() => component);
+        setContent(() => component);
       } catch (error) {
         console.error(`Error loading template: ${error.message}`);
       }
@@ -17,14 +17,13 @@ const FileWindow = ({ id, title, onClose, position, template }) => {
     loadComponent();
   }, [template]);
 
-  if (!TemplateComponent) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <Window id={id} title={title} onClose={onClose} position={position}>
+    <Window id={id} title={title} onClose={onClose} position={position} className="notepad-window">
       <Suspense fallback={<div>Loading...</div>}>
-        <TemplateComponent />
+          <textarea
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
       </Suspense>
     </Window>
   );

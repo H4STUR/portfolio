@@ -1,7 +1,7 @@
 import React from 'react';
 
-const PDFTemplate = () => {
+const FileTemplate = () => {
   return <p>File content</p>;
 };
 
-export default PDFTemplate;
+export default FileTemplate;
