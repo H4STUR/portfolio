@@ -31,7 +31,7 @@ const Desktop = () => {
     ] },
     { id: 2, type: 'My Computer', title: 'My Computer', initialPosition: { x: PADDING, y: CELL_SIZE + PADDING }, template: 'MyComputerTemplate' },
     { id: 3, type: 'Folder', title: 'WEB DEV', initialPosition: { x: CELL_SIZE * 2 + PADDING, y: PADDING }, template: 'FolderTemplate', icons: [
-      { id: 7, type: 'Link', title: 'GitHub', initialPosition: { x: PADDING, y: CELL_SIZE * 5 + PADDING }, template: 'https://github.com/H4STUR' },
+      { id: 8, type: 'Link', title: 'idDesign', initialPosition: { x: PADDING, y: CELL_SIZE * 5 + PADDING }, template: 'https://id-design.pl/en' },
       { id: 9, type: 'Folder', title: 'Nested Folder', initialPosition: { x: 80, y: 0 }, template: 'FolderTemplate', icons: [] },
     ] },
     { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING }, template: 'FolderTemplate', icons: [] },

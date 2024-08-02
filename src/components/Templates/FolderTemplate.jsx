@@ -5,12 +5,13 @@ const FolderTemplate = ({ icons, openWindow }) => {
   return (
     <div className="folder-content">
       {icons.map(icon => (
+        
         <Icon
           key={icon.id}
           {...icon}
-          onDoubleClick={() => openWindow(icon.type, icon.title, icon.template, icon.icons)}
+          onDoubleClick={() => icon.type === 'Link' ? window.open(icon.template, '_blank', 'noopener,noreferrer') : openWindow(icon.type, icon.title, icon.template, icon.icons)}
           moveIcon={() => {}}
-          draggable={false} // Disable dragging inside folder
+          draggable={false} 
         />
       ))}
     </div>
