@@ -35,7 +35,9 @@ const StartMenu = ({ onOpenWindow }) => {
             <div className="start-menu-middle-left">
               <ul className="start-menu-elements">
                 <li>Programs</li>
-                <li><img src={cmdIcon} alt="CMD" className="start-menu-icon" /> Command Prompt</li>
+                <li onClick={() => onOpenWindow('CMD', 'Command Prompt', 'CMDTemplate')}>
+                  <img src={cmdIcon} alt="CMD" className="start-menu-icon" /> Command Prompt
+                </li>
                 <li>Settings</li>
                 <li>Search</li>
                 <li>Help</li>
@@ -46,7 +48,9 @@ const StartMenu = ({ onOpenWindow }) => {
                 <li>My Documents</li>
                 <li>My Computer</li>
                 <hr />
-                <li><img src={runIcon} alt="Run" className="start-menu-icon" />Run...</li>
+                <li onClick={() => onOpenWindow('Run', 'Run...', 'RunTemplate')}>
+                  <img src={runIcon} alt="Run" className="start-menu-icon" />Run...
+                </li>
               </ul>
             </div>
           </div>
