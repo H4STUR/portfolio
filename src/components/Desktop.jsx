@@ -25,7 +25,7 @@ const Desktop = () => {
   const [windows, setWindows] = useState([]);
   const [icons, setIcons] = useState([
     { id: 1, type: 'Recycle Bin', title: 'Recycle Bin', initialPosition: { x: PADDING, y: PADDING }, template: 'RecycleBinTemplate', icons: [
-      { id: 10, type: 'Game', title: 'Diablo IV', initialPosition: { x: 0, y: 0 }, },
+      { id: 10, type: 'Game', title: 'Diablo IV.exe', initialPosition: { x: 0, y: 0 }, },
       { id: 11, type: 'Game', title: 'The Rings of Power.mp4', initialPosition: { x: 0, y: 0 }, },
     ] },
     { id: 2, type: 'My Computer', title: 'My Computer', initialPosition: { x: PADDING, y: CELL_SIZE + PADDING }, template: 'MyComputerTemplate' },
@@ -34,8 +34,8 @@ const Desktop = () => {
       { id: 9, type: 'Folder', title: 'Nested Folder', initialPosition: { x: 80, y: 0 }, template: 'FolderTemplate', icons: [] },
     ] },
     { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING }, template: 'FolderTemplate', icons: [] },
-    { id: 5, type: 'PDF', title: 'CV', initialPosition: { x: CELL_SIZE * 5 + PADDING, y: CELL_SIZE * 2 + PADDING }, template: 'CV' },
-    { id: 6, type: 'File', title: 'Notes', initialPosition: { x: PADDING, y: CELL_SIZE * 4 + PADDING }, template: 'NotesTemplate' },
+    { id: 5, type: 'PDF', title: 'CV.pdf', initialPosition: { x: CELL_SIZE * 5 + PADDING, y: CELL_SIZE * 2 + PADDING }, template: 'CV' },
+    { id: 6, type: 'File', title: 'README.txt', initialPosition: { x: PADDING, y: CELL_SIZE * 4 + PADDING }, template: 'readmeTemplate' },
     { id: 7, type: 'Link', title: 'GitHub', initialPosition: { x: PADDING, y: CELL_SIZE * 5 + PADDING }, template: 'https://github.com/H4STUR' },
   ]);
 
