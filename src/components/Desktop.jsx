@@ -10,7 +10,8 @@ import PDFWindow from './WindowTypes/PDFWindow';
 import FileWindow from './WindowTypes/FileWindow';
 import RecycleBin from './WindowTypes/RecycleBin';
 import MyComputer from './WindowTypes/MyComputer';
-import CMDWindow from './CMD/CMDWindow'; // Import the new CMDWindow
+import CMDWindow from './CMD/CMDWindow';
+import Minesweeper from './Minesweeper/MinesweeperApp';
 
 // Images
 import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
@@ -88,6 +89,8 @@ const Desktop = () => {
             return <FileWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
           case 'PDF':
             return <PDFWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
+          case 'Minesweeper':
+            return <Minesweeper key={win.id} {...win} onClose={closeWindow} />;
           default:
             return null;
         }

@@ -5,6 +5,7 @@ import shutdown_btn from '../assets/images/shutdown-button-xp.png'; //profile im
 import restart_btn from '../assets/images/restart-button-xp.png'; //profile img
 import cmdIcon from '../assets/images/Icons/cmd.ico';
 import runIcon from '../assets/images/Icons/run.ico';
+import minesweeperIcon from '../assets/images/Minesweeper/minesweeper-icon.png';
 import ShutdownModal from './ShutdownModal';
 
 const StartMenu = ({ onOpenWindow }) => {
@@ -34,7 +35,9 @@ const StartMenu = ({ onOpenWindow }) => {
           <div className='start-menu-middle'>
             <div className="start-menu-middle-left">
               <ul className="start-menu-elements">
-                <li>Programs</li>
+                <li onClick={() => onOpenWindow('Minesweeper', 'Minesweeper', 'MinesweeperApp')}>
+                  <img src={minesweeperIcon} alt="CMD" className="start-menu-icon" style={{ width: '32px', height: '32px'}}/> Minesweeper
+                </li>
                 <li onClick={() => onOpenWindow('CMD', 'Command Prompt', 'CMDTemplate')}>
                   <img src={cmdIcon} alt="CMD" className="start-menu-icon" /> Command Prompt
                 </li>

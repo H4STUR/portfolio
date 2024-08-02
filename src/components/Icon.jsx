@@ -11,8 +11,8 @@ import fileIcon from '../assets/images/Icons/txt.ico';
 import linkIcon from '../assets/images/Icons/explorer.ico';
 import folderIcon from '../assets/images/folder-xp-icon.png';
 import pdfIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
-// import cmdIcon from '../assets/images/CMD-icon.png';
 import cmdIcon from '../assets/images/Icons/cmd.ico';
+import minesweeperIcon from '../assets/images/Minesweeper/minesweeper-icon.png';
 
 
 const GRID_SIZE = 80;
@@ -38,6 +38,8 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
         return linkIcon;
       case "CMD":
         return cmdIcon;
+      case "Minesweeper":
+        return minesweeperIcon;
       default:
         return defaultIcon; // Default icon
     }
