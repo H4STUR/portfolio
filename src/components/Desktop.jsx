@@ -11,6 +11,7 @@ import FileWindow from './WindowTypes/FileWindow';
 import RecycleBin from './WindowTypes/RecycleBin';
 import MyComputer from './WindowTypes/MyComputer';
 import CMDWindow from './CMD/CMDWindow';
+import PasswordPrompt from './WindowTypes/PasswordPrompt';
 import Minesweeper from './Minesweeper/MinesweeperApp';
 
 // Images
@@ -20,6 +21,8 @@ const GRID_SIZE = 80; // Base size of the grid cell
 const CELL_MARGIN = 20; // Additional margin between cells
 const CELL_SIZE = GRID_SIZE + CELL_MARGIN; // Effective size of each cell including margin
 const PADDING = 20; // Padding from the edge of the desktop
+
+const FOLDER_PASSWORD = 'jp2gmd'; // Hardcoded password for Homework folder
 
 const Desktop = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -64,6 +67,18 @@ const Desktop = () => {
     );
   };
 
+  const handlePasswordSubmit = (password, win) => {
+    if (password === FOLDER_PASSWORD) {
+        closeWindow(win.id); 
+        setTimeout(() => {
+          openWindow('Folder', win.title, win.template, win.icons); 
+        }, 100); 
+      
+    } else {
+      alert('Incorrect password!');
+    }
+  };
+
   if (isLoading) {
     return <LoadingScreen />;
   }
@@ -84,7 +99,7 @@ const Desktop = () => {
           case 'Folder':
             return <FolderWindow key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
           case 'FolderLocked':
-            return <FolderWindow key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
+            return <PasswordPrompt key={win.id} {...win} onClose={closeWindow} onSubmit={(password) => handlePasswordSubmit(password, win)} />;
           case 'CMD':
             return <CMDWindow key={win.id} {...win} onClose={closeWindow} />;
           case 'File':

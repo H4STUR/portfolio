@@ -81,3 +81,49 @@
   padding: 10px;
   outline: none;
 }
+
+/* PasswordPrompt */
+.password-prompt
+{
+  height: auto!important;
+}
+
+.input-password
+{
+  background: #fff;
+  color: #000;
+}
+
+.password-prompt-content
+{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.password-prompt-img
+{
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-prompt-img > img
+{
+  width: 50px;
+}
+.password-prompt-title
+{
+  text-align: left;
+  flex-basis: 60%;
+}
+
+.password-prompt-buttons > button
+{
+  width: 100%;
+  margin: 10px 0px 10px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
