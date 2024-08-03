@@ -3,9 +3,11 @@ import '../styles/startMenu.css';
 import profileImage from '../assets/images/pepenolif.jpg'; //profile img
 import shutdown_btn from '../assets/images/shutdown-button-xp.png'; //profile img
 import restart_btn from '../assets/images/restart-button-xp.png'; //profile img
-import cmdIcon from '../assets/images/Icons/cmd.ico';
+import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
+import myComputerIcon from '../assets/images/Icons/HD/My Computer.png';
+import myDocumentsIcon from '../assets/images/Icons/HD/My Documents.png';
 import runIcon from '../assets/images/Icons/run.ico';
-import minesweeperIcon from '../assets/images/Minesweeper/minesweeper-icon.png';
+import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
 import ShutdownModal from './ShutdownModal';
 
 const StartMenu = ({ onOpenWindow }) => {
@@ -36,7 +38,7 @@ const StartMenu = ({ onOpenWindow }) => {
             <div className="start-menu-middle-left">
               <ul className="start-menu-elements">
                 <li onClick={() => onOpenWindow('Minesweeper', 'Minesweeper', 'MinesweeperApp')}>
-                  <img src={minesweeperIcon} alt="CMD" className="start-menu-icon" style={{ width: '32px', height: '32px'}}/> Minesweeper
+                  <img src={minesweeperIcon} alt="CMD" className="start-menu-icon" /> Minesweeper
                 </li>
                 <li onClick={() => onOpenWindow('CMD', 'Command Prompt', 'CMDTemplate')}>
                   <img src={cmdIcon} alt="CMD" className="start-menu-icon" /> Command Prompt
@@ -48,8 +50,12 @@ const StartMenu = ({ onOpenWindow }) => {
             </div>
             <div className="start-menu-middle-right">
               <ul className="start-menu-elements">
-                <li>My Documents</li>
-                <li>My Computer</li>
+                <li onClick={() => onOpenWindow('My Documents', 'My Documents', 'MyComputerTemplate')}>
+                  <img src={myDocumentsIcon} alt="CMD" className="start-menu-icon" /> My Documents
+                </li>
+                <li onClick={() => onOpenWindow('My Computer', 'My Computer', 'MyComputerTemplate')}>
+                  <img src={myComputerIcon} alt="CMD" className="start-menu-icon" /> My Computer
+                </li>
                 <hr />
                 <li onClick={() => onOpenWindow('Run', 'Run...', 'RunTemplate')}>
                   <img src={runIcon} alt="Run" className="start-menu-icon" />Run...

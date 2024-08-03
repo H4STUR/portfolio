@@ -133,3 +133,9 @@
   align-items: center;
   gap: 10px;
 }
+
+.start-menu-icon
+{
+  width: 32px;
+  height: 32px;
+}

@@ -34,7 +34,7 @@ const Desktop = () => {
       { id: 8, type: 'Link', title: 'idDesign', initialPosition: { x: PADDING, y: CELL_SIZE * 5 + PADDING }, template: 'https://id-design.pl/en' },
       { id: 9, type: 'Folder', title: 'Nested Folder', initialPosition: { x: 80, y: 0 }, template: 'FolderTemplate', icons: [] },
     ] },
-    { id: 4, type: 'Folder', title: 'Homework', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING }, template: 'FolderTemplate', icons: [] },
+    { id: 4, type: 'FolderLocked', title: 'Homework', initialPosition: { x: CELL_SIZE + PADDING, y: PADDING }, template: 'FolderTemplate', icons: [] },
     { id: 5, type: 'PDF', title: 'CV.pdf', initialPosition: { x: CELL_SIZE * 5 + PADDING, y: CELL_SIZE * 2 + PADDING }, template: 'CV' },
     { id: 6, type: 'File', title: 'README.txt', initialPosition: { x: PADDING, y: CELL_SIZE * 4 + PADDING }, template: 'readmeTemplate' },
     { id: 7, type: 'Link', title: 'GitHub', initialPosition: { x: PADDING, y: CELL_SIZE * 5 + PADDING }, template: 'https://github.com/H4STUR' },
@@ -82,6 +82,8 @@ const Desktop = () => {
           case 'My Computer':
             return <MyComputer key={win.id} {...win} onClose={closeWindow} />;
           case 'Folder':
+            return <FolderWindow key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
+          case 'FolderLocked':
             return <FolderWindow key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
           case 'CMD':
             return <CMDWindow key={win.id} {...win} onClose={closeWindow} />;

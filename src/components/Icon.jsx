@@ -5,14 +5,16 @@ import '../styles/icon.css';
 import { snapToGrid } from '../utils/grid';
 
 import defaultIcon from '../assets/images/Icons/default.ico';
-import myComputerIcon from '../assets/images/computer-icon-xp.png';
+import myComputerIcon from '../assets/images/Icons/HD/My Computer.png';
 import recycleBinIcon from '../assets/images/Icons/bin-full.ico';
-import fileIcon from '../assets/images/Icons/txt.ico';
+import fileIcon from '../assets/images/Icons/HD/TXT.png';
 import linkIcon from '../assets/images/Icons/explorer.ico';
-import folderIcon from '../assets/images/folder-xp-icon.png';
+import folderIcon from '../assets/images/Icons/HD/Folder.png';
+import folderLockedIcon from '../assets/images/Icons/HD/Folder Locked.png';
 import pdfIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
-import cmdIcon from '../assets/images/Icons/cmd.ico';
-import minesweeperIcon from '../assets/images/Minesweeper/minesweeper-icon.png';
+import jpgIcon from '../assets/images/Icons/HD/JPG.png';
+import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
+import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
 
 
 const GRID_SIZE = 80;
@@ -30,8 +32,12 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
         return recycleBinIcon;
       case "Folder":
         return folderIcon;
+      case "FolderLocked":
+        return folderLockedIcon;
       case "PDF":
         return pdfIcon;
+      case "JPG":
+        return jpgIcon;
       case "File":
         return fileIcon;
       case "Link":
