@@ -2,7 +2,7 @@ import React from 'react';
 import { Rnd } from 'react-rnd';
 import '../styles/window.css';
 
-const Window = ({ id, title, onClose, position, children, className = null }) => {
+const Window = ({ id, title, onClose, position, size = {width: 600, height: 400}, children, className = null }) => {
   return (
     <Rnd
       className={className ? className : "window"}
@@ -10,8 +10,8 @@ const Window = ({ id, title, onClose, position, children, className = null }) =>
       default={{
         x: position.x,
         y: position.y,
-        width: 600,
-        height: 400,
+        width: size.width,
+        height: size.height,
       }}
       bounds="parent"
       dragHandleClassName="window-header"
