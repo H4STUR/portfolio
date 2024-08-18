@@ -2,11 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: grab;
+  cursor: default;
   width: 80px;
   height: 100px;
   user-select: none; /* Prevent text selection while dragging */
+  justify-content: center;
 }
+
+.icon:hover {
+  background: #ffffff33;
+  box-shadow: inset 0px 0px 0px 1px #fff;
+}
+
 .icon img {
   width: 64px;
   height: 64px;
