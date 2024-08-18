@@ -127,3 +127,8 @@
   color: #000;
   border: 1px solid #000;
 }
+
+.password-prompt-buttons > button:hover
+{
+  border: 2px solid #006abe;
+}

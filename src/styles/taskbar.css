@@ -36,6 +36,7 @@
 .taskbar-icons {
   display: flex;
   align-items: center; /* Center icons vertically */
+  height: 100%;
 }
 
 .taskbar-clock {
@@ -53,14 +54,18 @@
 }
 
 .taskbar-icons > .icon{
-  height: 30px;
+  height: 100%;
   width: 30px;
-  margin-left: 10px; /* Adds space between icons */
+  /* margin-left: 10px; */
+  padding: 0px 10px 0px 10px;
+}
+
+.taskbar-icons > .icon:hover{
+  background: #ffffff33;
 }
 .taskbar-icons > .icon > img{
   height: 30px;
   width: 30px;
-  margin-left: 10px; /* Adds space between icons */
 }
 
 .taskbar-icons > .icon > span{

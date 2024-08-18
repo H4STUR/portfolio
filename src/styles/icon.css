@@ -9,7 +9,7 @@
   justify-content: center;
 }
 
-.icon:hover {
+.react-draggable > .icon:hover {
   background: #ffffff33;
   box-shadow: inset 0px 0px 0px 1px #fff;
 }
@@ -19,6 +19,7 @@
   height: 64px;
   pointer-events: none; /* Prevent image from capturing drag events */
 }
+
 .icon span {
   margin-top: 5px;
   color: white;
