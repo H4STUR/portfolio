@@ -103,7 +103,7 @@ const Desktop = () => {
           case 'FolderLocked':
             return <PasswordPrompt key={win.id} {...win} onClose={closeWindow} onSubmit={(password) => handlePasswordSubmit(password, win)} />;
           case 'CMD':
-            return <CMDWindow key={win.id} {...win} onClose={closeWindow} />;
+            return <CMDWindow key={win.id} {...win} onClose={closeWindow} openWindow={openWindow}/>;
           case 'File':
             return <FileWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
           case 'PDF':

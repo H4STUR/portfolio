@@ -1,2 +1,2 @@
-const NotesTemplate = "FILE!";
+const NotesTemplate = "";
 export default NotesTemplate;

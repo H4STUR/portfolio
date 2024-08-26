@@ -14,6 +14,11 @@
   box-shadow: inset 0px 0px 0px 1px #fff;
 }
 
+.folder-content > .icon:hover {
+  background: #ffffff33;
+  box-shadow: inset 0px 0px 0px 1px #fff;
+}
+
 .icon img {
   width: 64px;
   height: 64px;
