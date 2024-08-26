@@ -23,7 +23,7 @@
   overflow: auto; /* Enable scrolling within the content area */
   cursor: default; /* Default cursor for non-draggable area */
   color: black;
-  height: 85%;; /* Inherit the height to make the content area flexible */
+  height: calc(100% - 60px);
 }
 
 .close-button {

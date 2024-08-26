@@ -1,0 +1,16 @@
+.paint-window
+{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+    text-align: left;
+    height: 100%; 
+    overflow: hidden;
+}
+
+.paint-controls
+{
+    background-color: #ebe9d9;
+}
