@@ -23,67 +23,84 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
   }, [commands]);
 
   const handleCommand = () => {
-    // Split the input into command and parameters
-    const [command, ...params] = input.trim().split(/\s+/);
+  // Split the input into command and parameters
+  const [command, ...params] = input.trim().split(/\s+/);
 
-    let output;
+  let output;
 
-    switch (command.toLowerCase()) {
-      case 'help':
-        if (params.length > 1) {
-          output = `HELP [command] - Displays help information for the specified command.\n`;
-        } else {
-          output = help(params);
-        }
-        break;
-      case 'cls':
-        if (params.length > 0) {
-          output = `The 'cls' command does not take any parameters.`;
-        } else {
-          setCommands(initialText);
-          setInput('');
-          return;
-        }
-        break;
-      case 'date':
-        if (params.length > 0) {
-          output = `The 'date' command does not take any parameters.`;
-        } else {
-          output = new Date().toString();
-        }
-        break;
-      case 'notepad':
-        if (params.length > 0) {
-          output = `The 'notepad' command does not take any parameters.`;
-        } else {
-          openWindow('File', 'Untitled - Notepad', '/FileTemplate');
-          return;
-        }
-        break;
-      case 'minesweeper':
-        if (params.length > 0) {
-          output = `The 'minesweeper' command does not take any parameters.`;
-        } else {
-          openWindow('Minesweeper', 'Minesweeper', 'MinesweeperApp');
-          return;
-        }
-        break;
-      case 'exit':
-        if (params.length > 0) {
-          output = `The 'exit' command does not take any parameters.`;
-        } else {
-          onClose(id);
-          return;
-        }
-        break;
-      default:
-        output = `Unknown command: ${command}`;
-        break;
-    }
+  switch (command.toLowerCase()) {
+    case 'help':
+      if (params.length > 1) {
+        output = `HELP [command] - Displays help information for the specified command.\n`;
+      } else {
+        output = help(params);
+      }
+      break;
+    case 'cls':
+      if (params.length > 0) {
+        output = `The 'cls' command does not take any parameters.`;
+      } else {
+        setCommands(initialText);
+        setInput('');
+        return;
+      }
+      break;
+    case 'date':
+      if (params.length > 0) {
+        output = `The 'date' command does not take any parameters.`;
+      } else {
+        output = new Date().toString();
+      }
+      break;
+    case 'notepad':
+      if (params.length > 0) {
+        output = `The 'notepad' command does not take any parameters.`;
+      } else {
+        output = `Opening Notepad...`;
+        openWindow('File', 'Untitled - Notepad', '/FileTemplate');
+      }
+      break;
+    case 'paint':
+      if (params.length > 0) {
+        output = `The 'paint' command does not take any parameters.`;
+      } else {
+        output = command;
+        openWindow('Paint', 'Paint', 'PaintApp');
+      }
+      break;
+    case 'minesweeper':
+      if (params.length > 0) {
+        output = `The 'minesweeper' command does not take any parameters.`;
+      } else {
+        output = command;
+        openWindow('Minesweeper', 'Minesweeper', 'MinesweeperApp');
+      }
+      break;
+    case 'dsj':
+      if (params.length > 0) {
+        output = `The 'Deluxe Ski Jump' command does not take any parameters.`;
+      } else {
+        output = command;
+        openWindow('DSJ', 'Deluxe Ski Jump', 'DeluxeSkiJumpApp');
+      }
+      break;
+    case 'exit':
+      if (params.length > 0) {
+        output = `The 'exit' command does not take any parameters.`;
+      } else {
+        onClose(id);
+        return;
+      }
+      break;
+    default:
+      output = `Unknown command: ${command}`;
+      break;
+  }
 
-    setCommands([...commands, { input, output }]);
-    setInput('');
-  };
+  setCommands([...commands, { input, output }]);
+  setInput('');
+};
+
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {

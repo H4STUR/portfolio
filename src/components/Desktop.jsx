@@ -12,7 +12,9 @@ import RecycleBin from './WindowTypes/RecycleBin';
 import MyComputer from './WindowTypes/MyComputer';
 import CMDWindow from './CMD/CMDWindow';
 import PasswordPrompt from './WindowTypes/PasswordPrompt';
+import Paint from './Paint/PaintApp';
 import Minesweeper from './Minesweeper/MinesweeperApp';
+import DSJ from './DSJ/DeluxeSkiJumpApp';
 
 // Images
 import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
@@ -108,8 +110,12 @@ const Desktop = () => {
             return <FileWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
           case 'PDF':
             return <PDFWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
+          case 'Paint':
+            return <Paint key={win.id} {...win} onClose={closeWindow} />;
           case 'Minesweeper':
             return <Minesweeper key={win.id} {...win} onClose={closeWindow} />;
+          case 'DSJ':
+            return <DSJ key={win.id} {...win} onClose={closeWindow} />;
           default:
             return null;
         }
