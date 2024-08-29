@@ -15,6 +15,12 @@
     overflow: hidden; /* Prevent the cmd-window from overflowing */
   }
   
+  .minesweeper-window > .window-content
+  {
+    padding: 0px;
+    overflow: hidden;
+  }
+
   .cmd-output {
     flex-grow: 1;
     overflow-y: auto; /* Make the output area scrollable */
