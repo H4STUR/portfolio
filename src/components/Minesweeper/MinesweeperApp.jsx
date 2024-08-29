@@ -6,11 +6,13 @@ import { createBoard, placeMines } from './CreateBoard';
 // Assets
 import bomb from '../../assets/images/Minesweeper/bomb.png';
 import flag from '../../assets/images/Minesweeper/flag.png';
+import pepeflag from '../../assets/images/Minesweeper/pepe-uk.png';
+import pepeclown from '../../assets/images/Minesweeper/pepoclown.png';
 import pepehappy from '../../assets/images/Minesweeper/pepe-happy.png';
 import pepesad from '../../assets/images/Minesweeper/pepe-sad.png';
 
 const MinesweeperApp = ({ id, title, onClose, position }) => {
-  const CELL_SIZE = 20;
+  const CELL_SIZE = 25;
   const rows = 10;
   const cols = 10;
   const mineCount = 10;
@@ -117,12 +119,12 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
               >
                 {cell.isRevealed
                   ? cell.isMine
-                    ? <img src={bomb} alt="Bomb" className="cell-icon bomb" />
+                    ? <img src={pepeclown} alt="Bomb" className="cell-icon bomb" />
                     : cell.neighbors === 0
                     ? ''
                     : cell.neighbors
                   : cell.isFlagged
-                  ? <img src={flag} alt="Flag" className="cell-icon" />
+                  ? <img src={pepeflag} alt="Flag" className="cell-icon" />
                   : ''}
               </div>
             ))}
