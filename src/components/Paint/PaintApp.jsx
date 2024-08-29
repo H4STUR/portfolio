@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Window from '../Window';
-import '../../styles/paint.css'; // Uncomment if needed
+import '../../styles/paint.css';
 
 const PaintApp = ({ id, title, onClose, position }) => {
   const [size, setSize] = useState({ width: 600, height: 400 });
