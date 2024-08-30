@@ -18,7 +18,7 @@ const difficultyLevels = {
   Hard: { rows: 30, cols: 16, mines: 99 },
 };
 
-const Game = ({ difficulty, onDifficultyChange, onResetGame }) => {
+const Game = ({ difficulty, onDifficultyChange, onResetGame, onWin }) => {  // Ensure onWin is destructured here
   const CELL_SIZE = 25;
   const { rows, cols, mines: mineCount } = difficultyLevels[difficulty];
 
@@ -88,9 +88,7 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame }) => {
       setCells(newCells);
 
       if (checkWin(newCells)) {
-        handleWin(newCells);
-        setGameWon(true);
-        clearInterval(timerRef.current);
+        handleWin(newCells);  // Correctly call handleWin here
       }
     }
   };
@@ -174,8 +172,6 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame }) => {
       // Check if this action led to a win
       if (checkWin(newCells)) {
         handleWin(newCells);
-        setGameWon(true);
-        clearInterval(timerRef.current);
       }
     }
   };
@@ -199,6 +195,7 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame }) => {
 
   // Function to handle winning the game by flagging all remaining covered cells
   const handleWin = (board) => {
+    setGameWon(true);
     const newCells = board.map((row) =>
       row.map((cell) => {
         if (!cell.isRevealed && !cell.isFlagged) {
@@ -209,6 +206,8 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame }) => {
     );
     setCells(newCells);
     setFlagsLeft(0); // All flags are now correctly placed
+    clearInterval(timerRef.current); // Stop the timer
+    onWin(timer); // Ensure this is called with the timer value
   };
 
   // Update board size and reset the game when difficulty changes
