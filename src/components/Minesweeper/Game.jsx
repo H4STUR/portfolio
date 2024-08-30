@@ -213,7 +213,7 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame }) => {
 
   // Update board size and reset the game when difficulty changes
   useEffect(() => {
-    const newSize = { width: rows * CELL_SIZE + 20, height: cols * CELL_SIZE + 160 };
+    const newSize = { width: rows * CELL_SIZE + rows * 2, height: cols * CELL_SIZE + cols + 220 };
     setSize(newSize);
     resetGame();
   }, [difficulty]);
