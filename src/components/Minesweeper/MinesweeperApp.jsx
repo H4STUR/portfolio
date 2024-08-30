@@ -125,7 +125,7 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
           <div className="overlay-content">
             <h2>Congratulations! You won!</h2>
             <label>
-              Enter your nickname:
+              <p>Enter your nickname:</p>
               <input
                 type="text"
                 value={nickname}
