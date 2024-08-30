@@ -10,9 +10,13 @@ const Scoreboard = () => {
   // Fetch scores from the API when the component mounts
   useEffect(() => {
     const fetchScores = async () => {
+      
       try {
-        const response = await axios.get('http://localhost:8005/api/scores');
+      
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/scores`);
         setScores(response.data); // Set scores as the received object (expected: { Easy: [], Medium: [], Hard: [] })
+        
+        console.log(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching scores:', error);
@@ -32,6 +36,14 @@ const Scoreboard = () => {
     return scores[difficulty] || []; // Access scores by difficulty, return empty array if undefined
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.toLocaleString('default', { month: 'short' }); // Get month name in short form, e.g., Jan
+    const year = date.getFullYear();
+    return `${day} - ${month}<br/>${year}`; // Format as "day - month year"
+  };
+
   return (
     <div className="scoreboard help-container">
       <h2>Scoreboard</h2>
@@ -43,14 +55,16 @@ const Scoreboard = () => {
           <thead>
             <tr>
               <th>Player</th>
-              <th>Time (s)</th>
+              <th>Time</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
             {getTopScores('Hard').map((score, index) => (
               <tr key={index}>
                 <td>{index + 1}. {score.player_name}</td>
-                <td>{score.time}</td>
+                <td>{score.time} (s)</td>
+                <td dangerouslySetInnerHTML={{ __html: formatDate(score.date) }}></td>
               </tr>
             ))}
           </tbody>
@@ -64,14 +78,16 @@ const Scoreboard = () => {
           <thead>
             <tr>
               <th>Player</th>
-              <th>Time (s)</th>
+              <th>Time</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
             {getTopScores('Medium').map((score, index) => (
               <tr key={index}>
                 <td>{index + 1}. {score.player_name}</td>
-                <td>{score.time}</td>
+                <td>{score.time} (s)</td>
+                <td dangerouslySetInnerHTML={{ __html: formatDate(score.date) }}></td>
               </tr>
             ))}
           </tbody>
@@ -85,14 +101,16 @@ const Scoreboard = () => {
           <thead>
             <tr>
               <th>Player</th>
-              <th>Time (s)</th>
+              <th>Time</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
             {getTopScores('Easy').map((score, index) => (
               <tr key={index}>
                 <td>{index + 1}. {score.player_name}</td>
-                <td>{score.time}</td>
+                <td>{score.time} (s)</td>
+                <td dangerouslySetInnerHTML={{ __html: formatDate(score.date) }}></td>
               </tr>
             ))}
           </tbody>

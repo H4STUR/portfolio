@@ -61,7 +61,7 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
 
   const submitScore = async () => {
     try {
-      await axios.post('http://localhost:8005/api/scores', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/scores`, {
         player_name: nickname,
         score: 0, // Example score value, you can update this with actual game logic
         difficulty: difficulty,

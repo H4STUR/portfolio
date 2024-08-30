@@ -62,7 +62,7 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame, onWin }) => {  // E
   // Function to handle cell left click (revealing the cell)
   const handleCellClick = (row, col) => {
     if (gameOver || cells[row][col].isFlagged) return;
-
+  
     if (!gameStarted) {
       setGameStarted(true);
       const newBoard = placeMines(createBoard(rows, cols), mineCount, row, col);
@@ -70,25 +70,26 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame, onWin }) => {  // E
       setCells(updatedCells);
     } else {
       if (cells[row][col].isMine) {
-        const newCells = cells.map((r, rowIndex) =>
-          r.map((cell, colIndex) => {
-            if (rowIndex === row && colIndex === col) {
-              return { ...cell, isRevealed: true };
-            }
-            return cell;
-          })
+        // Reveal all mines and trigger game over
+        const newCells = cells.map((r) =>
+          r.map((cell) => ({
+            ...cell,
+            isRevealed: cell.isMine ? true : cell.isRevealed,
+          }))
         );
         setCells(newCells);
         setGameOver(true);
         clearInterval(timerRef.current);
         return;
       }
-
+  
       const newCells = revealCells(cells, row, col);
       setCells(newCells);
-
+  
       if (checkWin(newCells)) {
-        handleWin(newCells);  // Correctly call handleWin here
+        handleWin(newCells);
+        setGameWon(true);
+        clearInterval(timerRef.current);
       }
     }
   };
@@ -117,24 +118,24 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame, onWin }) => {  // E
   // Function to handle double-click or both button click on a revealed cell
   const handleDoubleClick = (row, col) => {
     const cell = cells[row][col];
-
+  
     // Only proceed if the cell is revealed and is not a mine
     if (!cell.isRevealed || cell.isMine) return;
-
+  
     // Count the number of flagged neighbors
     const directions = [
       [-1, -1], [-1, 0], [-1, 1],
       [0, -1],         [0, 1],
       [1, -1], [1, 0], [1, 1],
     ];
-
+  
     let flaggedNeighbors = 0;
     let neighborCells = [];
-
+  
     directions.forEach(([dRow, dCol]) => {
       const newRow = row + dRow;
       const newCol = col + dCol;
-
+  
       if (
         newRow >= 0 &&
         newRow < cells.length &&
@@ -147,32 +148,45 @@ const Game = ({ difficulty, onDifficultyChange, onResetGame, onWin }) => {  // E
         }
       }
     });
-
-    // Highlight cells if flags are fewer than the number of neighboring bombs
-    if (flaggedNeighbors < cell.neighbors) {
-      setHighlightedCells(neighborCells);
-    } else {
-      // If the number of flagged neighbors matches the cell's neighbors count, reveal remaining neighbors
+  
+    // Check if the number of flagged neighbors matches the cell's neighbors count
+    if (flaggedNeighbors === cell.neighbors) {
+      // Reveal all non-flagged, non-revealed neighbors
       let newCells = cells.map((r, rowIndex) =>
         r.map((cell, colIndex) => ({ ...cell }))
       );
-
+  
       neighborCells.forEach(({ row: newRow, col: newCol }) => {
-        if (
-          !newCells[newRow][newCol].isFlagged &&
-          !newCells[newRow][newCol].isRevealed
-        ) {
+        const neighborCell = newCells[newRow][newCol];
+  
+        if (!neighborCell.isFlagged && !neighborCell.isRevealed) {
+          // Reveal the cell and check if it's a mine
+          if (neighborCell.isMine) {
+            // Game over if a mine is revealed
+            newCells = newCells.map((r) =>
+              r.map((c) => ({ ...c, isRevealed: c.isMine ? true : c.isRevealed }))
+            );
+            setCells(newCells);
+            setGameOver(true);
+            clearInterval(timerRef.current);
+            return; // Early exit
+          }
           newCells = revealCells(newCells, newRow, newCol);
         }
       });
-
+  
       setCells(newCells);
       setHighlightedCells([]); // Clear highlights after revealing
-
+  
       // Check if this action led to a win
       if (checkWin(newCells)) {
         handleWin(newCells);
+        setGameWon(true);
+        clearInterval(timerRef.current);
       }
+    } else {
+      // Highlight cells if flags are fewer than the number of neighboring bombs
+      setHighlightedCells(neighborCells);
     }
   };
 

@@ -11,33 +11,22 @@ class MinesweeperController extends Controller
 {
     // Method to fetch all scores from the MinesweeperScoreBoard
     public function getScores()
-{
-    // Fetch and group scores by player name and difficulty, selecting the best time
-    $scores = MinesweeperScoreBoard::select('player_name', 'difficulty', DB::raw('MIN(time) as time'))
-        ->groupBy('player_name', 'difficulty')
-        ->orderBy('difficulty')
-        ->orderBy('time')
-        ->get();
+    {
+        // Fetch and group scores by player name and difficulty, and select the best time
+        $scores = MinesweeperScoreBoard::select('player_name', 'difficulty', DB::raw('MIN(time) as time'), DB::raw('MAX(created_at) as date'))
+            ->groupBy('player_name', 'difficulty')
+            ->orderBy('difficulty')
+            ->orderBy('time')
+            ->get()
+            ->groupBy('difficulty');
 
-    // Group scores by difficulty and limit to top 10 scores
-    $groupedScores = [
-        'Easy' => [],
-        'Medium' => [],
-        'Hard' => []
-    ];
+        // Limit each group to top 10 scores
+        $scores = $scores->map(function ($group) {
+            return $group->take(10);
+        });
 
-    foreach ($scores as $score) {
-        $groupedScores[$score->difficulty][] = $score;
+        return response()->json($scores);
     }
-
-    // Limit each difficulty level to the top 10 scores
-    foreach ($groupedScores as $difficulty => $group) {
-        $groupedScores[$difficulty] = collect($group)->sortBy('time')->take(10)->values()->all();
-    }
-
-    return response()->json($groupedScores);
-}
-
 
     // Method to save a new score to the MinesweeperScoreBoard
     public function saveScore(Request $request)
