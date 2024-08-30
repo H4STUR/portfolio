@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Window from '../Window';
 import Game from './Game';
 import Scoreboard from './Scoreboard';
+import Help from './Help'; // Import the Help component
 import '../../styles/minesweeper.css';
 
 const difficultyLevels = {
@@ -14,21 +15,27 @@ const difficultyLevels = {
 const MinesweeperApp = ({ id, title, onClose, position }) => {
   const CELL_SIZE = 25;
   const [difficulty, setDifficulty] = useState('Easy');
-  const [view, setView] = useState('game'); // 'game' or 'scoreboard'
+  const [view, setView] = useState('game'); // 'game', 'scoreboard', or 'help'
 
-  // Separate size states for game and scoreboard
+  // Separate size states for game, scoreboard, and help
   const [gameSize, setGameSize] = useState({
     width: difficultyLevels[difficulty].cols * CELL_SIZE + 20,
     height: difficultyLevels[difficulty].rows * CELL_SIZE + 160,
   });
   const scoreboardSize = { width: 600, height: 400 }; // Fixed size for the scoreboard
+  const helpSize = { width: 600, height: 400 }; // Fixed size for the help view
 
   // Update game size when difficulty changes
   useEffect(() => {
     if (view === 'game') {
       setGameSize({
-        width: difficultyLevels[difficulty].cols * CELL_SIZE + difficultyLevels[difficulty].cols * 2,
-        height: difficultyLevels[difficulty].rows * CELL_SIZE + difficultyLevels[difficulty].rows + 210,
+        width:
+          difficultyLevels[difficulty].cols * CELL_SIZE +
+          difficultyLevels[difficulty].cols * 2,
+        height:
+          difficultyLevels[difficulty].rows * CELL_SIZE +
+          difficultyLevels[difficulty].rows +
+          210,
       });
     }
   }, [difficulty, view]);
@@ -47,7 +54,13 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
       title={title}
       onClose={onClose}
       position={position}
-      size={view === 'game' ? gameSize : scoreboardSize} // Switch size based on view
+      size={
+        view === 'game'
+          ? gameSize
+          : view === 'scoreboard'
+          ? scoreboardSize
+          : helpSize
+      } // Switch size based on view
       className="minesweeper-window"
     >
       <div className="minesweeper-difficulty-header">
@@ -56,16 +69,25 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
           <option value="Medium">Medium</option>
           <option value="Hard">Hard</option>
         </select>
-        <button onClick={() => setView(view === 'game' ? 'scoreboard' : 'game')}>
-          {view === 'game' ? 'Scoreboard' : 'Back to Game'}
-        </button>
+        {view === 'game' ? (
+          <>
+            <button onClick={() => setView('scoreboard')}>Scoreboard</button>
+            <button onClick={() => setView('help')}>Help</button>
+          </>
+        ) : (
+          <button onClick={() => setView('game')}>Back to Game</button>
+        )}
       </div>
 
-      {view === 'game' ? (
-        <Game difficulty={difficulty} onDifficultyChange={handleDifficultyChange} onResetGame={resetGame} />
-      ) : (
-        <Scoreboard />
+      {view === 'game' && (
+        <Game
+          difficulty={difficulty}
+          onDifficultyChange={handleDifficultyChange}
+          onResetGame={resetGame}
+        />
       )}
+      {view === 'scoreboard' && <Scoreboard />}
+      {view === 'help' && <Help />}
     </Window>
   );
 };
