@@ -37,7 +37,7 @@ const Window = ({ id, title, onClose, position, size = { width: 600, height: 400
       onDragStop={handleDragStop}
       onResizeStop={handleResizeStop}
       ref={rndRef}
-      enableResizing={true} // Ensure resizing is enabled
+      enableResizing={true}
     >
       <div className="window-header">
         <span>{title}</span>
