@@ -40,7 +40,7 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
         height:
           difficultyLevels[difficulty].rows * CELL_SIZE +
           difficultyLevels[difficulty].rows +
-          190,
+          180,
       });
     }
   }, [difficulty, view]);
