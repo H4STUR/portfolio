@@ -12,6 +12,10 @@ const Taskbar = ({ openWindow }) => {
     setIsStartMenuOpen(!isStartMenuOpen);
   };
 
+  const closeStartMenu = () => {
+    setIsStartMenuOpen(false);
+  };
+
   return (
     <div>
       <div className="taskbar">
@@ -41,7 +45,7 @@ const Taskbar = ({ openWindow }) => {
           <Clock />
         </div>
       </div>
-      {isStartMenuOpen && <StartMenu onOpenWindow={openWindow}/>}
+      {isStartMenuOpen && <StartMenu onOpenWindow={openWindow} closeStartMenu={closeStartMenu}/>}
     </div>
   );
 };
