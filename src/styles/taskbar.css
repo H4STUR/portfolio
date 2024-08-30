@@ -39,6 +39,11 @@
   height: 100%;
 }
 
+.taskbar-icons > .icon 
+{
+  justify-content: center;
+}
+
 .taskbar-clock {
   margin-left: auto; /* Pushes clock to the right */
   color: white;

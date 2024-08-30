@@ -28,7 +28,7 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
     if (view === 'game') {
       setGameSize({
         width: difficultyLevels[difficulty].cols * CELL_SIZE + difficultyLevels[difficulty].cols * 2,
-        height: difficultyLevels[difficulty].rows * CELL_SIZE + difficultyLevels[difficulty].rows + 220,
+        height: difficultyLevels[difficulty].rows * CELL_SIZE + difficultyLevels[difficulty].rows + 210,
       });
     }
   }, [difficulty, view]);
