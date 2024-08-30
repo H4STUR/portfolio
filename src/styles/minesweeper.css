@@ -158,6 +158,11 @@
     font-size: .8em;
   }
 
+  .difficulty-Easy > .window-content > .game-container > .minesweeper-grid
+  {
+    padding: 10px;
+  }
+
   .minesweeper-difficulty-header {
     display: flex;
     align-items: center;

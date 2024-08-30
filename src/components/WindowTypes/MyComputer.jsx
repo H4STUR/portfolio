@@ -22,7 +22,7 @@ const MyComputer = ({ id, title, onClose, position, template, icons, openWindow 
   }
 
   return (
-    <Window id={id} title={title} onClose={onClose} position={position}>
+    <Window id={id} title={title} onClose={onClose} position={position} className="window my-computer-window">
       <Suspense fallback={<div>Loading...</div>}>
         <TemplateComponent icons={icons} openWindow={openWindow} />
       </Suspense>

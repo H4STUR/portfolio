@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// Taskbar.jsx
+import React, { useState, useRef, useEffect } from 'react';
 import '../styles/taskbar.css';
 import StartMenu from './StartMenu';
 import Clock from './Clock';
@@ -7,20 +8,41 @@ import windowsLogo from '../assets/images/windows-logo.png';
 
 const Taskbar = ({ openWindow }) => {
   const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
+  const startMenuRef = useRef(null);
+  const startButtonRef = useRef(null);
 
   const toggleStartMenu = () => {
-    setIsStartMenuOpen(!isStartMenuOpen);
+    setIsStartMenuOpen((prev) => !prev);
   };
 
   const closeStartMenu = () => {
     setIsStartMenuOpen(false);
   };
 
+  const handleClickOutside = (event) => {
+    // Check if the click was outside both the start menu and the button
+    if (
+      startMenuRef.current &&
+      !startMenuRef.current.contains(event.target) &&
+      startButtonRef.current &&
+      !startButtonRef.current.contains(event.target)
+    ) {
+      closeStartMenu(); // Close the start menu if click is outside both
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div>
       <div className="taskbar">
         <div className="taskbar-start">
-          <button className="start-button" onClick={toggleStartMenu}>
+          <button className="start-button" onClick={toggleStartMenu} ref={startButtonRef}>
             <img src={windowsLogo} alt="Windows Logo" className="windows-logo-taskbar" />
             <span>start</span>
           </button>
@@ -30,12 +52,12 @@ const Taskbar = ({ openWindow }) => {
             type="CMD"
             title="CMD"
             initialPosition={{ x: 0, y: 0 }}
-            onClick={() => openWindow('CMD', 'Command Prompt', '/CMDTemplate', openWindow={openWindow})}
+            onClick={() => openWindow('CMD', 'Command Prompt', '/CMDTemplate')}
             draggable={false} // Disable dragging for taskbar icons
           />
           <Icon
             type="File"
-            title="CMD"
+            title="Notepad"
             initialPosition={{ x: 0, y: 0 }}
             onClick={() => openWindow('File', 'Untitled - Notepad', '/FileTemplate')}
             draggable={false} // Disable dragging for taskbar icons
@@ -45,7 +67,7 @@ const Taskbar = ({ openWindow }) => {
           <Clock />
         </div>
       </div>
-      {isStartMenuOpen && <StartMenu onOpenWindow={openWindow} closeStartMenu={closeStartMenu}/>}
+      {isStartMenuOpen && <StartMenu onOpenWindow={openWindow} ref={startMenuRef} />}
     </div>
   );
 };

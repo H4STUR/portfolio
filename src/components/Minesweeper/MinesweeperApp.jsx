@@ -36,11 +36,11 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
       setGameSize({
         width:
           difficultyLevels[difficulty].cols * CELL_SIZE +
-          difficultyLevels[difficulty].cols * 2,
+          difficultyLevels[difficulty].cols * 2 + (difficulty == 'Easy' ? 20 : 0),
         height:
           difficultyLevels[difficulty].rows * CELL_SIZE +
           difficultyLevels[difficulty].rows +
-          210,
+          190,
       });
     }
   }, [difficulty, view]);

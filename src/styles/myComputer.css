@@ -1,0 +1,48 @@
+.my-computer-window > .window-content
+{
+    padding: 0px;
+}
+.my-computer-contener
+{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.my-computer-left-panel
+{
+    width: 30%;
+    height: 100%;
+    background-color: #006abe;
+}
+
+.my-computer-right-panel
+{
+    width: 70%;
+    padding: 10px;
+}
+
+.my-computer-title
+{
+    border-bottom: 2px solid; /* Set the border width */
+    border-image: linear-gradient(to right, #006abe 20%, #3a66a396 60%);
+    border-image-slice: 1; /* Ensures the gradient is applied only once */
+    text-align: left;
+}
+
+.my-computer-drive
+{
+    display: flex;
+    gap: 10px;
+}
+
+.my-computer-icon
+{
+    width: 50px;
+    height: 50px;
+}
+
+.my-computer-drive p
+{
+    justify-content: center;
+}
