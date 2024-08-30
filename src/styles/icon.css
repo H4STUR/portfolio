@@ -6,7 +6,6 @@
   width: 80px;
   height: 100px;
   user-select: none; /* Prevent text selection while dragging */
-  justify-content: center;
 }
 
 .react-draggable > .icon:hover {
