@@ -1,9 +1,13 @@
-# React + Vite
+# System XD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a fun project I'm working on when I can't sleep at night. <br>
+Currently, it's hosted here https://portfolio.agares.co.uk/ <br>
+Feel free to explore, beat my record in Minesweeper or offer me a well-paid job.<br>
 
-Currently, two official plugins are available:
+![Desktop view](https://github.com/H4STUR/portfolio/blob/main/src/assets/images/README/desktop-readme.jpg?raw=true)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# portfolio
+![Desktop view](https://github.com/H4STUR/portfolio/blob/main/src/assets/images/README/cmd-readme.jpg?raw=true)
+
+![Desktop view](https://github.com/H4STUR/portfolio/blob/main/src/assets/images/README/minesweeper-readme.jpg?raw=true)
+
+![Desktop view](https://github.com/H4STUR/portfolio/blob/main/src/assets/images/README/paint-readme.jpg?raw=true)
