@@ -19,11 +19,11 @@
 
 .window-content {
   flex-grow: 1;
-  padding: 10px;
-  overflow: auto; /* Enable scrolling within the content area */
+  padding: 0px;
+  overflow: hidden; /* Enable scrolling within the content area */
   cursor: default; /* Default cursor for non-draggable area */
   color: black;
-  height: calc(100% - 60px);
+  height: calc(100% - 22px);
 }
 
 .close-button {
@@ -131,4 +131,11 @@
 .password-prompt-buttons > button:hover
 {
   border: 2px solid #006abe;
+}
+
+
+.pdf-window > .window-content > div
+{
+  height: 100%;
+  overflow-y: scroll;
 }
