@@ -23,6 +23,8 @@
 
                     "My Computer": { "type": "My Computer", "title": "My Computer", "initialPosition": { "x": 20, "y": 120 }, "template": "MyComputerTemplate" },
 
+                    "Email": { "type": "Email", "title": "Email", "initialPosition": { "x": 20, "y": 220 }, "template": "Emial" },
+
                     "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate",
                         "icons": 
                         { 

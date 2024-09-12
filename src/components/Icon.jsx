@@ -15,6 +15,7 @@ import pdfIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
 import jpgIcon from '../assets/images/Icons/HD/JPG.png';
 import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
 import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
+import emailIcon from '../assets/images/Icons/HD/Email.png';
 
 
 const GRID_SIZE = 80;
@@ -46,6 +47,8 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
         return cmdIcon;
       case "Minesweeper":
         return minesweeperIcon;
+      case "Email":
+        return emailIcon;
       default:
         return defaultIcon; // Default icon
     }

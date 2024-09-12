@@ -15,6 +15,7 @@ import PasswordPrompt from './WindowTypes/PasswordPrompt';
 import Paint from './Paint/PaintApp';
 import Minesweeper from './Minesweeper/MinesweeperApp';
 import DSJ from './DSJ/DeluxeSkiJumpApp';
+import Email from './Email/EmailApp';
 
 // Images
 import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
@@ -122,6 +123,8 @@ const Desktop = () => {
             return <Minesweeper key={win.id} {...win} onClose={closeWindow} />;
           case 'DSJ':
             return <DSJ key={win.id} {...win} onClose={closeWindow} />;
+          case 'Email':
+            return <Email key={win.id} {...win} onClose={closeWindow} />;
           default:
             return null;
         }
