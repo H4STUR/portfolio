@@ -5,95 +5,47 @@
       "CELL_SIZE": 100,
       "PADDING": 20
     },
+
     "C": {
-      "Users": {
-        "Danio": {
-          "Desktop": {
-            "Recycle Bin": {
-              "type": "Recycle Bin",
-              "title": "Recycle Bin",
-              "initialPosition": { "x": 20, "y": 20 },
-              "template": "RecycleBinTemplate",
-              "icons": {
-                "Diablo IV.exe": {
-                  "id": 10,
-                  "type": "Game",
-                  "title": "Diablo IV.exe",
-                  "initialPosition": { "x": 0, "y": 0 }
-                },
-                "The Rings of Power.mp4": {
-                  "id": 11,
-                  "type": "Game",
-                  "title": "The Rings of Power.mp4",
-                  "initialPosition": { "x": 0, "y": 0 }
+
+        "Users": {
+
+            "Danio": {
+                "Desktop": {
+
+                    "Recycle Bin": { "type": "Recycle Bin", "title": "Recycle Bin", "initialPosition": { "x": 20, "y": 20 }, "template": "RecycleBinTemplate",
+                        "icons": 
+                        {
+                            "Diablo IV.exe": { "id": 10, "type": "Game", "title": "Diablo IV.exe", "initialPosition": { "x": 0, "y": 0 } },
+                            "The Rings of Power.mp4": { "id": 11, "type": "Game", "title": "The Rings of Power.mp4", "initialPosition": { "x": 0, "y": 0 } }
+                        }
+                    },
+
+                    "My Computer": { "type": "My Computer", "title": "My Computer", "initialPosition": { "x": 20, "y": 120 }, "template": "MyComputerTemplate" },
+
+                    "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate",
+                        "icons": 
+                        { 
+                            "README.txt": { "id": 10, "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 320 }, "template": "LockedTemplate" }
+                        }
+                    },
+
+                    "WEB DEV": { "type": "Folder", "title": "WEB DEV", "initialPosition": { "x": 220, "y": 20 }, "template": "FolderTemplate",
+                        "icons": 
+                        {
+                            "idDesign": { "id": 8, "type": "Link", "title": "idDesign", "initialPosition": { "x": 20, "y": 400 }, "template": "https://id-design.pl/en" },
+                            "Nested Folder": { "id": 9, "type": "Folder", "title": "Nested Folder", "initialPosition": { "x": 80, "y": 0 }, "template": "FolderTemplate", "icons": {} }
+                        }
+                    },
+
+                    "CV.pdf": { "type": "PDF", "title": "CV.pdf", "initialPosition": { "x": 520, "y": 220 }, "template": "CV" },
+
+                    "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
+
+                    "GitHub": { "type": "Link", "title": "GitHub", "initialPosition": { "x": 20, "y": 520 }, "template": "https://github.com/H4STUR" }
                 }
-              }
-            },
-            "My Computer": {
-              "type": "My Computer",
-              "title": "My Computer",
-              "initialPosition": { "x": 20, "y": 120 },
-              "template": "MyComputerTemplate"
-            },
-            "Homework": {
-              "type": "FolderLocked",
-              "title": "Homework",
-              "initialPosition": { "x": 120, "y": 20 },
-              "template": "FolderTemplate",
-              "icons": {
-                "README.txt": {
-                  "id": 10,
-                  "type": "File",
-                  "title": "README.txt",
-                  "initialPosition": { "x": 20, "y": 320 },
-                  "template": "LockedTemplate"
-                }
-              }
-            },
-            "WEB DEV": {
-              "type": "Folder",
-              "title": "WEB DEV",
-              "initialPosition": { "x": 220, "y": 20 },
-              "template": "FolderTemplate",
-              "icons": {
-                "idDesign": {
-                  "id": 8,
-                  "type": "Link",
-                  "title": "idDesign",
-                  "initialPosition": { "x": 20, "y": 400 },
-                  "template": "https://id-design.pl/en"
-                },
-                "Nested Folder": {
-                  "id": 9,
-                  "type": "Folder",
-                  "title": "Nested Folder",
-                  "initialPosition": { "x": 80, "y": 0 },
-                  "template": "FolderTemplate",
-                  "icons": {}
-                }
-              }
-            },
-            "CV.pdf": {
-              "type": "PDF",
-              "title": "CV.pdf",
-              "initialPosition": { "x": 520, "y": 220 },
-              "template": "CV"
-            },
-            "README.txt": {
-              "type": "File",
-              "title": "README.txt",
-              "initialPosition": { "x": 20, "y": 420 },
-              "template": "readmeTemplate"
-            },
-            "GitHub": {
-              "type": "Link",
-              "title": "GitHub",
-              "initialPosition": { "x": 20, "y": 520 },
-              "template": "https://github.com/H4STUR"
             }
-          }
-        }
-      }
+        },
+      "Windows": {}
     }
-  }
-  
+}

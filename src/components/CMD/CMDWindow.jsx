@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Window from '../Window';
 import '../../styles/cmdwindow.css';
-
-// Commands
+import folderStructure from '../folderStructure.json'; // Import the folder structure JSON
 import help from './Commands/help';
+import cd from './Commands/cd';
 
 const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
   const initialText = [
@@ -12,9 +12,11 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
   const [commands, setCommands] = useState(initialText);
   const [input, setInput] = useState('');
   const [windowSize, setWindowSize] = useState({ width: 600, height: 400 }); // Initial size of the CMD window
+  const [currentPath, setCurrentPath] = useState(['C:', 'Users', 'Danio', 'Desktop']); // Initial path
+  const [currentFolder, setCurrentFolder] = useState(folderStructure.C.Users.Danio.Desktop); // Start at Desktop
 
   const cmdOutputRef = useRef(null);
-  const inputRef = useRef(null); 
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (cmdOutputRef.current) {
@@ -22,79 +24,93 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
     }
   }, [commands]);
 
+  // Helper function to resolve the path to the target folder in the structure
+  const resolvePath = (pathArray, structure) => {
+    let current = structure;
+    for (const dir of pathArray.slice(1)) { // Skip 'C:' for traversal
+      if (current[dir] && current[dir].icons) {
+        current = current[dir].icons;
+      } else if (current[dir]) {
+        current = current[dir];
+      } else {
+        return null; // Path not found
+      }
+    }
+    return current;
+  };
+
   const handleCommand = () => {
     const [command, ...params] = input.trim().split(/\s+/);
     let output;
+    const pathBeforeCommand = currentPath.join('\\'); // Store the path before executing the command
 
     switch (command.toLowerCase()) {
       case 'help':
-        output = params.length > 1 
-          ? `HELP [command] - Displays help information for the specified command.\n`
-          : help(params);
+        output = help(params);
         break;
       case 'cls':
-        if (params.length > 0) {
-          output = `The 'cls' command does not take any parameters.`;
-        } else {
-          setCommands(initialText);
-          setInput('');
-          return;
-        }
-        break;
+        setCommands(initialText);
+        setInput('');
+        return;
       case 'date':
-        if (params.length > 0) {
-          output = `The 'date' command does not take any parameters.`;
-        } else {
-          output = new Date().toString();
+        output = new Date().toString();
+        break;
+      case 'cd': {
+        const result = cd(params, currentPath, folderStructure); // Correct cd function call
+        if (result.path.join('\\') !== currentPath.join('\\')) {
+          setCurrentPath(result.path);
+          const newFolder = resolvePath(result.path, folderStructure);
+          if (newFolder) {
+            setCurrentFolder(newFolder); // Update the current folder based on the new path
+          }
         }
+        output = result.message;
+        break;
+      }
+      case 'dir':
+        output = handleDIR();
         break;
       case 'notepad':
-        if (params.length > 0) {
-          output = `The 'notepad' command does not take any parameters.`;
-        } else {
-          output = `Opening Notepad...`;
-          openWindow('File', 'Untitled - Notepad', '/FileTemplate');
-        }
+        output = `Opening Notepad...`;
+        openWindow('File', 'Untitled - Notepad', '/FileTemplate');
         break;
       case 'paint':
-        if (params.length > 0) {
-          output = `The 'paint' command does not take any parameters.`;
-        } else {
-          output = `Opening Paint...`;
-          openWindow('Paint', 'Paint', 'PaintApp');
-        }
+        output = `Opening Paint...`;
+        openWindow('Paint', 'Paint', 'PaintApp');
         break;
       case 'minesweeper':
-        if (params.length > 0) {
-          output = `The 'minesweeper' command does not take any parameters.`;
-        } else {
-          output = `Opening Minesweeper...`;
-          openWindow('Minesweeper', 'Minesweeper', 'MinesweeperApp');
-        }
+        output = `Opening Minesweeper...`;
+        openWindow('Minesweeper', 'Minesweeper', 'MinesweeperApp');
         break;
       case 'dsj':
-        if (params.length > 0) {
-          output = `The 'Deluxe Ski Jump' command does not take any parameters.`;
-        } else {
-          output = `Opening Deluxe Ski Jump...`;
-          openWindow('DSJ', 'Deluxe Ski Jump', 'DeluxeSkiJumpApp');
-        }
+        output = `Opening Deluxe Ski Jump...`;
+        openWindow('DSJ', 'Deluxe Ski Jump', 'DeluxeSkiJumpApp');
         break;
       case 'exit':
-        if (params.length > 0) {
-          output = `The 'exit' command does not take any parameters.`;
-        } else {
-          onClose(id);
-          return;
-        }
-        break;
+        onClose(id);
+        return;
       default:
         output = `Unknown command: ${command}`;
         break;
     }
 
-    setCommands([...commands, { input, output }]);
-    setInput('');
+    // Update the commands state with the new command, including the path where it was executed
+    setCommands(prevCommands => [
+      ...prevCommands,
+      { input: `${pathBeforeCommand}> ${input}`, output }
+    ]);
+    setInput(''); // Clear the input
+  };
+
+  // Function to list directory contents
+  const handleDIR = () => {
+    if (!currentFolder || typeof currentFolder !== 'object') {
+      return 'No items found in this directory.';
+    }
+    const items = Object.entries(currentFolder).map(([key, value]) => {
+      return value.type ? `${value.type} ${value.title || key}` : key;
+    });
+    return items.join('\n') || 'No items found in this directory.';
   };
 
   const handleKeyDown = (e) => {
@@ -109,7 +125,6 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
     }
   };
 
-  // Update window size
   const handleResizeStop = (e, direction, ref, delta, position) => {
     setWindowSize({ width: ref.offsetWidth, height: ref.offsetHeight });
   };
@@ -122,18 +137,18 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
       position={position} 
       size={windowSize} 
       className="cmd-window"
-      onResizeStop={handleResizeStop} // Pass resize handler to Window component
+      onResizeStop={handleResizeStop}
     >
       <div className="cmd-output" ref={cmdOutputRef} onClick={handleWindowClick}>
         {commands.map((cmd, index) => (
           <div key={index}>
-            {cmd.input && <div className="cmd-input">C:\&gt;{cmd.input}</div>}
+            {cmd.input && <div className="cmd-input">{cmd.input}</div>}
             <div className="cmd-output-text">{cmd.output}</div>
           </div>
         ))}
       </div>
       <div className="cmd-input-line">
-        <span>C:\&gt;</span>
+        <span>{currentPath.join('\\')}&gt;</span>
         <input
           type="text"
           value={input}
