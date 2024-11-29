@@ -16,8 +16,8 @@
                     "Recycle Bin": { "type": "Recycle Bin", "title": "Recycle Bin", "initialPosition": { "x": 20, "y": 20 }, "template": "RecycleBinTemplate",
                         "icons": 
                         {
-                            "Diablo IV.exe": { "id": 10, "type": "Game", "title": "Diablo IV.exe", "initialPosition": { "x": 0, "y": 0 } },
-                            "The Rings of Power.mp4": { "id": 11, "type": "Game", "title": "The Rings of Power.mp4", "initialPosition": { "x": 0, "y": 0 } }
+                            "Diablo IV.exe": { "id": 11, "type": "Game", "title": "Diablo IV.exe", "initialPosition": { "x": 0, "y": 0 } },
+                            "The Rings of Power.mp4": { "id": 12, "type": "Game", "title": "The Rings of Power.mp4", "initialPosition": { "x": 0, "y": 0 } }
                         }
                     },
 
@@ -35,8 +35,9 @@
                     "WEB DEV": { "type": "Folder", "title": "WEB DEV", "initialPosition": { "x": 220, "y": 20 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "idDesign": { "id": 8, "type": "Link", "title": "idDesign", "initialPosition": { "x": 20, "y": 400 }, "template": "https://id-design.pl/en" },
-                            "Nested Folder": { "id": 9, "type": "Folder", "title": "Nested Folder", "initialPosition": { "x": 80, "y": 0 }, "template": "FolderTemplate", "icons": {} }
+                            "idDesign": { "id": 8, "type": "Link", "title": "idDesign.pl", "initialPosition": { "x": 20, "y": 400 }, "template": "https://id-design.pl/en" },
+                            "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "initialPosition": { "x": 20, "y": 400 }, "template": "https://piescimordelizal.pl" },
+                            "Nested Folder": { "id": 10, "type": "Folder", "title": "Nested Folder", "initialPosition": { "x": 80, "y": 0 }, "template": "FolderTemplate", "icons": {} }
                         }
                     },
 

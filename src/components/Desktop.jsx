@@ -34,7 +34,14 @@ const Desktop = () => {
       const desktopItems = folderStructure.C.Users.Danio.Desktop;
       const parsedIcons = parseFolderStructure(desktopItems);
       setDesktopIcons(parsedIcons);
-      setIsLoading(false);
+  
+      // Set a timeout for 3 seconds before setting isLoading to false
+      const loadingTimeout = setTimeout(() => {
+        setIsLoading(false);
+      }, 3000); // 3000 milliseconds = 3 seconds
+  
+      // Cleanup function to clear the timeout if the component unmounts
+      return () => clearTimeout(loadingTimeout);
     } catch (error) {
       console.error('Error loading folder structure:', error);
       setIsLoading(false);

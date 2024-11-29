@@ -40,3 +40,9 @@
 .icon:active {
   cursor: grabbing;
 }
+
+
+.folder-content > .icon
+{
+  padding: 10px;
+}
