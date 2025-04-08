@@ -1,4 +1,6 @@
 .window {
+  min-width: 300px;
+  min-height: 200px;
   background: #f0f0f0;
   border: 5px solid #006abe;
   display: flex;

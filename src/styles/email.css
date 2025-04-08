@@ -1,4 +1,6 @@
 .email-window {
+  min-width: 700px;
+  min-height: 500px;
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
@@ -13,6 +15,7 @@
 }
 
 .email-topbar button {
+  color: #000;
   margin-right: 5px;
   background: #f0f0f0;
   border: 1px solid #808080;
@@ -21,11 +24,13 @@
 }
 
 .email-content {
+  height: 100%;
   display: flex;
   flex-grow: 1;
 }
 
 .email-folders {
+  text-align: left;
   width: 150px;
   border-right: 1px solid #808080;
   background: #f8f8f8;
@@ -40,6 +45,7 @@
 .email-folders ul {
   list-style: none;
   padding: 0;
+  margin-left: 10px;
 }
 
 .email-folders li {
@@ -60,6 +66,10 @@
   background-color: white;
 }
 
+.new-message
+{
+  text-align: left;
+}
 .new-message .form-group {
   margin-bottom: 10px;
 }
@@ -71,6 +81,8 @@
 
 .new-message input,
 .new-message textarea {
+  color: #000;
+  background-color: #f0f0f0;
   width: calc(100% - 60px);
   padding: 5px;
   border: 1px solid #808080;
@@ -78,9 +90,30 @@
 }
 
 .send-button {
+  color: #000;
   background: #f0f0f0;
   border: 1px solid #808080;
   padding: 5px 10px;
   cursor: pointer;
-  margin-top: 10px;
+}
+
+.send-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.inline-status.error { color: #b22222; } /* dark red */
+.inline-status.success { color: #006400; }
+
+
+.inline-status {
+  font-size: 0.9rem;
+  color: #006400; /* dark green for success */
+  font-family: Tahoma, sans-serif;
+  background: #f0f0f0;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #ccc;
 }

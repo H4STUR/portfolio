@@ -5,6 +5,8 @@
   }
   
   .minesweeper-window {
+    min-width: 236px;
+    min-height: 388px;
     background-color: #c3c3c3;
     color: white;
     display: flex;

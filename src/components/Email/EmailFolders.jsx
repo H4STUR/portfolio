@@ -1,18 +1,18 @@
 import React from 'react';
 
 const EmailFolders = ({ currentFolder, onFolderChange }) => {
-  const folders = ['inbox', 'outbox', 'sent', 'drafts', 'deleted'];
+  const folders = ['inbox [69]', 'sent [5]', 'drafts [3]', 'deleted [1]'];
 
   return (
     <div className="email-folders">
       <h3>Folders</h3>
       <ul>
-        <li
+        {/* <li
           className={currentFolder === 'new' ? 'active-folder' : ''}
           onClick={() => onFolderChange('new')}
         >
           New Message
-        </li>
+        </li> */}
         {folders.map((folder) => (
           <li
             key={folder}

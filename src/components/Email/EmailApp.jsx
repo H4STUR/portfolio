@@ -15,8 +15,6 @@ const EmailApp = ({ id, title, onClose, position }) => {
         return <NewMessage />;
       case 'inbox':
         return <p className="email-placeholder">Inbox folder content goes here.</p>;
-      case 'outbox':
-        return <p className="email-placeholder">Outbox folder content goes here.</p>;
       case 'sent':
         return <p className="email-placeholder">Sent Items folder content goes here.</p>;
       case 'drafts':
@@ -24,7 +22,7 @@ const EmailApp = ({ id, title, onClose, position }) => {
       case 'deleted':
         return <p className="email-placeholder">Deleted Items folder content goes here.</p>;
       default:
-        return <p className="email-placeholder">Select a folder to view content.</p>;
+        return <p className="email-placeholder">Selected folder is empty.</p>;
     }
   };
 
