@@ -7,7 +7,11 @@
     },
 
     "C": {
-
+        "Megasoft": {"restricted": true},
+        "Program Files": {"restricted": true},
+        "Program Files (x86)": {"restricted": true},
+        "ProgramData": {"restricted": true},
+        "temp": {"restricted": true},
         "Users": {
 
             "Danio": {
@@ -25,7 +29,7 @@
 
                     "Email": { "type": "Email", "title": "Email", "initialPosition": { "x": 20, "y": 220 }, "template": "Emial" },
 
-                    "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate",
+                    "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate", "restricted": true,
                         "icons": 
                         { 
                             "README.txt": { "id": 10, "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 320 }, "template": "LockedTemplate" }
@@ -46,9 +50,13 @@
                     "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
 
                     "GitHub": { "type": "Link", "title": "GitHub", "initialPosition": { "x": 20, "y": 520 }, "template": "https://github.com/H4STUR" }
-                }
+                },
+                "Documents": {"restricted": true},
+                "Downloads": {"restricted": true},
+                "Music": {"restricted": true},
+                "Videos": {"restricted": true}
             }
         },
-      "Windows": {}
+        "Windows": {"restricted": true}
     }
 }

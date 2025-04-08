@@ -25,22 +25,42 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
   }, [commands]);
 
   // Helper function to resolve the path to the target folder in the structure
-  const resolvePath = (pathArray, structure) => {
+  const resolvePath = (pathArray, structure, getLastMeta = false) => {
     let current = structure;
-    for (const dir of pathArray.slice(1)) { // Skip 'C:' for traversal
-      if (current[dir] && current[dir].icons) {
-        current = current[dir].icons;
-      } else if (current[dir]) {
-        current = current[dir];
-      } else {
-        return null; // Path not found
+  
+    for (let i = 0; i < pathArray.length; i++) {
+      let key = pathArray[i];
+      if (i === 0 && key.endsWith(':')) key = key.replace(':', '');
+  
+      if (!current || typeof current !== 'object' || !current.hasOwnProperty(key)) {
+        return null;
       }
+  
+      const next = current[key];
+  
+      if (i === pathArray.length - 1 && getLastMeta) {
+        return next; // return the full object (including .restricted)
+      }
+  
+      current =
+        next && typeof next === 'object' && next.icons
+          ? next.icons
+          : next;
     }
+  
     return current;
+  };
+  
+  
+
+  const parseCommand = (input) => {
+    const regex = /(?:[^\s"]+|"[^"]*")+/g;
+    const matches = input.match(regex) || [];
+    return matches.map(s => s.replace(/^"|"$/g, ''));
   };
 
   const handleCommand = () => {
-    const [command, ...params] = input.trim().split(/\s+/);
+    const [command, ...params] = parseCommand(input.trim());
     let output;
     const pathBeforeCommand = currentPath.join('\\'); // Store the path before executing the command
 
@@ -55,18 +75,24 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
       case 'date':
         output = new Date().toString();
         break;
+      
       case 'cd': {
-        const result = cd(params, currentPath, folderStructure); // Correct cd function call
+        console.log('CD input:', params);
+        const result = cd(params, currentPath, folderStructure);
+        console.log('Result from cd():', result);
+      
         if (result.path.join('\\') !== currentPath.join('\\')) {
           setCurrentPath(result.path);
           const newFolder = resolvePath(result.path, folderStructure);
+          console.log('Resolved folder:', newFolder);
           if (newFolder) {
-            setCurrentFolder(newFolder); // Update the current folder based on the new path
+            setCurrentFolder(newFolder);
           }
         }
         output = result.message;
         break;
       }
+        
       case 'dir':
         output = handleDIR();
         break;
