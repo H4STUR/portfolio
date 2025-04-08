@@ -71,8 +71,30 @@ const Desktop = () => {
   };
 
   const openWindow = (type, title, template, icons = []) => {
-    setWindows([...windows, { id: windows.length, type, title, position: { x: 100, y: 100 }, template, icons }]);
+    setWindows((prev) => {
+      const alreadyOpen = prev.some(
+        (w) => w.type === type && w.title === title
+      );
+      if (alreadyOpen) {
+        console.log(`[openWindow BLOCKED] ${type} - ${title}`);
+        return prev;
+      }
+  
+      console.log(`[openWindow ALLOWED] ${type} - ${title}`);
+      return [
+        ...prev,
+        {
+          id: prev.length,
+          type,
+          title,
+          position: { x: 100, y: 100 },
+          template,
+          icons,
+        },
+      ];
+    });
   };
+  
 
   const closeWindow = (id) => {
     setWindows(windows.filter((window) => window.id !== id));
@@ -87,7 +109,12 @@ const Desktop = () => {
   };
 
   const handlePasswordSubmit = (password, win) => {
-    if (password === 'jp2gmd') {
+    const desktopItems = folderStructure.C.Users.Danio.Desktop;
+    const folderMeta = desktopItems[win.title];
+  
+    const correctPassword = folderMeta?.password;
+  
+    if (password === correctPassword) {
       closeWindow(win.id);
       setTimeout(() => {
         openWindow('Folder', win.title, win.template, win.icons);

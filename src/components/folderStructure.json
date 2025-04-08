@@ -29,7 +29,7 @@
 
                     "Email": { "type": "Email", "title": "Email", "initialPosition": { "x": 20, "y": 220 }, "template": "Emial" },
 
-                    "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate", "restricted": true,
+                    "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate", "password": "jp2gmd", "restricted": true,
                         "icons": 
                         { 
                             "README.txt": { "id": 10, "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 320 }, "template": "LockedTemplate" }
