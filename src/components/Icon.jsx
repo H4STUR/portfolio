@@ -3,6 +3,7 @@ import { Rnd } from 'react-rnd';
 import '../styles/icon.css';
 
 import { snapToGrid } from '../utils/grid';
+import imageMap from '../utils/imageMap';
 
 import defaultIcon from '../assets/images/Icons/default.ico';
 import myComputerIcon from '../assets/images/Icons/HD/My Computer.png';
@@ -17,7 +18,6 @@ import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
 import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
 import emailIcon from '../assets/images/Icons/HD/Email.png';
 
-
 const GRID_SIZE = 80;
 const CELL_MARGIN = 20;
 const CELL_SIZE = GRID_SIZE + CELL_MARGIN;
@@ -25,7 +25,13 @@ const CELL_SIZE = GRID_SIZE + CELL_MARGIN;
 const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, draggable = true, imageOverride = null }) => {
   const [position, setPosition] = useState(initialPosition);
 
-  const getImageSrc = (type) => {
+  const getImageSrc = () => {
+    // Try resolving from imageMap if override is a filename
+    if (imageOverride && imageMap[imageOverride]) {
+      return imageMap[imageOverride];
+    }
+
+    // Fall back to default type-based icons
     switch (type) {
       case "My Computer":
         return myComputerIcon;
@@ -38,7 +44,6 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
       case "PDF":
         return pdfIcon;
       case "JPG":
-        return jpgIcon;
       case "Image":
         return jpgIcon;
       case "File":
@@ -52,7 +57,7 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
       case "Email":
         return emailIcon;
       default:
-        return defaultIcon; // Default icon
+        return defaultIcon;
     }
   };
 
@@ -64,7 +69,7 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
 
   const iconElement = (
     <div className="icon" onClick={onClick} onDoubleClick={onDoubleClick}>
-      <img src={imageOverride ? imageOverride : getImageSrc(type)} alt={title} />
+      <img src={getImageSrc()} alt={title} />
       <span>{title}</span>
     </div>
   );

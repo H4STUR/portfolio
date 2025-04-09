@@ -47,20 +47,20 @@
                     "TECH STACK": { "type": "Folder", "title": "TECH STACK", "initialPosition": { "x": 320, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "C": { "id": 8, "type": "Image", "title": "C.jpg", "template": "/src/assets/images/Techstack/c-original.svg", "image": "/src/assets/images/Techstack/c-original.svg" },
-                            "C++": { "id": 9, "type": "Image", "title": "C++.jpg", "template": "/src/assets/images/Techstack/cplusplus-original.svg", "image": "/src/assets/images/Techstack/cplusplus-original.svg" },
-                            "C#": { "id": 10, "type": "Image", "title": "C#.jpg", "template": "/src/assets/images/Techstack/csharp-original.svg", "image": "/src/assets/images/Techstack/csharp-original.svg" },
-                            "JS": { "id": 10, "type": "Image", "title": "JavaScript.jpg", "template": "/src/assets/images/Techstack/javascript-original.svg", "image": "/src/assets/images/Techstack/javascript-original.svg" },
-                            "TS": { "id": 10, "type": "Image", "title": "TypeScript.jpg", "template": "/src/assets/images/Techstack/typescript-original.svg", "image": "/src/assets/images/Techstack/typescript-original.svg" },
-                            "PHP": { "id": 10, "type": "Image", "title": "PHP.jpg", "template": "/src/assets/images/Techstack/php-original.svg", "image": "/src/assets/images/Techstack/php-original.svg" },
-                            "SQL": { "id": 10, "type": "Image", "title": "MySQL.jpg", "template": "/src/assets/images/Techstack/mysql-original-wordmark.svg", "image": "/src/assets/images/Techstack/mysql-original-wordmark.svg" },
-                            "WP": { "id": 10, "type": "Image", "title": "Wordpress.jpg", "template": "/src/assets/images/Techstack/wp.svg", "image": "/src/assets/images/Techstack/wp.svg" },
-                            "Laravel": { "id": 10, "type": "Image", "title": "Laravel.jpg", "template": "/src/assets/images/Techstack/laravel.svg", "image": "/src/assets/images/Techstack/laravel.svg" },
-                            "React": { "id": 10, "type": "Image", "title": "React.jpg", "template": "/src/assets/images/Techstack/react.svg", "image": "/src/assets/images/Techstack/react.svg" },
-                            "Unity": { "id": 10, "type": "Image", "title": "Unity Engine.jpg", "template": "/src/assets/images/Techstack/unity-engine.svg", "image": "/src/assets/images/Techstack/unity-engine.svg" },
-                            "PS": { "id": 10, "type": "Image", "title": "Photoshop.jpg", "template": "/src/assets/images/Techstack/ps.svg", "image": "/src/assets/images/Techstack/ps.svg" },
-                            "GIT": { "id": 10, "type": "Image", "title": "GIT.jpg", "template": "/src/assets/images/Techstack/git.svg", "image": "/src/assets/images/Techstack/git.svg" },
-                            "Docker": { "id": 10, "type": "Image", "title": "Docker.jpg", "template": "/src/assets/images/Techstack/docker-original-wordmark.svg", "image": "/src/assets/images/Techstack/docker-original-wordmark.svg" }
+                            "C": { "id": 8, "type": "Image", "title": "C.jpg", "template": "c-original.svg", "image": "c-original.svg" },
+                            "C++": { "id": 9, "type": "Image", "title": "C++.jpg", "template": "cplusplus-original.svg", "image": "cplusplus-original.svg" },
+                            "C#": { "id": 10, "type": "Image", "title": "C#.jpg", "template": "csharp-original.svg", "image": "csharp-original.svg" },
+                            "JS": { "id": 10, "type": "Image", "title": "JavaScript.jpg", "template": "javascript-original.svg", "image": "javascript-original.svg" },
+                            "TS": { "id": 10, "type": "Image", "title": "TypeScript.jpg", "template": "typescript-original.svg", "image": "typescript-original.svg" },
+                            "PHP": { "id": 10, "type": "Image", "title": "PHP.jpg", "template": "php-original.svg", "image": "php-original.svg" },
+                            "SQL": { "id": 10, "type": "Image", "title": "MySQL.jpg", "template": "mysql-original-wordmark.svg", "image": "mysql-original-wordmark.svg" },
+                            "WP": { "id": 10, "type": "Image", "title": "Wordpress.jpg", "template": "wp.svg", "image": "wp.svg" },
+                            "Laravel": { "id": 10, "type": "Image", "title": "Laravel.jpg", "template": "laravel.svg", "image": "laravel.svg" },
+                            "React": { "id": 10, "type": "Image", "title": "React.jpg", "template": "react.svg", "image": "react.svg" },
+                            "Unity": { "id": 10, "type": "Image", "title": "Unity Engine.jpg", "template": "unity-engine.svg", "image": "unity-engine.svg" },
+                            "PS": { "id": 10, "type": "Image", "title": "Photoshop.jpg", "template": "ps.svg", "image": "ps.svg" },
+                            "GIT": { "id": 10, "type": "Image", "title": "GIT.jpg", "template": "git.svg", "image": "git.svg" },
+                            "Docker": { "id": 10, "type": "Image", "title": "Docker.jpg", "template": "docker-original-wordmark.svg", "image": "docker-original-wordmark.svg" }
                         }
                     },
 
@@ -74,18 +74,19 @@
                 "icons": 
                 {
                     "Memes": { "id": 10, "type": "Folder", "title": "Memes", "template": "FolderTemplate", "icons": {
-                        "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "/src/assets/images/pepenolif.jpg", "image": "/src/assets/images/pepenolif.jpg" },
-                        "pepegamer": { "id": 8, "type": "Image", "title": "pepegamer.jpg", "template": "/src/assets/images/memes/pepegamer.jpg", "image": "/src/assets/images/memes/pepegamer.jpg" },
-                        "feelsdisconnected": { "id": 8, "type": "Image", "title": "feels\ndisconnected.jpg", "template": "/src/assets/images/memes/feelsdisconnected.jpg", "image": "/src/assets/images/memes/feelsdisconnected.jpg" },
-                        "dachshund": { "id": 8, "type": "Image", "title": "dachshund.jpg", "template": "/src/assets/images/memes/dachshund.jpg", "image": "/src/assets/images/memes/dachshund.jpg" },
-                        "pepehacker": { "id": 8, "type": "Image", "title": "pepehacker.gif", "template": "/src/assets/images/memes/pepehacker.gif", "image": "/src/assets/images/memes/pepehacker.jpg" },
-                        "linkedin": { "id": 8, "type": "Image", "title": "linkedin\nprofilowe.jpg", "template": "/src/assets/images/memes/linkedin.jpg", "image": "/src/assets/images/memes/linkedin.jpg" },
-                        "spongebob": { "id": 8, "type": "Image", "title": "spongebob.jpg", "template": "/src/assets/images/memes/spongebob.jpg", "image": "/src/assets/images/memes/spongebob.jpg" },
-                        "peperage": { "id": 8, "type": "Image", "title": "pepe_rage.jpg", "template": "/src/assets/images/memes/pepe_rage.jpg", "image": "/src/assets/images/memes/pepe_rage.jpg" },
-                        "szyszek": { "id": 8, "type": "Image", "title": "turkish\ncone.jpg", "template": "/src/assets/images/memes/turkish-cone.png", "image": "/src/assets/images/memes/turkish-cone.png" }
+                        "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" },
+                        "pepegamer": { "id": 8, "type": "Image", "title": "pepegamer.jpg", "template": "pepegamer.jpg", "image": "pepegamer.jpg" },
+                        "puki": { "id": 8, "type": "Image", "title": "spinning\nbuckler.jpg", "template": "spinning-buckler.jpg", "image": "spinning-buckler.jpg" },
+                        "feelsdisconnected": { "id": 8, "type": "Image", "title": "feels\ndisconnected.jpg", "template": "feelsdisconnected.jpg", "image": "feelsdisconnected.jpg" },
+                        "dachshund": { "id": 8, "type": "Image", "title": "dachshund.jpg", "template": "dachshund.jpg", "image": "dachshund.jpg" },
+                        "pepehacker": { "id": 8, "type": "Image", "title": "pepehacker.gif", "template": "pepehacker.gif", "image": "pepehacker.jpg" },
+                        "linkedin": { "id": 8, "type": "Image", "title": "linkedin\nprofilowe.jpg", "template": "linkedin.jpg", "image": "linkedin.jpg" },
+                        "spongebob": { "id": 8, "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "image": "spongebob.jpg" },
+                        "peperage": { "id": 8, "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "image": "pepe_rage.jpg" },
+                        "szyszek": { "id": 8, "type": "Image", "title": "turkish\npinecone.jpg", "template": "turkish-cone.png", "image": "turkish-cone.png" }
                     } }
-
                 }
+                
                 },
                 "Downloads": {"restricted": true},
                 "Music": {"restricted": true},
