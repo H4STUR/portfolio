@@ -39,6 +39,8 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
         return pdfIcon;
       case "JPG":
         return jpgIcon;
+      case "Image":
+        return jpgIcon;
       case "File":
         return fileIcon;
       case "Link":

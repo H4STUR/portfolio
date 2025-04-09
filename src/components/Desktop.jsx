@@ -8,6 +8,7 @@ import '../styles/desktop.css';
 import FolderWindow from './WindowTypes/FolderWindow';
 import PDFWindow from './WindowTypes/PDFWindow';
 import FileWindow from './WindowTypes/FileWindow';
+import ImageWindow from './WindowTypes/ImageWindow';
 import RecycleBin from './WindowTypes/RecycleBin';
 import MyComputer from './WindowTypes/MyComputer';
 import CMDWindow from './CMD/CMDWindow';
@@ -62,6 +63,7 @@ const Desktop = () => {
           title: value.title || key,
           initialPosition: value.initialPosition || { x: 0, y: 0 },
           template: value.template || '',
+          imageOverride: value.image || null,
           icons: value.icons ? parseFolderStructure(value.icons) : [] // Recursively parse nested icons
         });
       }
@@ -131,9 +133,17 @@ const Desktop = () => {
   return (
     <div className="desktop" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
       {desktopIcons.map((icon) => (
-        icon.type === 'Link'
-          ? <Icon key={icon.id} {...icon} onDoubleClick={() => window.open(icon.template, '_blank', 'noopener,noreferrer')} moveIcon={moveIcon} />
-          : <Icon key={icon.id} {...icon} onDoubleClick={() => openWindow(icon.type, icon.title, icon.template, icon.icons)} moveIcon={moveIcon} />
+        <Icon
+        key={icon.id}
+        {...icon}
+        imageOverride={icon.imageOverride}
+        onDoubleClick={() =>
+          icon.type === 'Link'
+            ? window.open(icon.template, '_blank', 'noopener,noreferrer')
+            : openWindow(icon.type, icon.title, icon.template, icon.icons)
+        }
+        moveIcon={moveIcon}
+      />
       ))}
       {windows.map((win) => {
         switch (win.type) {
@@ -149,6 +159,8 @@ const Desktop = () => {
             return <CMDWindow key={win.id} {...win} onClose={closeWindow} openWindow={openWindow}/>;
           case 'File':
             return <FileWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
+          case 'Image':
+            return <ImageWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
           case 'PDF':
             return <PDFWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
           case 'Paint':

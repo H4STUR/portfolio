@@ -45,6 +45,7 @@
 
 .folder-content {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -53,6 +54,8 @@
 
 .notepad-window
 {
+  min-width: 300px;
+  min-height: 300px;
   background-color: white;
   color: black;
   display: flex;
