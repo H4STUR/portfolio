@@ -4,6 +4,8 @@ const help = (params = []) => {
     { command: 'HELP', description: 'List all available commands' },
     { command: 'CLS', description: 'Clears the screen' },
     { command: 'CD', description: 'Change the current directory' },
+    { command: 'DIR', description: 'List the contents of the current directory' },
+    { command: 'TYPE', description: 'Display the contents of a file' },
     { command: 'DATE', description: 'Display the date and time' },
     { command: 'NOTEPAD', description: 'Open the notepad' },
     { command: 'EXIT', description: 'Exit the program' }

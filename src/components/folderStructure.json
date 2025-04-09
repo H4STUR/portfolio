@@ -36,7 +36,7 @@
                         }
                     },
 
-                    "Projects": { "type": "Folder", "title": "Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
+                    "Projects": { "type": "Folder", "title": "My Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
                             "idDesign": { "id": 8, "type": "Link", "title": "idDesign.pl", "initialPosition": { "x": 20, "y": 400 }, "template": "https://id-design.pl/en" },
@@ -47,20 +47,20 @@
                     "TECH STACK": { "type": "Folder", "title": "TECH STACK", "initialPosition": { "x": 320, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "C": { "id": 8, "type": "Image", "title": "C.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/c-original.svg", "image": "/src/assets/images/Techstack/c-original.svg" },
-                            "C++": { "id": 9, "type": "Image", "title": "C++.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/cplusplus-original.svg", "image": "/src/assets/images/Techstack/cplusplus-original.svg" },
-                            "C#": { "id": 10, "type": "Image", "title": "C#.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/csharp-original.svg", "image": "/src/assets/images/Techstack/csharp-original.svg" },
-                            "JS": { "id": 10, "type": "Image", "title": "JavaScript.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/javascript-original.svg", "image": "/src/assets/images/Techstack/javascript-original.svg" },
-                            "TS": { "id": 10, "type": "Image", "title": "TypeScript.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/typescript-original.svg", "image": "/src/assets/images/Techstack/typescript-original.svg" },
-                            "PHP": { "id": 10, "type": "Image", "title": "PHP.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/php-original.svg", "image": "/src/assets/images/Techstack/php-original.svg" },
-                            "SQL": { "id": 10, "type": "Image", "title": "MySQL.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/mysql-original-wordmark.svg", "image": "/src/assets/images/Techstack/mysql-original-wordmark.svg" },
-                            "WP": { "id": 10, "type": "Image", "title": "Wordpress.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/wp.svg", "image": "/src/assets/images/Techstack/wp.svg" },
-                            "Laravel": { "id": 10, "type": "Image", "title": "Laravel.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/laravel.svg", "image": "/src/assets/images/Techstack/laravel.svg" },
-                            "React": { "id": 10, "type": "Image", "title": "React.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/react.svg", "image": "/src/assets/images/Techstack/react.svg" },
-                            "Unity": { "id": 10, "type": "Image", "title": "Unity Engine.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/unity-engine.svg", "image": "/src/assets/images/Techstack/unity-engine.svg" },
-                            "PS": { "id": 10, "type": "Image", "title": "Photoshop.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/ps.svg", "image": "/src/assets/images/Techstack/ps.svg" },
-                            "GIT": { "id": 10, "type": "Image", "title": "GIT.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/git.svg", "image": "/src/assets/images/Techstack/git.svg" },
-                            "Docker": { "id": 10, "type": "Image", "title": "Docker.jpg", "initialPosition": { "x": 20, "y": 400 }, "template": "/src/assets/images/Techstack/docker-original-wordmark.svg", "image": "/src/assets/images/Techstack/docker-original-wordmark.svg" }
+                            "C": { "id": 8, "type": "Image", "title": "C.jpg", "template": "/src/assets/images/Techstack/c-original.svg", "image": "/src/assets/images/Techstack/c-original.svg" },
+                            "C++": { "id": 9, "type": "Image", "title": "C++.jpg", "template": "/src/assets/images/Techstack/cplusplus-original.svg", "image": "/src/assets/images/Techstack/cplusplus-original.svg" },
+                            "C#": { "id": 10, "type": "Image", "title": "C#.jpg", "template": "/src/assets/images/Techstack/csharp-original.svg", "image": "/src/assets/images/Techstack/csharp-original.svg" },
+                            "JS": { "id": 10, "type": "Image", "title": "JavaScript.jpg", "template": "/src/assets/images/Techstack/javascript-original.svg", "image": "/src/assets/images/Techstack/javascript-original.svg" },
+                            "TS": { "id": 10, "type": "Image", "title": "TypeScript.jpg", "template": "/src/assets/images/Techstack/typescript-original.svg", "image": "/src/assets/images/Techstack/typescript-original.svg" },
+                            "PHP": { "id": 10, "type": "Image", "title": "PHP.jpg", "template": "/src/assets/images/Techstack/php-original.svg", "image": "/src/assets/images/Techstack/php-original.svg" },
+                            "SQL": { "id": 10, "type": "Image", "title": "MySQL.jpg", "template": "/src/assets/images/Techstack/mysql-original-wordmark.svg", "image": "/src/assets/images/Techstack/mysql-original-wordmark.svg" },
+                            "WP": { "id": 10, "type": "Image", "title": "Wordpress.jpg", "template": "/src/assets/images/Techstack/wp.svg", "image": "/src/assets/images/Techstack/wp.svg" },
+                            "Laravel": { "id": 10, "type": "Image", "title": "Laravel.jpg", "template": "/src/assets/images/Techstack/laravel.svg", "image": "/src/assets/images/Techstack/laravel.svg" },
+                            "React": { "id": 10, "type": "Image", "title": "React.jpg", "template": "/src/assets/images/Techstack/react.svg", "image": "/src/assets/images/Techstack/react.svg" },
+                            "Unity": { "id": 10, "type": "Image", "title": "Unity Engine.jpg", "template": "/src/assets/images/Techstack/unity-engine.svg", "image": "/src/assets/images/Techstack/unity-engine.svg" },
+                            "PS": { "id": 10, "type": "Image", "title": "Photoshop.jpg", "template": "/src/assets/images/Techstack/ps.svg", "image": "/src/assets/images/Techstack/ps.svg" },
+                            "GIT": { "id": 10, "type": "Image", "title": "GIT.jpg", "template": "/src/assets/images/Techstack/git.svg", "image": "/src/assets/images/Techstack/git.svg" },
+                            "Docker": { "id": 10, "type": "Image", "title": "Docker.jpg", "template": "/src/assets/images/Techstack/docker-original-wordmark.svg", "image": "/src/assets/images/Techstack/docker-original-wordmark.svg" }
                         }
                     },
 

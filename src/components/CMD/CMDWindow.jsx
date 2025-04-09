@@ -59,7 +59,7 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
     return matches.map(s => s.replace(/^"|"$/g, ''));
   };
 
-  const handleCommand = () => {
+  const handleCommand = async () => {
     const [command, ...params] = parseCommand(input.trim());
     let output;
     const pathBeforeCommand = currentPath.join('\\'); // Store the path before executing the command
@@ -92,7 +92,33 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
         output = result.message;
         break;
       }
-        
+
+      case 'type': {
+        if (params.length === 0) {
+          output = 'Usage: type [filename]';
+          break;
+        }
+      
+        const filename = params[0].toLowerCase();
+        const fileKey = Object.keys(currentFolder).find(key => key.toLowerCase() === filename);
+        const file = currentFolder[fileKey];
+      
+        if (!file || !file.template) {
+          output = `The system cannot find the file: ${params[0]}`;
+          break;
+        }
+      
+        try {
+          const loadedContent = await import(`../Templates/File/${file.template}.js`);
+          output = loadedContent.default;
+        } catch (err) {
+          console.error('Error loading template:', err);
+          output = `Error reading file: ${params[0]}`;
+        }
+      
+        break;
+      }
+      
       case 'dir':
         output = handleDIR();
         break;
@@ -115,6 +141,12 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
       case 'exit':
         onClose(id);
         return;
+
+      case 'ls':
+      case 'cat':
+        output = `${command}? Sounds like a Linux command :)`;
+        break;
+        
       default:
         output = `Unknown command: ${command}`;
         break;
