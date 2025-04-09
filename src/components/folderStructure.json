@@ -70,7 +70,23 @@
 
                     "GitHub": { "type": "Link", "title": "GitHub", "initialPosition": { "x": 20, "y": 520 }, "template": "https://github.com/H4STUR" }
                 },
-                "Documents": {"restricted": true},
+                "My Documents": { "type": "Folder", "title": "My Documents", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
+                "icons": 
+                {
+                    "Memes": { "id": 10, "type": "Folder", "title": "Memes", "template": "FolderTemplate", "icons": {
+                        "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "/src/assets/images/pepenolif.jpg", "image": "/src/assets/images/pepenolif.jpg" },
+                        "pepegamer": { "id": 8, "type": "Image", "title": "pepegamer.jpg", "template": "/src/assets/images/memes/pepegamer.jpg", "image": "/src/assets/images/memes/pepegamer.jpg" },
+                        "feelsdisconnected": { "id": 8, "type": "Image", "title": "feels\ndisconnected.jpg", "template": "/src/assets/images/memes/feelsdisconnected.jpg", "image": "/src/assets/images/memes/feelsdisconnected.jpg" },
+                        "dachshund": { "id": 8, "type": "Image", "title": "dachshund.jpg", "template": "/src/assets/images/memes/dachshund.jpg", "image": "/src/assets/images/memes/dachshund.jpg" },
+                        "pepehacker": { "id": 8, "type": "Image", "title": "pepehacker.gif", "template": "/src/assets/images/memes/pepehacker.gif", "image": "/src/assets/images/memes/pepehacker.jpg" },
+                        "linkedin": { "id": 8, "type": "Image", "title": "linkedin\nprofilowe.jpg", "template": "/src/assets/images/memes/linkedin.jpg", "image": "/src/assets/images/memes/linkedin.jpg" },
+                        "spongebob": { "id": 8, "type": "Image", "title": "spongebob.jpg", "template": "/src/assets/images/memes/spongebob.jpg", "image": "/src/assets/images/memes/spongebob.jpg" },
+                        "peperage": { "id": 8, "type": "Image", "title": "pepe_rage.jpg", "template": "/src/assets/images/memes/pepe_rage.jpg", "image": "/src/assets/images/memes/pepe_rage.jpg" },
+                        "szyszek": { "id": 8, "type": "Image", "title": "turkish\ncone.jpg", "template": "/src/assets/images/memes/turkish-cone.png", "image": "/src/assets/images/memes/turkish-cone.png" }
+                    } }
+
+                }
+                },
                 "Downloads": {"restricted": true},
                 "Music": {"restricted": true},
                 "Videos": {"restricted": true}

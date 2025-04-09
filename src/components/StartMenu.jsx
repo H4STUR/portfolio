@@ -1,5 +1,7 @@
 // StartMenu.jsx
 import React, { useState, forwardRef } from 'react';
+import folderStructure from './folderStructure.json';
+
 import '../styles/startMenu.css';
 import profileImage from '../assets/images/pepenolif.jpg';
 import shutdown_btn from '../assets/images/shutdown-button-xp.png';
@@ -27,6 +29,18 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
     window.location.reload();
   };
 
+  const parseFolderStructure = (items) => {
+    return Object.entries(items).map(([key, value]) => ({
+      id: value.id || Math.random(),
+      type: value.type,
+      title: value.title || key,
+      initialPosition: value.initialPosition || { x: 0, y: 0 },
+      template: value.template || '',
+      imageOverride: value.image || null,
+      icons: value.icons ? parseFolderStructure(value.icons) : []
+    }));
+  };
+  
   return (
     <div ref={ref}>
       {!showShutdownModal && !showBlackScreen && (
@@ -51,9 +65,23 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
             </div>
             <div className="start-menu-middle-right">
               <ul className="start-menu-elements">
-                <li onClick={() => onOpenWindow('My Documents', 'My Documents', 'MyComputerTemplate')}>
-                  <img src={myDocumentsIcon} alt="My Documents" className="start-menu-icon" /> My Documents
-                </li>
+
+              <li
+                onClick={() => {
+                  const myDocs = folderStructure?.C?.Users?.Danio?.['My Documents'];
+                  if (myDocs && myDocs.icons) {
+                    const parsedIcons = parseFolderStructure(myDocs.icons);
+                    onOpenWindow('Folder', 'My Documents', 'FolderTemplate', parsedIcons);
+                  } else {
+                    console.warn('My Documents not found or has no icons');
+                  }
+                }}
+              >
+                <img src={myDocumentsIcon} alt="My Documents" className="start-menu-icon" /> My Documents
+              </li>
+
+
+
                 <li onClick={() => onOpenWindow('My Computer', 'My Computer', 'MyComputerTemplate')}>
                   <img src={myComputerIcon} alt="My Computer" className="start-menu-icon" /> My Computer
                 </li>
