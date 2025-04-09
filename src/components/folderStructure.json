@@ -15,6 +15,16 @@
         "Users": {
 
             "Danio": {
+                "AppData": {
+                    "Roaming": {
+                        ".minecraft": {"restricted": true},
+                        "Adobe": {"restricted": true},
+                        "GameRanger": {"restricted": true},
+                        "Megasoft": {"restricted": true},
+                        "My Battle for Middle-earth(tm) II Files": {"restricted": true}
+
+                        }
+                },
                 "Desktop": {
 
                     "Recycle Bin": { "type": "Recycle Bin", "title": "Recycle Bin", "initialPosition": { "x": 20, "y": 20 }, "template": "RecycleBinTemplate",
@@ -70,7 +80,7 @@
 
                     "GitHub": { "type": "Link", "title": "GitHub", "initialPosition": { "x": 20, "y": 520 }, "template": "https://github.com/H4STUR" }
                 },
-                "My Documents": { "type": "Folder", "title": "My Documents", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
+                "My Documents": { "type": "Folder", "title": "My Documents", "template": "FolderTemplate",
                 "icons": 
                 {
                     "Memes": { "id": 10, "type": "Folder", "title": "Memes", "template": "FolderTemplate", "icons": {
@@ -84,9 +94,11 @@
                         "spongebob": { "id": 8, "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "image": "spongebob.jpg" },
                         "peperage": { "id": 8, "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "image": "pepe_rage.jpg" },
                         "szyszek": { "id": 8, "type": "Image", "title": "turkish\npinecone.jpg", "template": "turkish-cone.png", "image": "turkish-cone.png" }
-                    } }
+                    } },
+                    "TODO.txt": { "type": "File", "title": "TODO.txt", "template": "todoTemplate" }
+
                 }
-                
+
                 },
                 "Downloads": {"restricted": true},
                 "Music": {"restricted": true},

@@ -125,10 +125,7 @@ const PDFTemplate = () => {
             <div className="section">
               <p>I took pride in developing a variety of commercial websites using Laravel and WordPress, delivering tailored solutions for business clients.</p>
             </div>
-            <h3>Portfolio</h3>
-            <div className="section">
-              <p>I invite you to explore my portfolio website, a fun side project I thoroughly enjoyed creating, showcasing my skills and projects in greater detail. <a href="https://portfolio.agares.co.uk/" target="_blank" rel="noopener noreferrer">Visit my portfolio</a></p>
-            </div>
+            
           </div>
         </div>
       </div>

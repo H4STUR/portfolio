@@ -7,6 +7,8 @@ const loadTemplate = async (template) => {
         return (await import('../Templates/File/NotesTemplate')).default;
       case 'readmeTemplate':
         return (await import('../Templates/File/readmeTemplate')).default;
+      case 'todoTemplate':
+        return (await import('../Templates/File/todoTemplate')).default;
       case 'LockedTemplate':
         return (await import('../Templates/File/LockedTemplate')).default;
     //PDF
