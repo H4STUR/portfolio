@@ -1,3 +1,8 @@
+body {
+  font-family: 'Tahoma', 'Segoe UI', 'Arial', sans-serif;
+  font-size: 13px;
+}
+
 .window {
   min-width: 300px;
   min-height: 200px;

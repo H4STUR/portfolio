@@ -37,24 +37,25 @@
 
                     "My Computer": { "type": "My Computer", "title": "My Computer", "initialPosition": { "x": 20, "y": 120 }, "template": "MyComputerTemplate" },
 
-                    "Email": { "type": "Email", "title": "Email", "initialPosition": { "x": 20, "y": 220 }, "template": "Emial" },
+                    "Email": { "type": "Email", "title": "Email", "initialPosition": { "x": 20, "y": 320 }, "template": "Emial" },
 
                     "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate", "password": "jp2gmd", "restricted": true,
                         "icons": 
                         { 
-                            "README.txt": { "id": 10, "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 320 }, "template": "LockedTemplate" }
+                            "README.txt": { "id": 10, "type": "File", "title": "README.txt", "template": "LockedTemplate" }
                         }
                     },
 
                     "Projects": { "type": "Folder", "title": "My Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "idDesign": { "id": 8, "type": "Link", "title": "idDesign.pl", "initialPosition": { "x": 20, "y": 400 }, "template": "https://id-design.pl/en" },
-                            "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "initialPosition": { "x": 20, "y": 400 }, "template": "https://piescimordelizal.pl" },
-                            "Nested Folder": { "id": 10, "type": "Folder", "title": "Nested Folder", "initialPosition": { "x": 80, "y": 0 }, "template": "FolderTemplate", "icons": {} }
+                            "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" }
                         }
                     },
-                    "TECH STACK": { "type": "Folder", "title": "TECH STACK", "initialPosition": { "x": 320, "y": 120 }, "template": "FolderTemplate",
+                    "Xeox": { "id": 8, "type": "Link", "title": "XEOX.pl\n2020-2022", "initialPosition": { "x": 220, "y": 220 }, "template": "https://xeox.pl/en" },
+                    "idDesign": { "id": 8, "type": "Link", "title": "idDesign.pl\nsince 2022", "initialPosition": { "x": 320, "y": 220 }, "template": "https://id-design.pl/en" },
+
+                    "TECH STACK": { "type": "Folder", "title": "Tech Stack", "initialPosition": { "x": 320, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
                             "C": { "id": 8, "type": "Image", "title": "C.jpg", "template": "c-original.svg", "image": "c-original.svg" },

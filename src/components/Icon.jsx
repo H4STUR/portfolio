@@ -70,7 +70,9 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
   const iconElement = (
     <div className="icon" onClick={onClick} onDoubleClick={onDoubleClick}>
       <img src={getImageSrc()} alt={title} />
-      <span>{title}</span>
+      {/* <span>{title}</span> */}
+      <span dangerouslySetInnerHTML={{ __html: title.replace(/\n/g, '<br/>') }} />
+
     </div>
   );
 
@@ -81,7 +83,7 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
   return (
     <Rnd
       bounds="parent"
-      size={{ width: 80, height: 100 }}
+      size={{ width: 100, height: 100 }}
       position={position}
       onDragStop={onDragStop}
       enableResizing={false}
