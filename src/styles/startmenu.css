@@ -58,6 +58,7 @@
 
 .start-menu-middle-left ul li
 {
+  font-size: 1.2em;
   padding-left: 20px;
   background-color: unset;
   color: black;
@@ -65,6 +66,7 @@
 
 .start-menu-middle-right ul li
 {
+  font-size: 1.2em;
   padding-left: 20px;
   background-color: unset;
   color: black;

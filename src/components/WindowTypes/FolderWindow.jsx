@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import Window from '../Window';
 import loadTemplate from './templateLoader';
 
-const FolderWindow = ({ id, title, onClose, position, template, icons, openWindow, initialSize = { width: 600, height: 450 } }) => {
+const FolderWindow = ({ id, title, onClose, position, template, icons, openWindow, initialSize = { width: 650, height: 450 } }) => {
   const [TemplateComponent, setTemplateComponent] = useState(null);
   const [size, setSize] = useState(initialSize); // State for window size
 

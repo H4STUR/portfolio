@@ -40,10 +40,14 @@ const NewMessage = () => {
 
   return (
     <div className="new-message">
-      <h3>New Message</h3>
+      <h3 style={{ marginTop: '0px', marginBottom: '10px'}}>New Message</h3>
       <div className="form-group">
         <label>From:</label>
         <input type="email" name="from" value={formData.from} onChange={handleChange} />
+      </div>
+      <div className="form-group">
+        <label>To:</label>
+        <input type="to" name="to" value={formData.to} onChange={handleChange} placeholder='lucas.majerski@agares.co.uk' disabled/>
       </div>
       <div className="form-group">
         <label>Subject:</label>

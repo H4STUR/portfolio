@@ -49,6 +49,7 @@
                     "Projects": { "type": "Folder", "title": "My Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
+                            "demo.agares.co.uk": { "id": 9, "type": "Link", "title": "CMS\nDemo", "template": "https://demo.agares.co.uk" },
                             "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" }
                         }
                     },
