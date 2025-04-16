@@ -19,7 +19,8 @@ import DSJ from './DSJ/DeluxeSkiJumpApp';
 import Email from './Email/EmailApp';
 
 // Images
-import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
+// import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
+import backgroundImage from '../assets/images/generated/xp-wallpaper-ai.png';
 
 // Import the folder structure JSON directly
 import folderStructure from './folderStructure.json';

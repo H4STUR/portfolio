@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/loadingScreen.css';
-import windowsLogo from '../assets/images/windows-logo.png'; //windows logo
+import windowsLogo from '../assets/images/generated/xp-logo-ai.png'; //windows logo
 
 const ShutdownModal = () => {
   return (

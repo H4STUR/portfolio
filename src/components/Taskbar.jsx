@@ -4,7 +4,7 @@ import '../styles/taskbar.css';
 import StartMenu from './StartMenu';
 import Clock from './Clock';
 import Icon from './Icon';
-import windowsLogo from '../assets/images/windows-logo.png';
+import windowsLogo from '../assets/images/generated/xp-logo-ai.png';
 
 const Taskbar = ({ openWindow }) => {
   const [isStartMenuOpen, setIsStartMenuOpen] = useState(false);
