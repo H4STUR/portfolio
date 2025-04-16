@@ -1,0 +1,28 @@
+/* styles/bluescreen.css */
+.bluescreen {
+    position: fixed;
+    inset: 0;
+    background-color: #0000aa;
+    color: #ffffff;
+    font-family: 'Lucida Console', Monaco, monospace;
+    font-size: 14px;
+    padding: 40px;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+  }
+  
+  .bsod-text {
+    font-size: 1.5em;
+    text-align: left;
+    white-space: pre-wrap;
+  }
+  
+  .error-code {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  

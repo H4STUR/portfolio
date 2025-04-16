@@ -2,9 +2,9 @@ import React, { Suspense, useEffect, useState } from 'react';
 import Window from '../Window';
 import loadTemplate from './templateLoader';
 
-const RecycleBin = ({ id, title, onClose, position, template, icons, openWindow }) => {
+const RecycleBin = ({ id, title, onClose, position, template, icons, openWindow, initialSize = { width: 650, height: 450 } }) => {
   const [TemplateComponent, setTemplateComponent] = useState(null);
-  const [windowSize, setWindowSize] = useState({ width: 600, height: 400 }); // Set initial size for the Recycle Bin window
+  const [size, setSize] = useState(initialSize); // State for window size
 
   useEffect(() => {
     const loadComponent = async () => {
@@ -18,27 +18,30 @@ const RecycleBin = ({ id, title, onClose, position, template, icons, openWindow 
     loadComponent();
   }, [template]);
 
-  // Handle resizing the window
-  const handleResizeStop = (e, direction, ref, delta, position) => {
-    setWindowSize({ width: ref.offsetWidth, height: ref.offsetHeight });
-  };
-
   if (!TemplateComponent) {
     return <div>Loading...</div>;
   }
 
+  // Function to adjust window size based on the content
+  const adjustWindowSize = (newSize) => {
+    setSize(newSize);
+  };
+
   return (
-    <Window 
-      id={id} 
-      title={title} 
-      onClose={onClose} 
-      position={position} 
-      size={windowSize} 
-      className="window recycle-bin-window" 
-      onResizeStop={handleResizeStop} // Pass resize handler to Window component
+    <Window
+      id={id}
+      title={title}
+      onClose={onClose}
+      position={position}
+      size={size}
+      className="window" // Add any additional classes if needed
     >
       <Suspense fallback={<div>Loading...</div>}>
-        <TemplateComponent icons={icons} openWindow={openWindow} />
+        <TemplateComponent
+          icons={icons}
+          openWindow={openWindow}
+          adjustWindowSize={adjustWindowSize} // Pass function to adjust window size
+        />
       </Suspense>
     </Window>
   );

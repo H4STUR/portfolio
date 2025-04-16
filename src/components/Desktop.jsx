@@ -11,12 +11,15 @@ import FileWindow from './WindowTypes/FileWindow';
 import ImageWindow from './WindowTypes/ImageWindow';
 import RecycleBin from './WindowTypes/RecycleBin';
 import MyComputer from './WindowTypes/MyComputer';
+import AlertWindow from './WindowTypes/AlertWindow';
 import CMDWindow from './CMD/CMDWindow';
 import PasswordPrompt from './WindowTypes/PasswordPrompt';
 import Paint from './Paint/PaintApp';
 import Minesweeper from './Minesweeper/MinesweeperApp';
 import DSJ from './DSJ/DeluxeSkiJumpApp';
 import Email from './Email/EmailApp';
+import BlueScreen from './BlueScreen';
+
 
 // Images
 // import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
@@ -29,6 +32,7 @@ const Desktop = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [windows, setWindows] = useState([]);
   const [desktopIcons, setDesktopIcons] = useState([]);
+  const [isCrashed, setIsCrashed] = useState(false);
 
   useEffect(() => {
     try {
@@ -49,6 +53,7 @@ const Desktop = () => {
       setIsLoading(false);
     }
   }, []);
+  
 
   // Recursive function to parse the folder structure and create icons
   const parseFolderStructure = (items) => {
@@ -73,7 +78,7 @@ const Desktop = () => {
     return icons;
   };
 
-  const openWindow = (type, title, template, icons = []) => {
+  const openWindow = (type, title, template, icons = [], position = { x: 100, y: 100 }) => {
     setWindows((prev) => {
       const alreadyOpen = prev.some(
         (w) => w.type === type && w.title === title
@@ -90,7 +95,8 @@ const Desktop = () => {
           id: prev.length,
           type,
           title,
-          position: { x: 100, y: 100 },
+          // position: icons.position || { x: 100, y: 100 },
+          position,
           template,
           icons,
         },
@@ -149,7 +155,7 @@ const Desktop = () => {
       {windows.map((win) => {
         switch (win.type) {
           case 'Recycle Bin':
-            return <RecycleBin key={win.id} {...win} onClose={closeWindow} />;
+            return <RecycleBin key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
           case 'My Computer':
             return <MyComputer key={win.id} {...win} onClose={closeWindow} />;
           case 'Folder':
@@ -172,10 +178,38 @@ const Desktop = () => {
             return <DSJ key={win.id} {...win} onClose={closeWindow} />;
           case 'Email':
             return <Email key={win.id} {...win} onClose={closeWindow} />;
+          case 'Alert':
+            return <AlertWindow key={win.id} {...win} onClose={closeWindow} />;
+
+          case 'Crush':
+            const errorCount = 8;
+
+            for (let i = 0; i < errorCount; i++) {
+              setTimeout(() => {
+                const alertWidth = 350;
+                const alertHeight = 200;
+
+                const randomX = Math.floor(Math.random() * (window.innerWidth - alertWidth - 40));
+                const randomY = Math.floor(Math.random() * (window.innerHeight - alertHeight - 40));
+
+                openWindow('Alert', `System Error ${i + 1}`, '', [], { x: randomX, y: randomY });
+              }, i * 200);
+            }
+
+            // Trigger bluescreen after all errors popped
+            setTimeout(() => {
+              setIsCrashed(true);
+            }, errorCount * 200 + 1000);
+
+            return null;
+
+            
           default:
             return null;
         }
       })}
+
+      {isCrashed && <BlueScreen />}
       <Taskbar openWindow={openWindow} />
     </div>
   );

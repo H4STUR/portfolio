@@ -27,11 +27,11 @@
                 },
                 "Desktop": {
 
-                    "Recycle Bin": { "type": "Recycle Bin", "title": "Recycle Bin", "initialPosition": { "x": 20, "y": 20 }, "template": "RecycleBinTemplate",
+                    "Recycle Bin": { "type": "Recycle Bin", "title": "Recycle Bin", "initialPosition": { "x": 20, "y": 20 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "Diablo IV.exe": { "id": 11, "type": "Game", "title": "Diablo IV.exe", "initialPosition": { "x": 0, "y": 0 } },
-                            "The Rings of Power.mp4": { "id": 12, "type": "Game", "title": "The Rings of Power.mp4", "initialPosition": { "x": 0, "y": 0 } }
+                            "Diablo IV.exe": {"type": "Crush", "title": "Diablo IV.exe"},
+                            "The Rings of Power.mp4": {"type": "Bin", "title": "The Rings of Power.mp4"}
                         }
                     },
 
