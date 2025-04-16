@@ -1,7 +1,14 @@
 import React from 'react';
 
 const EmailFolders = ({ currentFolder, onFolderChange }) => {
-  const folders = ['inbox [69]', 'sent [5]', 'drafts [3]', 'deleted [1]'];
+
+  const folders = [
+    { label: 'Inbox [69]', key: 'inbox' },
+    { label: 'Sent [5]', key: 'sent' },
+    { label: 'Drafts [3]', key: 'drafts' },
+    { label: 'Deleted [1]', key: 'deleted' },
+  ];
+  
 
   return (
     <div className="email-folders">
@@ -14,14 +21,14 @@ const EmailFolders = ({ currentFolder, onFolderChange }) => {
           New Message
         </li> */}
         {folders.map((folder) => (
-          <li
-            key={folder}
-            className={currentFolder === folder ? 'active-folder' : ''}
-            onClick={() => onFolderChange(folder)}
-          >
-            {folder.charAt(0).toUpperCase() + folder.slice(1)}
-          </li>
-        ))}
+            <li
+              key={folder.key}
+              className={currentFolder === folder.key ? 'active-folder' : ''}
+              onClick={() => onFolderChange(folder.key)}
+            >
+              {folder.label}
+            </li>
+          ))}
       </ul>
     </div>
   );

@@ -18,7 +18,7 @@ class EmailController extends Controller
         Mail::raw($validated['message'], function ($mail) use ($validated) {
             $mail->to(env('MAIL_TO_ADDRESS', 'your@email.com'))
                  ->from($validated['from'])
-                 ->subject($validated['subject']);
+                 ->subject('Portfolio | ' .$validated['subject']);
         });
 
         return response()->json(['message' => 'Email sent successfully!']);

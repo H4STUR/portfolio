@@ -63,7 +63,7 @@ const NewMessage = () => {
         ></textarea>
       </div>
       <div className="send-row">
-        <button className="send-button" onClick={handleSubmit}>Send</button>
+        <button className="mail-button send-button" onClick={handleSubmit}>Send</button>
         {status && <span className={`inline-status ${status.includes('Failed') ? 'error' : 'success'}`}>{status}</span>}
       </div>
 
