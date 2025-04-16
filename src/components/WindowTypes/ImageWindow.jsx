@@ -17,7 +17,7 @@ const ImageWindow = ({ id, title, onClose, position, template, initialSize = { w
       position={position}
       size={size}
       setSize={setSize}
-      className="notepad-window"
+      className="window notepad-window"
     >
       <div className="image-window-content">
         {imageSrc ? (

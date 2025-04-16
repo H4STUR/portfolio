@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EmailFolders = ({ currentFolder, onFolderChange }) => {
+const EmailFolders = ({ onNewMessage, currentFolder, onFolderChange }) => {
 
   const folders = [
     { label: 'Inbox [69]', key: 'inbox' },
@@ -12,6 +12,9 @@ const EmailFolders = ({ currentFolder, onFolderChange }) => {
 
   return (
     <div className="email-folders">
+      <div className="email-topbar">
+        <button onClick={onNewMessage}>New Message</button>
+      </div>
       <h3>Folders</h3>
       <ul>
         {/* <li

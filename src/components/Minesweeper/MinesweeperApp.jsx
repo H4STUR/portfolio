@@ -91,7 +91,7 @@ const MinesweeperApp = ({ id, title, onClose, position }) => {
           ? scoreboardSize
           : helpSize
       }
-    className={`minesweeper-window difficulty-${difficulty}`}
+    className={`window minesweeper-window difficulty-${difficulty}`}
     >
       <div className="minesweeper-difficulty-header">
         <select value={difficulty} onChange={handleDifficultyChange}>

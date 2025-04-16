@@ -4,7 +4,7 @@ import loadTemplate from './templateLoader';
 
 const PDFWindow = ({ id, title, onClose, position, template }) => {
   const [TemplateComponent, setTemplateComponent] = useState(null);
-  const [windowSize, setWindowSize] = useState({ width: 600, height: 400 }); // Set initial size for the PDF window
+  const [windowSize, setWindowSize] = useState({ width: 650, height: 450 }); // Set initial size for the PDF window
 
   useEffect(() => {
     const loadComponent = async () => {

@@ -30,7 +30,7 @@ const FileWindow = ({ id, title, onClose, position, template, initialSize = { wi
       onClose={onClose}
       position={position}
       size={size}
-      className="notepad-window"
+      className="window notepad-window"
     >
       <div className="window-content">
         <textarea

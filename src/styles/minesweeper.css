@@ -5,7 +5,7 @@
   }
   
   .minesweeper-window {
-    min-width: 236px;
+    min-width: 246px;
     min-height: 388px;
     background-color: #c3c3c3;
     color: white;
@@ -17,6 +17,16 @@
     overflow: hidden; /* Prevent the cmd-window from overflowing */
   }
   
+  .minesweeper-window.difficulty-Medium {
+    min-width: 442px;
+    min-height: 581px;
+  }
+
+  .minesweeper-window.difficulty-Hard {
+    min-width: 820px;
+    min-height: 582px;
+  }
+
   .minesweeper-window > .window-content
   {
     padding: 0px;

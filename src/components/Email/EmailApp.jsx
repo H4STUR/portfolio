@@ -76,15 +76,15 @@ const EmailApp = ({ id, title, onClose, position }) => {
       position={position}
       size={size} // Pass size back to Window
       setSize={setSize} // Pass the setSize method to allow resizing
-      className="email-window"
+      className="window email-window"
     >
       {/* Top Bar */}
-      <TopBar onNewMessage={() => setCurrentFolder('new')} />
+      {/* <TopBar onNewMessage={() => setCurrentFolder('new')} /> */}
 
       {/* Main Content */}
       <div className="email-content">
         {/* Sidebar: Folders */}
-        <EmailFolders currentFolder={currentFolder} onFolderChange={setCurrentFolder} />
+        <EmailFolders onNewMessage={() => setCurrentFolder('new')} currentFolder={currentFolder} onFolderChange={setCurrentFolder} />
 
         {/* Main View */}
         <div className="email-view">
