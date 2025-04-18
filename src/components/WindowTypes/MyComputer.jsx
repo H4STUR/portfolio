@@ -36,7 +36,9 @@ const MyComputer = ({ id, title, onClose, position, template, icons, openWindow,
       className="window my-computer-window"
     >
       <Suspense fallback={<div>Loading...</div>}>
-        <TemplateComponent icons={icons} openWindow={openWindow} />
+        {/* <TemplateComponent icons={icons} openWindow={openWindow} /> */}
+        <TemplateComponent icons={icons} onOpenWindow={openWindow} />
+
       </Suspense>
     </Window>
   );

@@ -157,7 +157,7 @@ const Desktop = () => {
           case 'Recycle Bin':
             return <RecycleBin key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
           case 'My Computer':
-            return <MyComputer key={win.id} {...win} onClose={closeWindow} />;
+            return <MyComputer key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow}/>;
           case 'Folder':
             return <FolderWindow key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
           case 'FolderLocked':

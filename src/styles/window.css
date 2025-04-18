@@ -130,6 +130,10 @@ body {
   flex-basis: 60%;
 }
 
+.password-prompt-buttons
+{
+  margin-right: 10px;
+}
 .password-prompt-buttons > button
 {
   width: 100%;
@@ -141,7 +145,7 @@ body {
 
 .password-prompt-buttons > button:hover
 {
-  border: 2px solid #006abe;
+  border: -2px solid #006abe;
 }
 
 
