@@ -47,7 +47,7 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
         <div className="start-menu">
           <div className="start-menu-top">
             <img src={profileImage} alt="Profile" className="start-menu-profile-picture" />
-            <p className="profile-name">Danio</p>
+            <p className="profile-name">Root</p>
           </div>
           <div className="start-menu-middle">
             <div className="start-menu-middle-left">

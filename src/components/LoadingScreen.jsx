@@ -16,7 +16,7 @@ const LoadingScreen = () => {
         <div className="profile">
           <img src={profileImage} alt="Profile" className="profile-picture" />
           <div className="profile-info">
-            <p>Danio</p>
+            <p>Root</p>
             <p>3 programs running.</p>
           </div>
         </div>
