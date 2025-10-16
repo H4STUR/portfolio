@@ -31,13 +31,23 @@ const MyComputerTemplate = ({ onOpenWindow }) => {
     }
   };
   
+  const openFloppy = () => {
+    const floppy = folderStructure?.C?.Users?.Danio?.Desktop?.['My Computer']?.['Floppy'];
+    if (floppy && floppy.icons) {
+      const parsedIcons = parseFolderStructure(floppy.icons);
+      onOpenWindow('Folder', '3½ Floppy (A:)', 'FolderTemplate', parsedIcons);
+    } else {
+      console.warn('My Documents not found or has no icons'. floppy);
+    }
+  };
+  
 
   return (
     <div className="my-computer-contener">
       <div className="my-computer-left-panel">
-        <div className='my-computer-nav'>
+        {/* <div className='my-computer-nav'>
           <p>(SECTION UNDER CONSTRUCTION)</p>
-        </div>
+        </div> */}
         <div className='my-computer-nav' onClick={openMyDocuments}>
           <img src={myDocumentsIcon} alt="My Documents" className="start-menu-icon" />
           <p>My Documents</p>
@@ -45,17 +55,17 @@ const MyComputerTemplate = ({ onOpenWindow }) => {
       </div>
       <div className="my-computer-right-panel">
         <div>
-          <p className='my-computer-title'>Hard Drives: (SECTION UNDER CONSTRUCTION)</p>
-          <div className='my-computer-drive'>
+          <p className='my-computer-title'>Hard Drives:</p>
+          <div className='my-computer-drive not-active-click'>
             <img src={hardDriveIcon} alt="Hard Drive" className="my-computer-icon" />
-            <p>Local Disk (C:) (SECTION UNDER CONSTRUCTION)</p>
+            <p>Local Disk (C:)</p>
           </div>
         </div>
         <div>
-          <p className='my-computer-title'>Devices with Removable Storage: (SECTION UNDER CONSTRUCTION)</p>
-          <div className='my-computer-drive'>
+          <p className='my-computer-title'>Devices with Removable Storage:</p>
+          <div className='my-computer-drive' onClick={openFloppy}>
             <img src={floppyIcon} alt="Floppy" className="my-computer-icon" />
-            <p>3½ Floppy (A:) (SECTION UNDER CONSTRUCTION)</p>
+            <p>3½ Floppy (A:)</p>
           </div>
         </div>
       </div>

@@ -58,9 +58,9 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
                 <li onClick={() => onOpenWindow('CMD', 'Command Prompt', 'CMDTemplate')}>
                   <img src={cmdIcon} alt="CMD" className="start-menu-icon" /> Command Prompt
                 </li>
-                <li>Settings</li>
-                <li>Search</li>
-                <li>Help</li>
+                <li className='not-active-click'>Settings</li>
+                <li className='not-active-click'>Search</li>
+                <li className='not-active-click'>Help</li>
               </ul>
             </div>
             <div className="start-menu-middle-right">
@@ -86,7 +86,7 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
                   <img src={myComputerIcon} alt="My Computer" className="start-menu-icon" /> My Computer
                 </li>
                 <hr />
-                <li onClick={() => onOpenWindow('Run', 'Run...', 'RunTemplate')}>
+                <li onClick={() => onOpenWindow('Run', 'Run...', 'RunTemplate')} className='not-active-click'>
                   <img src={runIcon} alt="Run" className="start-menu-icon" /> Run...
                 </li>
               </ul>

@@ -35,7 +35,11 @@
                         }
                     },
 
-                    "My Computer": { "type": "My Computer", "title": "My Computer", "initialPosition": { "x": 20, "y": 120 }, "template": "MyComputerTemplate" },
+                    "My Computer": { "type": "My Computer", "title": "My Computer", "initialPosition": { "x": 20, "y": 120 }, "template": "MyComputerTemplate", 
+                        "Floppy": { "id": 10, "type": "Folder", "title": "Floppy", "template": "FolderTemplate", "icons": {
+                            "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                        }}
+                    },
 
                     "Email": { "type": "Email", "title": "Email", "initialPosition": { "x": 20, "y": 320 }, "template": "Emial" },
 

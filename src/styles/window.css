@@ -154,3 +154,20 @@ body {
   height: 100%;
   overflow-y: scroll;
 }
+
+.not-active-click
+{
+  cursor: not-allowed !important;
+}
+
+.my-computer-drive
+{
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.my-computer-drive:hover
+{
+  cursor: pointer;
+  background-color: #5c90d62b;
+}
