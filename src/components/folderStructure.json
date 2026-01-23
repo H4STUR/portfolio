@@ -53,8 +53,30 @@
                     "Projects": { "type": "Folder", "title": "My Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "demo.agares.co.uk": { "id": 9, "type": "Link", "title": "CMS\nDemo", "template": "https://demo.agares.co.uk" },
-                            "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" }
+                            "Online\nStore": { "id": 10, "type": "Folder", "title": "Online\nStore", "template": "FolderTemplate", "icons": {
+                                "agares.co.uk": { "id": 9, "type": "Link", "title": "agares.co.uk", "template": "https://agares.co.uk" },
+                                "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
+                                "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                            } },
+                            "Custom\nCMS": { "id": 10, "type": "Folder", "title": "Custom\nCMS", "template": "FolderTemplate", "icons": {
+                                "demo.agares.co.uk": { "id": 9, "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
+                                "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
+                                "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                            } },
+                            "Party\nApp": { "id": 10, "type": "Folder", "title": "Party\nApp", "template": "FolderTemplate", "icons": {
+                                "bender-app.eu": { "id": 9, "type": "Link", "title": "bender-app.eu", "template": "https://bender-app.eu/" },
+                                "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
+                                "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                            } },
+                            "Cookie\nScanner": { "id": 10, "type": "Folder", "title": "Cookie\nScanner", "template": "FolderTemplate", "icons": {
+                                "github.com/H4STUR/cookie-scanner": { "id": 9, "type": "Link", "title": "Cookie\nScanner", "template": "https://github.com/H4STUR/cookie-scanner" },
+                                "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
+                                "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                            } },
+                            "Websites": { "id": 10, "type": "Folder", "title": "Websites", "template": "FolderTemplate", "icons": {
+                                "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" }
+                            } }
+                            
                         }
                     },
                     "Xeox": { "id": 8, "type": "Link", "title": "XEOX.pl\n2020-2022", "initialPosition": { "x": 220, "y": 220 }, "template": "https://xeox.pl/en" },

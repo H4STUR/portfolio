@@ -2,32 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- TITLE & DESCRIPTION -->
+    <!-- Primary -->
     <title>Lucas Majerski | Full Stack Web Developer</title>
-    <meta name="description" content="Portfolio of Lucas Majerski – full stack web developer specializing in Laravel, React, Unity, digital experiences. Styled like Windows XP." />
+    <meta name="description" content="Portfolio of Lucas Majerski – full stack web developer specializing in Laravel, React, Unity, and digital experiences. Styled like Windows XP." />
+    <link rel="canonical" href="https://portfolio.agares.co.uk/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0d0d0f" />
 
-    <!-- KEYWORDS & AUTHOR -->
+    <!-- (Optional) meta keywords aren't used by Google, safe to remove; leaving won't hurt -->
     <meta name="keywords" content="Lucas Majerski, full stack developer, Laravel, React, Unity, web developer, XP portfolio, programmer, CV" />
     <meta name="author" content="Lucas Majerski" />
 
-    <!-- OPEN GRAPH (SOCIAL PREVIEW) -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lucas Majerski Portfolio" />
     <meta property="og:title" content="Lucas Majerski | Full Stack Developer" />
     <meta property="og:description" content="Explore Lucas Majerski’s web and game development portfolio – built in React and styled like Windows XP." />
-    <meta property="og:image" content="/xp-wallpaper-ai.png" />
+    <!-- Use an absolute URL + 1200×630 image -->
+    <meta property="og:image" content="https://portfolio.agares.co.uk/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://portfolio.agares.co.uk/" />
-    <meta property="og:type" content="website" />
 
-    <!-- TWITTER CARD -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Lucas Majerski | Full Stack Developer" />
     <meta name="twitter:description" content="Explore my web dev portfolio, including Laravel apps, React projects, and games." />
-    <meta name="twitter:image" content="/xp-wallpaper-ai.png" />
+    <meta name="twitter:image" content="https://portfolio.agares.co.uk/og-cover.png" />
+    <!-- <meta name="twitter:site" content="@your_handle" /> -->
 
-    <!-- FAVICON -->
+    <!-- Icons & PWA basics -->
     <link rel="icon" href="/pepenolif.jpg" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Performance niceties (optional, safe to keep) -->
+    <!-- Preload hero image/font if you have them -->
+    <!-- <link rel="preload" href="/images/hero.jpg" as="image" fetchpriority="high" /> -->
+    <!-- <link rel="preload" href="/fonts/Inter-Var.woff2" as="font" type="font/woff2" crossorigin /> -->
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Lucas Majerski Portfolio",
+          "url": "https://portfolio.agares.co.uk/"
+        },
+        {
+          "@type": "Person",
+          "name": "Lucas Majerski",
+          "url": "https://portfolio.agares.co.uk/",
+          "jobTitle": "Full Stack Web Developer",
+          "image": "https://portfolio.agares.co.uk/og-cover.png",
+          "sameAs": [
+            "https://github.com/H4STUR",
+            "https://www.linkedin.com/in/lukasz-majerski/"
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
