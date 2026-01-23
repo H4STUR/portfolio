@@ -15,6 +15,7 @@ import folderLockedIcon from '../assets/images/Icons/HD/Folder Locked.png';
 import pdfIcon from '../assets/images/Adobe_Acrobat_PDF-xp.png';
 import jpgIcon from '../assets/images/Icons/HD/JPG.png';
 import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
+import paintIcon from '../assets/images/Icons/Paint_XP.ico';
 import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
 import emailIcon from '../assets/images/Icons/HD/Email.png';
 
@@ -52,6 +53,8 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
         return linkIcon;
       case "CMD":
         return cmdIcon;
+      case "Paint":
+        return paintIcon;
       case "Minesweeper":
         return minesweeperIcon;
       case "Email":

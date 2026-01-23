@@ -25,6 +25,7 @@ import pepehacker_jpg from '../assets/images/memes/pepehacker.jpg';
 import pepehacker_gif from '../assets/images/memes/pepehacker.gif';
 import spongebob_jpg from '../assets/images/memes/spongebob.jpg';
 import turkish_cone_png from '../assets/images/memes/turkish-cone.png';
+import yawn from '../assets/images/memes/yawn.jpg';
 import pepenolif_jpg from '../assets/images/pepenolif.jpg';
 
 const imageMap = {
@@ -55,6 +56,7 @@ const imageMap = {
   'pepehacker.gif': pepehacker_gif,
   'spongebob.jpg': spongebob_jpg,
   'turkish-cone.png': turkish_cone_png,
+  'yawn.jpg': yawn,
   'pepenolif.jpg': pepenolif_jpg,
 };
 

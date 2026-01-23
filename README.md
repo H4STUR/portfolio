@@ -67,4 +67,4 @@ php artisan serve
 
 ---
 
-*Feel free to explore, beat my Minesweeper record, or offer me a well-paid job.*
+*Feel free to explore, beat my Minesweeper record, or get in touch.*

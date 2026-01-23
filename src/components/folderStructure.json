@@ -41,6 +41,7 @@
                         }}
                     },
 
+                    "Paint": { "type": "Paint", "title": "Paint", "initialPosition": { "x": 20, "y": 220 }, "template": "Paint" },
                     "Email": { "type": "Email", "title": "Email", "initialPosition": { "x": 20, "y": 320 }, "template": "Emial" },
 
                     "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate", "password": "jp2gmd", "restricted": true,
@@ -121,7 +122,8 @@
                         "linkedin": { "id": 8, "type": "Image", "title": "linkedin\nprofilowe.jpg", "template": "linkedin.jpg", "image": "linkedin.jpg" },
                         "spongebob": { "id": 8, "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "image": "spongebob.jpg" },
                         "peperage": { "id": 8, "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "image": "pepe_rage.jpg" },
-                        "szyszek": { "id": 8, "type": "Image", "title": "turkish\npinecone.jpg", "template": "turkish-cone.png", "image": "turkish-cone.png" }
+                        "szyszek": { "id": 8, "type": "Image", "title": "turkish\npinecone.jpg", "template": "turkish-cone.png", "image": "turkish-cone.png" },
+                        "yawn": { "id": 8, "type": "Image", "title": "yawn.jpg", "template": "yawn.jpg", "image": "yawn.jpg" }
                     } },
                     "TODO.txt": { "type": "File", "title": "TODO.txt", "template": "todoTemplate" }
 

@@ -1,16 +1,314 @@
-.paint-window
-{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    display: flex;
-    flex-direction: column;
-    font-family: monospace;
-    text-align: left;
-    height: 100%; 
-    overflow: hidden;
+.paint-window {
+  background-color: #c3c3c3;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Tahoma', 'Segoe UI', sans-serif;
+  font-size: 12px;
+  height: 100%;
+  overflow: hidden;
 }
 
-.paint-controls
-{
-    background-color: #ebe9d9;
+.paint-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #c3c3c3;
+}
+
+/* Toolbar */
+.paint-toolbar {
+  display: flex;
+  align-items: center;
+  background-color: #ddd;
+  border-bottom: 1px solid #bbb;
+  padding: 4px 6px;
+  gap: 4px;
+}
+
+.paint-action-btn {
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  color: #000;
+  cursor: pointer;
+  outline: none;
+  box-shadow: inset 1px 1px 0 #fff,
+              inset -1px -1px 0 #a3a3a3,
+              1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.1s;
+}
+
+.paint-action-btn:hover {
+  border-color: #000;
+  background-color: #d8d8d8;
+}
+
+.paint-action-btn:active {
+  background-color: #d0d0d0;
+  box-shadow: inset -1px -1px 0 #fff,
+              inset 1px 1px 0 #a3a3a3,
+              1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.paint-action-btn:disabled {
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* Main Content Area */
+.paint-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Tool Panel */
+.paint-toolbox {
+  width: 60px;
+  background: #c3c3c3;
+  border-right: 1px solid #808080;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.paint-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: #b0b0b0;
+  border: 1px solid #808080;
+  padding: 3px;
+  box-shadow: inset -1px -1px 0 #fff,
+              inset 1px 1px 0 #a3a3a3;
+}
+
+.paint-tool-btn {
+  width: 24px;
+  height: 24px;
+  background: #c3c3c3;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  padding: 0;
+  box-shadow: inset 1px 1px 0 #fff,
+              inset -1px -1px 0 #a3a3a3;
+}
+
+.paint-tool-btn:hover {
+  background: #d0d0d0;
+  border-color: #666;
+}
+
+.paint-tool-btn.active {
+  background: #9b9b9b;
+  box-shadow: inset -1px -1px 0 #fff,
+              inset 1px 1px 0 #a3a3a3;
+}
+
+/* Brush Sizes */
+.paint-brush-sizes {
+  background: #b0b0b0;
+  border: 1px solid #808080;
+  padding: 4px;
+  box-shadow: inset -1px -1px 0 #fff,
+              inset 1px 1px 0 #a3a3a3;
+}
+
+.paint-section-label {
+  font-size: 10px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.paint-size-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.paint-size-btn {
+  width: 22px;
+  height: 22px;
+  background: #d0d0d0;
+  border: 1px solid #808080;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 1px 1px 0 #fff,
+              inset -1px -1px 0 #a3a3a3;
+}
+
+.paint-size-btn:hover {
+  background: #e0e0e0;
+}
+
+.paint-size-btn.active {
+  background: #9b9b9b;
+  box-shadow: inset -1px -1px 0 #fff,
+              inset 1px 1px 0 #a3a3a3;
+}
+
+.paint-size-dot {
+  background-color: #000;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Color Display */
+.paint-color-display {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: 4px auto;
+}
+
+.paint-primary-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #000;
+  box-shadow: inset -1px -1px 0 #808080,
+              inset 1px 1px 0 #fff;
+  z-index: 2;
+}
+
+.paint-secondary-color {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #000;
+  box-shadow: inset -1px -1px 0 #808080,
+              inset 1px 1px 0 #fff;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Canvas Container */
+.paint-canvas-container {
+  flex: 1;
+  background-color: #808080;
+  overflow: auto;
+  padding: 10px;
+}
+
+.paint-canvas-wrapper {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  box-shadow: inset 1px 1px 0 #404040,
+              inset -1px -1px 0 #fff,
+              2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.paint-canvas {
+  display: block;
+  cursor: crosshair;
+  background: #fff;
+}
+
+.paint-overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* Color Palette */
+.paint-palette {
+  display: flex;
+  align-items: center;
+  background: #c3c3c3;
+  border-top: 1px solid #fff;
+  padding: 6px 10px;
+  gap: 10px;
+}
+
+.paint-palette-colors {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.paint-palette-row {
+  display: flex;
+  gap: 1px;
+}
+
+.paint-color-swatch {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #404040;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: inset -1px -1px 0 rgba(0,0,0,0.2);
+}
+
+.paint-color-swatch:hover {
+  border-color: #000;
+  transform: scale(1.1);
+  z-index: 1;
+  position: relative;
+}
+
+.paint-color-swatch.active {
+  border: 2px solid #fff;
+  outline: 2px solid #000;
+}
+
+.paint-color-input {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #808080;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  box-shadow: inset -1px -1px 0 #fff,
+              inset 1px 1px 0 #a3a3a3;
+}
+
+.paint-color-input::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.paint-color-input::-webkit-color-swatch {
+  border: none;
+}
+
+/* Status Bar */
+.paint-statusbar {
+  display: flex;
+  background: #c3c3c3;
+  border-top: 1px solid #fff;
+  padding: 3px 8px;
+  font-size: 11px;
+  color: #000;
+  gap: 20px;
+}
+
+.paint-statusbar span {
+  padding: 0 10px;
+  border-right: 1px solid #808080;
+  box-shadow: 1px 0 0 #fff;
+}
+
+.paint-statusbar span:last-child {
+  border-right: none;
+  box-shadow: none;
 }
