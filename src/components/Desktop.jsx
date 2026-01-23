@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Icon from './Icon';
 import Taskbar from './Taskbar';
 import LoadingScreen from './LoadingScreen';
@@ -33,6 +33,7 @@ const Desktop = () => {
   const [windows, setWindows] = useState([]);
   const [desktopIcons, setDesktopIcons] = useState([]);
   const [isCrashed, setIsCrashed] = useState(false);
+  const cascadeIndexRef = useRef(0);
 
   useEffect(() => {
     try {
@@ -87,7 +88,17 @@ const Desktop = () => {
         console.log(`[openWindow BLOCKED] ${type} - ${title}`);
         return prev;
       }
-  
+
+      // Calculate cascade offset if other windows are open
+      const cascadeOffset = 30;
+      const cascadeStep = cascadeIndexRef.current % 5;
+      const cascadedPosition = prev.length > 0
+        ? { x: position.x + cascadeStep * cascadeOffset, y: position.y + cascadeStep * cascadeOffset }
+        : position;
+
+      // Increment cascade index for next window
+      cascadeIndexRef.current += 1;
+
       console.log(`[openWindow ALLOWED] ${type} - ${title}`);
       return [
         ...prev,
@@ -95,8 +106,7 @@ const Desktop = () => {
           id: prev.length,
           type,
           title,
-          // position: icons.position || { x: 100, y: 100 },
-          position,
+          position: cascadedPosition,
           template,
           icons,
         },
