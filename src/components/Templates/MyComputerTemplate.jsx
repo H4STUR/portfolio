@@ -10,10 +10,11 @@ const MyComputerTemplate = ({ onOpenWindow }) => {
 
   const parseFolderStructure = (items) => {
     return Object.entries(items).map(([key, value]) => ({
-      id: value.id || Math.random(),
+      id: `${key}-${Math.random()}`,
       type: value.type,
       title: value.title || key,
       initialPosition: value.initialPosition || { x: 0, y: 0 },
+      initialSize: value.initialSize || null,
       template: value.template || '',
       imageOverride: value.image || null,
       icons: value.icons ? parseFolderStructure(value.icons) : []
@@ -25,6 +26,7 @@ const MyComputerTemplate = ({ onOpenWindow }) => {
     const myDocs = folderStructure?.C?.Users?.Danio?.['My Documents'];
     if (myDocs && myDocs.icons) {
       const parsedIcons = parseFolderStructure(myDocs.icons);
+      console.log('[MyComputerTemplate] parsedIcons:', parsedIcons);
       onOpenWindow('Folder', 'My Documents', 'FolderTemplate', parsedIcons);
     } else {
       console.warn('My Documents not found or has no icons');

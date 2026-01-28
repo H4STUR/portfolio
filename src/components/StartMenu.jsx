@@ -31,10 +31,11 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
 
   const parseFolderStructure = (items) => {
     return Object.entries(items).map(([key, value]) => ({
-      id: value.id || Math.random(),
+      id: `${key}-${Math.random()}`,
       type: value.type,
       title: value.title || key,
       initialPosition: value.initialPosition || { x: 0, y: 0 },
+      initialSize: value.initialSize || null,
       template: value.template || '',
       imageOverride: value.image || null,
       icons: value.icons ? parseFolderStructure(value.icons) : []

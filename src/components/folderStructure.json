@@ -47,7 +47,7 @@
                     "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate", "password": "jp2gmd", "restricted": true,
                         "icons": 
                         { 
-                            "README.txt": { "id": 10, "type": "File", "title": "README.txt", "template": "LockedTemplate" }
+                            "README.md": { "id": 10, "type": "File", "title": "README.md", "template": "LockedTemplate" }
                         }
                     },
 
@@ -56,26 +56,29 @@
                         {
                             "Online\nStore": { "id": 10, "type": "Folder", "title": "Online\nStore", "template": "FolderTemplate", "icons": {
                                 "agares.co.uk": { "id": 9, "type": "Link", "title": "agares.co.uk", "template": "https://agares.co.uk" },
-                                "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
+                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
                                 "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
                             } },
                             "Custom\nCMS": { "id": 10, "type": "Folder", "title": "Custom\nCMS", "template": "FolderTemplate", "icons": {
                                 "demo.agares.co.uk": { "id": 9, "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
-                                "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
-                                "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "agarescmsTemplate" },
+                                "agares_cms_dashboard": { "id": 8, "type": "Image", "title": "dashboard.jpg", "template": "agares_cms_dashboard.jpg", "initialSize": { "width": 915, "height": 490 },"image": "agares_cms_dashboard.jpg" }
                             } },
                             "Party\nApp": { "id": 10, "type": "Folder", "title": "Party\nApp", "template": "FolderTemplate", "icons": {
                                 "bender-app.eu": { "id": 9, "type": "Link", "title": "bender-app.eu", "template": "https://bender-app.eu/" },
-                                "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
-                                "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "benderTemplate" },
+                                "bender_home": { "id": 8, "type": "Image", "title": "home.jpg", "template": "bender_home.jpg", "initialSize": { "width": 600, "height": 465 }, "image": "bender_home.jpg" },
+                                "bender_nhie": { "id": 8, "type": "Image", "title": "game.jpg", "template": "bender_nhie.jpg", "initialSize": { "width": 600, "height": 480 }, "image": "bender_nhie.jpg" }
                             } },
                             "Cookie\nScanner": { "id": 10, "type": "Folder", "title": "Cookie\nScanner", "template": "FolderTemplate", "icons": {
                                 "github.com/H4STUR/cookie-scanner": { "id": 9, "type": "Link", "title": "Cookie\nScanner", "template": "https://github.com/H4STUR/cookie-scanner" },
-                                "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
+                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "cookiescannerTemplate" },
                                 "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
                             } },
                             "Websites": { "id": 10, "type": "Folder", "title": "Websites", "template": "FolderTemplate", "icons": {
-                                "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" }
+                                "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" },
+                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "piescimordelizalTemplate" }
+                                
                             } }
                             
                         }
@@ -105,7 +108,7 @@
 
                     "CV.pdf": { "type": "PDF", "title": "CV.pdf", "initialPosition": { "x": 520, "y": 220 }, "template": "CV" },
 
-                    "README.txt": { "type": "File", "title": "README.txt", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
+                    "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
 
                     "GitHub": { "type": "Link", "title": "GitHub", "initialPosition": { "x": 20, "y": 520 }, "template": "https://github.com/H4STUR" }
                 },
@@ -116,12 +119,12 @@
                         "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" },
                         "pepegamer": { "id": 8, "type": "Image", "title": "pepegamer.jpg", "template": "pepegamer.jpg", "image": "pepegamer.jpg" },
                         "puki": { "id": 8, "type": "Image", "title": "spinning\nbuckler.jpg", "template": "spinning-buckler.jpg", "image": "spinning-buckler.jpg" },
-                        "feelsdisconnected": { "id": 8, "type": "Image", "title": "feels\ndisconnected.jpg", "template": "feelsdisconnected.jpg", "image": "feelsdisconnected.jpg" },
+                        "feelsdisconnected": { "id": 8, "type": "Image", "title": "feels\ndisconnected.jpg", "initialSize": { "width": 550, "height": 420 },  "template": "feelsdisconnected.jpg", "image": "feelsdisconnected.jpg" },
                         "dachshund": { "id": 8, "type": "Image", "title": "dachshund.jpg", "template": "dachshund.jpg", "image": "dachshund.jpg" },
-                        "pepehacker": { "id": 8, "type": "Image", "title": "pepehacker.gif", "template": "pepehacker.gif", "image": "pepehacker.jpg" },
+                        "pepehacker": { "id": 8, "type": "Image", "title": "pepehacker.gif", "template": "pepehacker.gif", "initialSize": { "width": 550, "height": 450 },  "image": "pepehacker.jpg" },
                         "linkedin": { "id": 8, "type": "Image", "title": "linkedin\nprofilowe.jpg", "template": "linkedin.jpg", "image": "linkedin.jpg" },
-                        "spongebob": { "id": 8, "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "image": "spongebob.jpg" },
-                        "peperage": { "id": 8, "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "image": "pepe_rage.jpg" },
+                        "spongebob": { "id": 8, "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "initialSize": { "width": 500, "height": 530 },  "image": "spongebob.jpg" },
+                        "peperage": { "id": 8, "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "initialSize": { "width": 500, "height": 460 },  "image": "pepe_rage.jpg" },
                         "szyszek": { "id": 8, "type": "Image", "title": "turkish\npinecone.jpg", "template": "turkish-cone.png", "image": "turkish-cone.png" },
                         "yawn": { "id": 8, "type": "Image", "title": "yawn.jpg", "template": "yawn.jpg", "image": "yawn.jpg" }
                     } },

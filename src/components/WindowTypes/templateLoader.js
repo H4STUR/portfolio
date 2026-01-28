@@ -5,6 +5,17 @@ const loadTemplate = async (template) => {
         return (await import('../Templates/File/FileTemplate')).default;
       case 'NotesTemplate':
         return (await import('../Templates/File/NotesTemplate')).default;
+      //projects
+      case 'agarescmsTemplate':
+        return (await import('../Templates/File/projects/agarescmsTemplate')).default;
+      case 'benderTemplate':
+        return (await import('../Templates/File/projects/benderTemplate')).default;
+      case 'cookiescannerTemplate':
+        return (await import('../Templates/File/projects/cookiescannerTemplate')).default;
+      case 'piescimordelizalTemplate':
+        return (await import('../Templates/File/projects/piescimordelizalTemplate')).default;
+
+      
       case 'readmeTemplate':
         return (await import('../Templates/File/readmeTemplate')).default;
       case 'todoTemplate':

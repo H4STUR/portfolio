@@ -14,6 +14,11 @@ import typescript_original_svg from '../assets/images/Techstack/typescript-origi
 import unity_engine_svg from '../assets/images/Techstack/unity-engine.svg';
 import wp_svg from '../assets/images/Techstack/wp.svg';
 
+//projects
+import agares_cms_dashboard from '../assets/images/projects/agarescms/agares_cms_dashboard.jpg';
+import bender_home from '../assets/images/projects/bender/bender-home.jpg';
+import bender_nhie from '../assets/images/projects/bender/bender-nhie.jpg';
+
 // memes
 import dachshund_jpg from '../assets/images/memes/dachshund.jpg';
 import feelsdisconnected_jpg from '../assets/images/memes/feelsdisconnected.jpg';
@@ -44,6 +49,12 @@ const imageMap = {
   'typescript-original.svg': typescript_original_svg,
   'unity-engine.svg': unity_engine_svg,
   'wp.svg': wp_svg,
+
+//projects
+  'agares_cms_dashboard.jpg': agares_cms_dashboard,
+  'bender_home.jpg': bender_home,
+  'bender_nhie.jpg': bender_nhie,
+
 
 // memes
   'dachshund.jpg': dachshund_jpg,

@@ -8,7 +8,7 @@ const RecycleBinTemplate = ({ icons, openWindow }) => {
         <Icon
           key={icon.id}
           {...icon}
-          onDoubleClick={() => icon.type === 'Link' ? window.open(icon.template, '_blank', 'noopener,noreferrer') : openWindow(icon.type, icon.title, icon.template, icon.icons)}
+          onDoubleClick={() => icon.type === 'Link' ? window.open(icon.template, '_blank', 'noopener,noreferrer') : openWindow(icon.type, icon.title, icon.template, icon.icons, icon.initialPosition, icon.initialSize)}
           moveIcon={() => {}}
           draggable={false} 
         />

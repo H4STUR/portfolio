@@ -23,7 +23,7 @@ import BlueScreen from './BlueScreen';
 
 // Images
 // import backgroundImage from '../assets/images/generated/xp-wallpaper-ai.png';
-import backgroundImage from '../assets/images/generated/pepe_wallpaper169-water.png';
+import backgroundImage from '../assets/images/generated/pepe_wallpaper169-water-edit.png';
 
 // Import the folder structure JSON directly
 import folderStructure from './folderStructure.json';
@@ -65,10 +65,11 @@ const Desktop = () => {
       if (value.type) {
         // If the object has a 'type', it's an icon; add it to the icons array
         icons.push({
-          id: value.id || Math.random(), // Use id if available, otherwise generate a random one
+          id: `${key}-${Math.random()}`, // Generate unique id from key + random
           type: value.type,
           title: value.title || key,
           initialPosition: value.initialPosition || { x: 0, y: 0 },
+          initialSize: value.initialSize || null,
           template: value.template || '',
           imageOverride: value.image || null,
           icons: value.icons ? parseFolderStructure(value.icons) : [] // Recursively parse nested icons
@@ -79,7 +80,7 @@ const Desktop = () => {
     return icons;
   };
 
-  const openWindow = (type, title, template, icons = [], position = { x: 100, y: 100 }) => {
+  const openWindow = (type, title, template, icons = [], position = { x: 100, y: 100 }, initialSize = null) => {
     setWindows((prev) => {
       const alreadyOpen = prev.some(
         (w) => w.type === type && w.title === title
@@ -109,6 +110,7 @@ const Desktop = () => {
           position: cascadedPosition,
           template,
           icons,
+          ...(initialSize && { initialSize }),
         },
       ];
     });
@@ -169,7 +171,7 @@ const Desktop = () => {
         onDoubleClick={() =>
           icon.type === 'Link'
             ? window.open(icon.template, '_blank', 'noopener,noreferrer')
-            : openWindow(icon.type, icon.title, icon.template, icon.icons)
+            : openWindow(icon.type, icon.title, icon.template, icon.icons, icon.initialPosition, icon.initialSize)
         }
         isPositionOccupied={(x, y) => isPositionOccupied(icon.id, x, y)}
         moveIcon={(x, y) => moveIcon(icon.id, x, y)}
