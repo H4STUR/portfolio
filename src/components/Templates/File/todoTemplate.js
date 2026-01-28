@@ -2,7 +2,7 @@ const TodoTemplate =
 "#TODO\n\n" +
 "- Finish My Computer layout\n" +
 "- Email content\n" +
-"- Fix the bug where you can put icons on top of each other\n" +
+"- DONE - Fix the bug where you can put icons on top of each other\n" +
 "- Show more projects?\n" +
 "- include CMS demo site\n" +
 "- Optimize CSS code\n" +

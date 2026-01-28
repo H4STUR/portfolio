@@ -56,8 +56,7 @@
                         {
                             "Online\nStore": { "type": "Folder", "title": "Online\nStore", "template": "FolderTemplate", "icons": {
                                 "agares.co.uk": { "type": "Link", "title": "agares.co.uk", "template": "https://agares.co.uk" },
-                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
-                                "pepenolife": { "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" }
                             } },
                             "Custom\nCMS": { "type": "Folder", "title": "Custom\nCMS", "template": "FolderTemplate", "icons": {
                                 "demo.agares.co.uk": { "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
@@ -72,8 +71,7 @@
                             } },
                             "Cookie\nScanner": { "type": "Folder", "title": "Cookie\nScanner", "template": "FolderTemplate", "icons": {
                                 "github.com/H4STUR/cookie-scanner": { "type": "Link", "title": "Cookie\nScanner", "template": "https://github.com/H4STUR/cookie-scanner" },
-                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "cookiescannerTemplate" },
-                                "pepenolife": { "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "cookiescannerTemplate" }
                             } },
                             "Websites": { "type": "Folder", "title": "Websites", "template": "FolderTemplate", "icons": {
                                 "PiesCiMordeLizal.pl": { "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" },
@@ -120,11 +118,11 @@
                         "pepegamer": { "type": "Image", "title": "pepegamer.jpg", "template": "pepegamer.jpg", "image": "pepegamer.jpg" },
                         "puki": { "type": "Image", "title": "spinning\nbuckler.jpg", "template": "spinning-buckler.jpg", "image": "spinning-buckler.jpg" },
                         "feelsdisconnected": { "type": "Image", "title": "feels\ndisconnected.jpg", "initialSize": { "width": 550, "height": 420 },  "template": "feelsdisconnected.jpg", "image": "feelsdisconnected.jpg" },
-                        "dachshund": { "type": "Image", "title": "dachshund.jpg", "template": "dachshund.jpg", "image": "dachshund.jpg" },
-                        "pepehacker": { "type": "Image", "title": "pepehacker.gif", "template": "pepehacker.gif", "initialSize": { "width": 550, "height": 450 },  "image": "pepehacker.jpg" },
+                        "dachshund": { "type": "Image", "title": "dachshund.jpg", "template": "dachshund.jpg", "initialSize": { "width": 500, "height": 488 }, "image": "dachshund.jpg" },
+                        "pepehacker": { "type": "Image", "title": "pepehacker.gif", "template": "pepehacker.gif", "initialSize": { "width": 550, "height": 450 }, "image": "pepehacker.jpg" },
                         "linkedin": { "type": "Image", "title": "linkedin\nprofilowe.jpg", "template": "linkedin.jpg", "image": "linkedin.jpg" },
-                        "spongebob": { "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "initialSize": { "width": 500, "height": 530 },  "image": "spongebob.jpg" },
-                        "peperage": { "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "initialSize": { "width": 500, "height": 460 },  "image": "pepe_rage.jpg" },
+                        "spongebob": { "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "initialSize": { "width": 500, "height": 530 }, "image": "spongebob.jpg" },
+                        "peperage": { "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "initialSize": { "width": 500, "height": 460 }, "image": "pepe_rage.jpg" },
                         "szyszek": { "type": "Image", "title": "turkish\npinecone.jpg", "template": "turkish-cone.png", "image": "turkish-cone.png" },
                         "yawn": { "type": "Image", "title": "yawn.jpg", "template": "yawn.jpg", "image": "yawn.jpg" }
                     } },
