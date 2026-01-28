@@ -24,7 +24,6 @@
 
   .cmd-output {
     flex-grow: 1;
-    overflow-y: auto; /* Make the output area scrollable */
     margin-bottom: 10px; /* Add some space below the output */
     color: white;
   }

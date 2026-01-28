@@ -36,8 +36,8 @@
                     },
 
                     "My Computer": { "type": "My Computer", "title": "My Computer", "initialPosition": { "x": 20, "y": 120 }, "template": "MyComputerTemplate", 
-                        "Floppy": { "id": 10, "type": "Folder", "title": "Floppy", "template": "FolderTemplate", "icons": {
-                            "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                        "Floppy": { "type": "Folder", "title": "Floppy", "template": "FolderTemplate", "icons": {
+                            "pepenolife": { "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
                         }}
                     },
 
@@ -47,62 +47,62 @@
                     "Homework": { "type": "FolderLocked", "title": "Homework", "initialPosition": { "x": 120, "y": 20 }, "template": "FolderTemplate", "password": "jp2gmd", "restricted": true,
                         "icons": 
                         { 
-                            "README.md": { "id": 10, "type": "File", "title": "README.md", "template": "LockedTemplate" }
+                            "README.md": { "type": "File", "title": "README.md", "template": "LockedTemplate" }
                         }
                     },
 
                     "Projects": { "type": "Folder", "title": "My Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "Online\nStore": { "id": 10, "type": "Folder", "title": "Online\nStore", "template": "FolderTemplate", "icons": {
-                                "agares.co.uk": { "id": 9, "type": "Link", "title": "agares.co.uk", "template": "https://agares.co.uk" },
+                            "Online\nStore": { "type": "Folder", "title": "Online\nStore", "template": "FolderTemplate", "icons": {
+                                "agares.co.uk": { "type": "Link", "title": "agares.co.uk", "template": "https://agares.co.uk" },
                                 "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },
-                                "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                                "pepenolife": { "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
                             } },
-                            "Custom\nCMS": { "id": 10, "type": "Folder", "title": "Custom\nCMS", "template": "FolderTemplate", "icons": {
-                                "demo.agares.co.uk": { "id": 9, "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
+                            "Custom\nCMS": { "type": "Folder", "title": "Custom\nCMS", "template": "FolderTemplate", "icons": {
+                                "demo.agares.co.uk": { "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
                                 "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "agarescmsTemplate" },
-                                "agares_cms_dashboard": { "id": 8, "type": "Image", "title": "dashboard.jpg", "template": "agares_cms_dashboard.jpg", "initialSize": { "width": 915, "height": 490 },"image": "agares_cms_dashboard.jpg" }
+                                "agares_cms_dashboard": { "type": "Image", "title": "dashboard.jpg", "template": "agares_cms_dashboard.jpg", "initialSize": { "width": 915, "height": 490 },"image": "agares_cms_dashboard.jpg" }
                             } },
-                            "Party\nApp": { "id": 10, "type": "Folder", "title": "Party\nApp", "template": "FolderTemplate", "icons": {
-                                "bender-app.eu": { "id": 9, "type": "Link", "title": "bender-app.eu", "template": "https://bender-app.eu/" },
+                            "Party\nApp": { "type": "Folder", "title": "Party\nApp", "template": "FolderTemplate", "icons": {
+                                "bender-app.eu": { "type": "Link", "title": "bender-app.eu", "template": "https://bender-app.eu/" },
                                 "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "benderTemplate" },
-                                "bender_home": { "id": 8, "type": "Image", "title": "home.jpg", "template": "bender_home.jpg", "initialSize": { "width": 600, "height": 465 }, "image": "bender_home.jpg" },
-                                "bender_nhie": { "id": 8, "type": "Image", "title": "game.jpg", "template": "bender_nhie.jpg", "initialSize": { "width": 600, "height": 480 }, "image": "bender_nhie.jpg" }
+                                "bender_home": { "type": "Image", "title": "home.jpg", "template": "bender_home.jpg", "initialSize": { "width": 600, "height": 465 }, "image": "bender_home.jpg" },
+                                "bender_nhie": { "type": "Image", "title": "game.jpg", "template": "bender_nhie.jpg", "initialSize": { "width": 600, "height": 480 }, "image": "bender_nhie.jpg" }
                             } },
-                            "Cookie\nScanner": { "id": 10, "type": "Folder", "title": "Cookie\nScanner", "template": "FolderTemplate", "icons": {
-                                "github.com/H4STUR/cookie-scanner": { "id": 9, "type": "Link", "title": "Cookie\nScanner", "template": "https://github.com/H4STUR/cookie-scanner" },
+                            "Cookie\nScanner": { "type": "Folder", "title": "Cookie\nScanner", "template": "FolderTemplate", "icons": {
+                                "github.com/H4STUR/cookie-scanner": { "type": "Link", "title": "Cookie\nScanner", "template": "https://github.com/H4STUR/cookie-scanner" },
                                 "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "cookiescannerTemplate" },
-                                "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
+                                "pepenolife": { "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" }
                             } },
-                            "Websites": { "id": 10, "type": "Folder", "title": "Websites", "template": "FolderTemplate", "icons": {
-                                "PiesCiMordeLizal.pl": { "id": 9, "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" },
+                            "Websites": { "type": "Folder", "title": "Websites", "template": "FolderTemplate", "icons": {
+                                "PiesCiMordeLizal.pl": { "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" },
                                 "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "piescimordelizalTemplate" }
                                 
                             } }
                             
                         }
                     },
-                    "Xeox": { "id": 8, "type": "Link", "title": "XEOX.pl\n2020-2022", "initialPosition": { "x": 220, "y": 220 }, "template": "https://xeox.pl/en" },
-                    "idDesign": { "id": 8, "type": "Link", "title": "idDesign.pl\nsince 2022", "initialPosition": { "x": 320, "y": 220 }, "template": "https://id-design.pl/en" },
+                    "Xeox": { "type": "Link", "title": "XEOX.pl\n2020-2022", "initialPosition": { "x": 220, "y": 220 }, "template": "https://xeox.pl/en" },
+                    "idDesign": { "type": "Link", "title": "idDesign.pl\nsince 2022", "initialPosition": { "x": 320, "y": 220 }, "template": "https://id-design.pl/en" },
 
                     "TECH STACK": { "type": "Folder", "title": "Tech Stack", "initialPosition": { "x": 320, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "C": { "id": 8, "type": "Image", "title": "C.jpg", "template": "c-original.svg", "image": "c-original.svg" },
-                            "C++": { "id": 9, "type": "Image", "title": "C++.jpg", "template": "cplusplus-original.svg", "image": "cplusplus-original.svg" },
-                            "C#": { "id": 10, "type": "Image", "title": "C#.jpg", "template": "csharp-original.svg", "image": "csharp-original.svg" },
-                            "JS": { "id": 10, "type": "Image", "title": "JavaScript.jpg", "template": "javascript-original.svg", "image": "javascript-original.svg" },
-                            "TS": { "id": 10, "type": "Image", "title": "TypeScript.jpg", "template": "typescript-original.svg", "image": "typescript-original.svg" },
-                            "PHP": { "id": 10, "type": "Image", "title": "PHP.jpg", "template": "php-original.svg", "image": "php-original.svg" },
-                            "SQL": { "id": 10, "type": "Image", "title": "MySQL.jpg", "template": "mysql-original-wordmark.svg", "image": "mysql-original-wordmark.svg" },
-                            "WP": { "id": 10, "type": "Image", "title": "Wordpress.jpg", "template": "wp.svg", "image": "wp.svg" },
-                            "Laravel": { "id": 10, "type": "Image", "title": "Laravel.jpg", "template": "laravel.svg", "image": "laravel.svg" },
-                            "React": { "id": 10, "type": "Image", "title": "React.jpg", "template": "react.svg", "image": "react.svg" },
-                            "Unity": { "id": 10, "type": "Image", "title": "Unity Engine.jpg", "template": "unity-engine.svg", "image": "unity-engine.svg" },
-                            "PS": { "id": 10, "type": "Image", "title": "Photoshop.jpg", "template": "ps.svg", "image": "ps.svg" },
-                            "GIT": { "id": 10, "type": "Image", "title": "GIT.jpg", "template": "git.svg", "image": "git.svg" },
-                            "Docker": { "id": 10, "type": "Image", "title": "Docker.jpg", "template": "docker-original-wordmark.svg", "image": "docker-original-wordmark.svg" }
+                            "C": { "type": "Image", "title": "C.jpg", "template": "c-original.svg", "image": "c-original.svg" },
+                            "C++": { "type": "Image", "title": "C++.jpg", "template": "cplusplus-original.svg", "image": "cplusplus-original.svg" },
+                            "C#": { "type": "Image", "title": "C#.jpg", "template": "csharp-original.svg", "image": "csharp-original.svg" },
+                            "JS": { "type": "Image", "title": "JavaScript.jpg", "template": "javascript-original.svg", "image": "javascript-original.svg" },
+                            "TS": { "type": "Image", "title": "TypeScript.jpg", "template": "typescript-original.svg", "image": "typescript-original.svg" },
+                            "PHP": { "type": "Image", "title": "PHP.jpg", "template": "php-original.svg", "image": "php-original.svg" },
+                            "SQL": { "type": "Image", "title": "MySQL.jpg", "template": "mysql-original-wordmark.svg", "image": "mysql-original-wordmark.svg" },
+                            "WP": { "type": "Image", "title": "Wordpress.jpg", "template": "wp.svg", "image": "wp.svg" },
+                            "Laravel": { "type": "Image", "title": "Laravel.jpg", "template": "laravel.svg", "image": "laravel.svg" },
+                            "React": { "type": "Image", "title": "React.jpg", "template": "react.svg", "image": "react.svg" },
+                            "Unity": { "type": "Image", "title": "Unity Engine.jpg", "template": "unity-engine.svg", "image": "unity-engine.svg" },
+                            "PS": { "type": "Image", "title": "Photoshop.jpg", "template": "ps.svg", "image": "ps.svg" },
+                            "GIT": { "type": "Image", "title": "GIT.jpg", "template": "git.svg", "image": "git.svg" },
+                            "Docker": { "type": "Image", "title": "Docker.jpg", "template": "docker-original-wordmark.svg", "image": "docker-original-wordmark.svg" }
                         }
                     },
 
@@ -115,18 +115,18 @@
                 "My Documents": { "type": "Folder", "title": "My Documents", "template": "FolderTemplate",
                 "icons": 
                 {
-                    "Memes": { "id": 10, "type": "Folder", "title": "Memes", "template": "FolderTemplate", "icons": {
-                        "pepenolife": { "id": 8, "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" },
-                        "pepegamer": { "id": 8, "type": "Image", "title": "pepegamer.jpg", "template": "pepegamer.jpg", "image": "pepegamer.jpg" },
-                        "puki": { "id": 8, "type": "Image", "title": "spinning\nbuckler.jpg", "template": "spinning-buckler.jpg", "image": "spinning-buckler.jpg" },
-                        "feelsdisconnected": { "id": 8, "type": "Image", "title": "feels\ndisconnected.jpg", "initialSize": { "width": 550, "height": 420 },  "template": "feelsdisconnected.jpg", "image": "feelsdisconnected.jpg" },
-                        "dachshund": { "id": 8, "type": "Image", "title": "dachshund.jpg", "template": "dachshund.jpg", "image": "dachshund.jpg" },
-                        "pepehacker": { "id": 8, "type": "Image", "title": "pepehacker.gif", "template": "pepehacker.gif", "initialSize": { "width": 550, "height": 450 },  "image": "pepehacker.jpg" },
-                        "linkedin": { "id": 8, "type": "Image", "title": "linkedin\nprofilowe.jpg", "template": "linkedin.jpg", "image": "linkedin.jpg" },
-                        "spongebob": { "id": 8, "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "initialSize": { "width": 500, "height": 530 },  "image": "spongebob.jpg" },
-                        "peperage": { "id": 8, "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "initialSize": { "width": 500, "height": 460 },  "image": "pepe_rage.jpg" },
-                        "szyszek": { "id": 8, "type": "Image", "title": "turkish\npinecone.jpg", "template": "turkish-cone.png", "image": "turkish-cone.png" },
-                        "yawn": { "id": 8, "type": "Image", "title": "yawn.jpg", "template": "yawn.jpg", "image": "yawn.jpg" }
+                    "Memes": { "type": "Folder", "title": "Memes", "template": "FolderTemplate", "icons": {
+                        "pepenolife": { "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" },
+                        "pepegamer": { "type": "Image", "title": "pepegamer.jpg", "template": "pepegamer.jpg", "image": "pepegamer.jpg" },
+                        "puki": { "type": "Image", "title": "spinning\nbuckler.jpg", "template": "spinning-buckler.jpg", "image": "spinning-buckler.jpg" },
+                        "feelsdisconnected": { "type": "Image", "title": "feels\ndisconnected.jpg", "initialSize": { "width": 550, "height": 420 },  "template": "feelsdisconnected.jpg", "image": "feelsdisconnected.jpg" },
+                        "dachshund": { "type": "Image", "title": "dachshund.jpg", "template": "dachshund.jpg", "image": "dachshund.jpg" },
+                        "pepehacker": { "type": "Image", "title": "pepehacker.gif", "template": "pepehacker.gif", "initialSize": { "width": 550, "height": 450 },  "image": "pepehacker.jpg" },
+                        "linkedin": { "type": "Image", "title": "linkedin\nprofilowe.jpg", "template": "linkedin.jpg", "image": "linkedin.jpg" },
+                        "spongebob": { "type": "Image", "title": "spongebob.jpg", "template": "spongebob.jpg", "initialSize": { "width": 500, "height": 530 },  "image": "spongebob.jpg" },
+                        "peperage": { "type": "Image", "title": "pepe_rage.jpg", "template": "pepe_rage.jpg", "initialSize": { "width": 500, "height": 460 },  "image": "pepe_rage.jpg" },
+                        "szyszek": { "type": "Image", "title": "turkish\npinecone.jpg", "template": "turkish-cone.png", "image": "turkish-cone.png" },
+                        "yawn": { "type": "Image", "title": "yawn.jpg", "template": "yawn.jpg", "image": "yawn.jpg" }
                     } },
                     "TODO.txt": { "type": "File", "title": "TODO.txt", "template": "todoTemplate" }
 

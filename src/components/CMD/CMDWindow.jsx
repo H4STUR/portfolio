@@ -4,10 +4,13 @@ import '../../styles/cmdwindow.css';
 import folderStructure from '../folderStructure.json'; // Import the folder structure JSON
 import help from './Commands/help';
 import cd from './Commands/cd';
+import xd from './Commands/xd';
+import kutas from './Commands/kutas';
+import duzykutas from './Commands/duzykutas';
 
 const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
   const initialText = [
-    { input: '', output: 'System XD [Version 1.0.1]\n(c) 2024 Agares Lucas Majerski Corporation. No rights reserved.\n\n' }
+    { input: '', output: 'System XD [Version 1.4.2]\n(c) 2024 Agares Lucas Majerski Corporation. No rights reserved.\n\n' }
   ];
   const [commands, setCommands] = useState(initialText);
   const [input, setInput] = useState('');
@@ -19,8 +22,10 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    if (cmdOutputRef.current) {
-      cmdOutputRef.current.scrollTop = cmdOutputRef.current.scrollHeight;
+    // Scroll the window-content container (parent of cmd-output)
+    const container = cmdOutputRef.current?.parentElement;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
     }
   }, [commands]);
 
@@ -146,7 +151,20 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
       case 'cat':
         output = `${command}? Sounds like a Linux command :)`;
         break;
-        
+
+      case 'xd':
+        output = xd();
+        break;
+
+      case 'dick':
+      case 'kutas':
+        output = kutas();
+        break;
+      case 'bigdick':
+      case 'duzykutas':
+        output = duzykutas();
+        break;
+
       default:
         output = `Unknown command: ${command}`;
         break;
@@ -188,14 +206,15 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
   };
 
   return (
-    <Window 
-      id={id} 
-      title={title} 
-      onClose={onClose} 
-      position={position} 
-      size={windowSize} 
+    <Window
+      id={id}
+      title={title}
+      onClose={onClose}
+      position={position}
+      size={windowSize}
       className="cmd-window"
       onResizeStop={handleResizeStop}
+      onContentClick={handleWindowClick}
     >
       <div className="cmd-output" ref={cmdOutputRef} onClick={handleWindowClick}>
         {commands.map((cmd, index) => (
@@ -205,7 +224,7 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
           </div>
         ))}
       </div>
-      <div className="cmd-input-line">
+      <div className="cmd-input-line" onClick={handleWindowClick}>
         <span>{currentPath.join('\\')}&gt;</span>
         <input
           type="text"

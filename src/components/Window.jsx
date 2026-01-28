@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Rnd } from 'react-rnd';
 import '../styles/window.css';
 
-const Window = ({ id, title, onClose, position, size = { width: 600, height: 400 }, children, className = null }) => {
+const Window = ({ id, title, onClose, position, size = { width: 600, height: 400 }, children, className = null, onContentClick = null }) => {
   const rndRef = useRef(null);
   const [windowSize, setWindowSize] = useState(size);
   const [windowPosition, setWindowPosition] = useState(position);
@@ -43,7 +43,7 @@ const Window = ({ id, title, onClose, position, size = { width: 600, height: 400
         <span>{title}</span>
         <button onClick={() => onClose(id)} className="close-button">X</button>
       </div>
-      <div className="window-content">
+      <div className="window-content" onClick={onContentClick}>
         {children}
       </div>
     </Rnd>

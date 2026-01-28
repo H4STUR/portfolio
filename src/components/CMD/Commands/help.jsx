@@ -8,6 +8,7 @@ const help = (params = []) => {
     { command: 'TYPE', description: 'Display the contents of a file' },
     { command: 'DATE', description: 'Display the date and time' },
     { command: 'NOTEPAD', description: 'Open the notepad' },
+    { command: 'PAINT', description: 'Open the paint application' },
     { command: 'EXIT', description: 'Exit the program' }
   ];
 
