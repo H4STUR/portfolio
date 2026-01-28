@@ -23,8 +23,9 @@ const GRID_SIZE = 80;
 const CELL_MARGIN = 20;
 const CELL_SIZE = GRID_SIZE + CELL_MARGIN;
 
-const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, draggable = true, imageOverride = null }) => {
+const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, isPositionOccupied, draggable = true, imageOverride = null }) => {
   const [position, setPosition] = useState(initialPosition);
+  const [lastValidPosition, setLastValidPosition] = useState(initialPosition);
 
   const getImageSrc = () => {
     // Try resolving from imageMap if override is a filename
@@ -66,7 +67,18 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
 
   const onDragStop = (e, d) => {
     const [snappedX, snappedY] = snapToGrid(d.x, d.y, CELL_SIZE);
-    setPosition({ x: snappedX + CELL_MARGIN, y: snappedY + CELL_MARGIN });
+
+    // Check if target position is occupied by another icon
+    if (isPositionOccupied && isPositionOccupied(snappedX, snappedY)) {
+      // Position occupied - snap back to last valid position
+      setPosition(lastValidPosition);
+      return;
+    }
+
+    // Position is free - move there
+    const newPosition = { x: snappedX + CELL_MARGIN, y: snappedY + CELL_MARGIN };
+    setPosition(newPosition);
+    setLastValidPosition(newPosition);
     moveIcon && moveIcon(snappedX, snappedY);
   };
 

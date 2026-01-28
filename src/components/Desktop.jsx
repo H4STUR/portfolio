@@ -22,8 +22,8 @@ import BlueScreen from './BlueScreen';
 
 
 // Images
-// import backgroundImage from '../assets/images/windows-xp-wallpaper.jpg';
-import backgroundImage from '../assets/images/generated/xp-wallpaper-ai.png';
+// import backgroundImage from '../assets/images/generated/xp-wallpaper-ai.png';
+import backgroundImage from '../assets/images/generated/pepe_wallpaper169-water.png';
 
 // Import the folder structure JSON directly
 import folderStructure from './folderStructure.json';
@@ -119,10 +119,22 @@ const Desktop = () => {
     setWindows(windows.filter((window) => window.id !== id));
   };
 
-  const moveIcon = (id, offset) => {
+  // Check if a grid position is already occupied by another icon
+  const isPositionOccupied = (excludeId, x, y) => {
+    const CELL_SIZE = 100;
+    return desktopIcons.some((icon) => {
+      if (icon.id === excludeId) return false;
+      // Normalize positions to grid (handles both JSON format with margin and moved format without)
+      const iconGridX = Math.round(icon.initialPosition.x / CELL_SIZE) * CELL_SIZE;
+      const iconGridY = Math.round(icon.initialPosition.y / CELL_SIZE) * CELL_SIZE;
+      return iconGridX === x && iconGridY === y;
+    });
+  };
+
+  const moveIcon = (id, x, y) => {
     setDesktopIcons((prevIcons) =>
       prevIcons.map((icon) =>
-        icon.id === id ? { ...icon, initialPosition: { x: offset.x, y: offset.y } } : icon
+        icon.id === id ? { ...icon, initialPosition: { x, y } } : icon
       )
     );
   };
@@ -159,7 +171,8 @@ const Desktop = () => {
             ? window.open(icon.template, '_blank', 'noopener,noreferrer')
             : openWindow(icon.type, icon.title, icon.template, icon.icons)
         }
-        moveIcon={moveIcon}
+        isPositionOccupied={(x, y) => isPositionOccupied(icon.id, x, y)}
+        moveIcon={(x, y) => moveIcon(icon.id, x, y)}
       />
       ))}
       {windows.map((win) => {
