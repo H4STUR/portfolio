@@ -51,14 +51,14 @@
                         }
                     },
 
-                    "Projects": { "type": "Folder", "title": "My Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
+                    "Projects": { "type": "Folder", "title": "Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
                             "Online\nStore": { "type": "Folder", "title": "Online\nStore", "template": "FolderTemplate", "icons": {
                                 "agares.co.uk": { "type": "Link", "title": "agares.co.uk", "template": "https://agares.co.uk" },
                                 "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" }
                             } },
-                            "Custom\nCMS": { "type": "Folder", "title": "Custom\nCMS", "template": "FolderTemplate", "icons": {
+                            "Custom\nCMS": { "type": "Folder", "title": "Custom\nCMS", "initialPosition": { "x": 220, "y": 220 }, "template": "FolderTemplate", "icons": {
                                 "demo.agares.co.uk": { "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
                                 "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "agarescmsTemplate" },
                                 "agares_cms_dashboard": { "type": "Image", "title": "dashboard.jpg", "template": "agares_cms_dashboard.jpg", "initialSize": { "width": 915, "height": 490 },"image": "agares_cms_dashboard.jpg" }
@@ -81,9 +81,12 @@
                             
                         }
                     },
-                    "Xeox": { "type": "Link", "title": "XEOX.pl\n2020-2022", "initialPosition": { "x": 220, "y": 220 }, "template": "https://xeox.pl/en" },
-                    "idDesign": { "type": "Link", "title": "idDesign.pl\nsince 2022", "initialPosition": { "x": 320, "y": 220 }, "template": "https://id-design.pl/en" },
-
+                    "Custom\nCMS": { "type": "Folder", "title": "Custom\nCMS", "initialPosition": { "x": 220, "y": 220 }, "template": "FolderTemplate", "icons": {
+                        "demo.agares.co.uk": { "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
+                        "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "agarescmsTemplate" },
+                        "agares_cms_dashboard": { "type": "Image", "title": "dashboard.jpg", "template": "agares_cms_dashboard.jpg", "initialSize": { "width": 915, "height": 490 },"image": "agares_cms_dashboard.jpg" }
+                    } },
+                    
                     "TECH STACK": { "type": "Folder", "title": "Tech Stack", "initialPosition": { "x": 320, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
                         {
@@ -116,7 +119,6 @@
                     "Memes": { "type": "Folder", "title": "Memes", "template": "FolderTemplate", "icons": {
                         "pepenolife": { "type": "Image", "title": "pepenolife.jpg", "template": "pepenolif.jpg", "image": "pepenolif.jpg" },
                         "pepegamer": { "type": "Image", "title": "pepegamer.jpg", "template": "pepegamer.jpg", "image": "pepegamer.jpg" },
-                        "puki": { "type": "Image", "title": "spinning\nbuckler.jpg", "template": "spinning-buckler.jpg", "image": "spinning-buckler.jpg" },
                         "feelsdisconnected": { "type": "Image", "title": "feels\ndisconnected.jpg", "initialSize": { "width": 550, "height": 420 },  "template": "feelsdisconnected.jpg", "image": "feelsdisconnected.jpg" },
                         "dachshund": { "type": "Image", "title": "dachshund.jpg", "template": "dachshund.jpg", "initialSize": { "width": 500, "height": 488 }, "image": "dachshund.jpg" },
                         "pepehacker": { "type": "Image", "title": "pepehacker.gif", "template": "pepehacker.gif", "initialSize": { "width": 550, "height": 450 }, "image": "pepehacker.jpg" },

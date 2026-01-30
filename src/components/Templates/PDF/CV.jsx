@@ -211,14 +211,7 @@ const PDFTemplate = () => {
             {/* LEFT */}
             <aside className="left">
               <div className="contact">
-                <div className="item">
-                  <span className="icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                  </span>
-                  <a href="mailto:majerski@agares.co.uk">majerski@agares.co.uk</a>
-                </div>
+              
                 <div className="item">
                   <span className="icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -294,7 +287,7 @@ const PDFTemplate = () => {
 
               <section className="exp">
                 <div className="exp-role">FULL STACK WEB DEVELOPER</div>
-                <div className="exp-meta">id Design | 2022 - Present</div>
+                <div className="exp-meta"><a href="https://id-design.pl" target="_blank"> id Design | 2022 - Present</a></div>
                 <ul className="bullets">
                   <li>Developed and maintained responsive web applications</li>
                   <li>Managed server configurations and deployments</li>
@@ -305,7 +298,7 @@ const PDFTemplate = () => {
 
               <section className="exp">
                 <div className="exp-role">E-COMMERCE</div>
-                <div className="exp-meta">Agares | 2021 (self employed)</div>
+                <div className="exp-meta"><a href="https://agares.co.uk" target="_blank">Agares | 2021 (self employed)</a></div>
                 <ul className="bullets">
                   <li>Built e-commerce websites</li>
                   <li>Customer Service and sales</li>
@@ -316,7 +309,7 @@ const PDFTemplate = () => {
 
               <section className="exp">
                 <div className="exp-role">COMPUTER TECHNICIAN / SALES</div>
-                <div className="exp-meta">Xeox.pl | 2020 - 2022</div>
+                <div className="exp-meta"><a href="https://xeox.pl" target="_blank"> Xeox.pl | 2020 - 2022</a></div>
                 <ul className="bullets">
                   <li>Diagnostics and repairs on a variety of computer hardware and software issues</li>
                   <li>Computer Assembly</li>
