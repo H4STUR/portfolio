@@ -6,6 +6,8 @@ const loadTemplate = async (template) => {
       case 'NotesTemplate':
         return (await import('../Templates/File/NotesTemplate')).default;
       //projects
+      case 'agaresstoreTemplate':
+        return (await import('../Templates/File/projects/agaresstoreTemplate')).default;
       case 'agarescmsTemplate':
         return (await import('../Templates/File/projects/agarescmsTemplate')).default;
       case 'benderTemplate':

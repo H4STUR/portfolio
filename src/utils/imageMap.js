@@ -16,6 +16,12 @@ import wp_svg from '../assets/images/Techstack/wp.svg';
 
 //projects
 import agares_cms_dashboard from '../assets/images/projects/agarescms/agares_cms_dashboard.jpg';
+import agares_cms_edit from '../assets/images/projects/agarescms/agares_cms_edit.jpg';
+import agares_cms_menus from '../assets/images/projects/agarescms/agares_cms_menus.jpg';
+import agares_cms_media from '../assets/images/projects/agarescms/agares_cms_media.jpg';
+import agares_cms_cookies from '../assets/images/projects/agarescms/agares_cms_cookies.jpg';
+import agares_cms_settings from '../assets/images/projects/agarescms/agares_cms_settings.jpg';
+import agares_cms_sites from '../assets/images/projects/agarescms/agares_cms_sites.jpg';
 import bender_home from '../assets/images/projects/bender/bender-home.jpg';
 import bender_nhie from '../assets/images/projects/bender/bender-nhie.jpg';
 
@@ -52,6 +58,12 @@ const imageMap = {
 
 //projects
   'agares_cms_dashboard.jpg': agares_cms_dashboard,
+  'agares_cms_edit.jpg': agares_cms_edit,
+  'agares_cms_menus.jpg': agares_cms_menus,
+  'agares_cms_media.jpg': agares_cms_media,
+  'agares_cms_cookies.jpg': agares_cms_cookies,
+  'agares_cms_settings.jpg': agares_cms_settings,
+  'agares_cms_sites.jpg': agares_cms_sites,
   'bender_home.jpg': bender_home,
   'bender_nhie.jpg': bender_nhie,
 
