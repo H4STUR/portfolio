@@ -237,7 +237,7 @@ const PDFTemplate = () => {
               <div className="section-title">SKILLS</div>
               <ul className="left-list">
                 <li>PHP, JavaScript, TypeScript, SQL</li>
-                <li>Bootstrap, Vue.js, jQuery</li>
+                <li>Bootstrap, jQuery</li>
                 <li>Laravel, React, Wordpress</li>
                 <li>REST APIs, Authentication</li>
                 <li>C, C++, C#, .NET</li>
