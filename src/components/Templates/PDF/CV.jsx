@@ -237,7 +237,7 @@ const PDFTemplate = () => {
               <div className="section-title">SKILLS</div>
               <ul className="left-list">
                 <li>PHP, JavaScript, TypeScript, SQL</li>
-                <li>Bootstrap, jQuery</li>
+                <li>Bootstrap, Vue, jQuery</li>
                 <li>Laravel, React, Wordpress</li>
                 <li>REST APIs, Authentication</li>
                 <li>C, C++, C#, .NET</li>
@@ -278,7 +278,7 @@ const PDFTemplate = () => {
             <main className="right">
               <div className="section-title">PROFILE</div>
               <div className="block">
-                Full-stack Web Developer with over three years of professional experience, focused on building modern
+                Full-stack Web Developer with over four years of professional experience, focused on building modern
                 and scalable web applications. Working across both frontend and backend, I love bringing ideas to life
                 through code.
               </div>
