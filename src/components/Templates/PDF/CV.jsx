@@ -1,3 +1,4 @@
+import { textDecoration } from "@chakra-ui/react";
 import React from "react";
 
 const PDFTemplate = () => {
@@ -196,6 +197,10 @@ const PDFTemplate = () => {
             color: var(--muted);
             line-height: 1.4;
           }
+            .cv_link
+            {
+            text-decoration: underline;
+            }
         `}
       </style>
 
@@ -236,13 +241,11 @@ const PDFTemplate = () => {
 
               <div className="section-title">SKILLS</div>
               <ul className="left-list">
-                <li>PHP, JavaScript, TypeScript, SQL</li>
-                <li>Bootstrap, Vue, jQuery</li>
-                <li>Laravel, React, Wordpress</li>
-                <li>REST APIs, Authentication</li>
-                <li>C, C++, C#, .NET</li>
-                <li>Git, Docker</li>
-                <li>Server administration</li>
+                <li>PHP, JavaScript, TypeScript, C, C++, C#</li>
+                <li>Laravel, Symfony, React, Vue.js, jQuery, Bootstrap, WordPress</li>
+                <li>REST API, authentication & authorization, MVC architecture, CMS development</li>
+                <li>MySQL, MongoDB</li>
+                <li>Git, Docker, Linux server administration</li>
               </ul>
               
               <hr />
@@ -258,7 +261,7 @@ const PDFTemplate = () => {
               <div className="section-title">PROJECTS</div>
 
               <section className="project">
-                <div className="project-title">CONTENT MANAGEMENT SYSTEM</div>
+                <a className="cv_link" href="https://demo.agares.co.uk" target="_blank"><div className="project-title">CONTENT MANAGEMENT SYSTEM</div></a>
                 <div className="block">
                   Designed and developed a custom, multi-purpose content management system in Laravel, focused on
                   flexibility, security, performance, and extensibility.
@@ -266,7 +269,7 @@ const PDFTemplate = () => {
               </section>
 
               <section className="project">
-                <div className="project-title">PORTFOLIO</div>
+                <a className="cv_link" href="https://portfolio.agares.co.uk" target="_blank"><div className="project-title">PORTFOLIO</div></a>
                 <div className="block">
                   I invite you to explore my portfolio website, a personal project showcasing my skills and selected
                   projects in greater detail.

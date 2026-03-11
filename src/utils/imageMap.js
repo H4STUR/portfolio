@@ -31,7 +31,6 @@ import feelsdisconnected_jpg from '../assets/images/memes/feelsdisconnected.jpg'
 import linkedin_jpg from '../assets/images/memes/linkedin.jpg';
 import pepe_rage_jpg from '../assets/images/memes/pepe_rage.jpg';
 import pepegamer_jpg from '../assets/images/memes/pepegamer.jpg';
-import spinning_buckler_jpg from '../assets/images/memes/spinning-buckler.jpg';
 import pepehacker_jpg from '../assets/images/memes/pepehacker.jpg';
 import pepehacker_gif from '../assets/images/memes/pepehacker.gif';
 import spongebob_jpg from '../assets/images/memes/spongebob.jpg';
@@ -73,7 +72,6 @@ const imageMap = {
   'feelsdisconnected.jpg': feelsdisconnected_jpg,
   'linkedin.jpg': linkedin_jpg,
   'pepe_rage.jpg': pepe_rage_jpg,
-  'spinning-buckler.jpg': spinning_buckler_jpg,
   'pepegamer.jpg': pepegamer_jpg,
   'pepehacker.jpg': pepehacker_jpg,
   'pepehacker.gif': pepehacker_gif,
