@@ -244,7 +244,7 @@ const PDFTemplate = () => {
                 <li>PHP, JavaScript, TypeScript, C, C++, C#</li>
                 <li>Laravel, Symfony, React, Vue.js, jQuery, Bootstrap, WordPress</li>
                 <li>REST API, authentication & authorization, MVC architecture, CMS development</li>
-                <li>MySQL, MongoDB</li>
+                <li>MySQL, PostgreSQL, MongoDB</li>
                 <li>Git, Docker, Linux server administration</li>
               </ul>
               
