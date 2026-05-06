@@ -2,7 +2,7 @@
 import React, { useState, forwardRef } from 'react';
 import folderStructure from './folderStructure.json';
 
-import '../styles/startMenu.css';
+import '../styles/startmenu.css';
 import profileImage from '../assets/images/pepenolif.jpg';
 import shutdown_btn from '../assets/images/shutdown-button-xp.png';
 import restart_btn from '../assets/images/restart-button-xp.png';
