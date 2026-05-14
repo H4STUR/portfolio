@@ -7,6 +7,7 @@ import git_svg from '../assets/images/Techstack/git.svg';
 import javascript_original_svg from '../assets/images/Techstack/javascript-original.svg';
 import laravel_svg from '../assets/images/Techstack/laravel.svg';
 import mysql_original_wordmark_svg from '../assets/images/Techstack/mysql-original-wordmark.svg';
+import postgresql_original_svg from '../assets/images/Techstack/postgresql-original.svg';
 import php_original_svg from '../assets/images/Techstack/php-original.svg';
 import ps_svg from '../assets/images/Techstack/ps.svg';
 import react_svg from '../assets/images/Techstack/react.svg';
@@ -48,6 +49,7 @@ const imageMap = {
   'javascript-original.svg': javascript_original_svg,
   'laravel.svg': laravel_svg,
   'mysql-original-wordmark.svg': mysql_original_wordmark_svg,
+  'postgresql-original.svg': postgresql_original_svg,
   'php-original.svg': php_original_svg,
   'ps.svg': ps_svg,
   'react.svg': react_svg,
