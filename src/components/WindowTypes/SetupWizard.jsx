@@ -148,6 +148,10 @@ const computeDefaultSize = () => ({
 
 const SetupWizard = ({ id, title, onClose, position, template, openWindow, initialSize }) => {
   const resolvedSize = initialSize || computeDefaultSize();
+  const resolvedPosition = {
+    x: Math.max(0, Math.round((window.innerWidth - resolvedSize.width) / 2)),
+    y: Math.max(0, Math.round((window.innerHeight - resolvedSize.height) / 2)),
+  };
   const [data, setData] = useState(null);
   const [step, setStep] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -191,7 +195,7 @@ const SetupWizard = ({ id, title, onClose, position, template, openWindow, initi
 
   if (!data) {
     return (
-      <Window id={id} title={title} onClose={onClose} position={position} size={resolvedSize} className="window setup-wizard-window">
+      <Window id={id} title={title} onClose={onClose} position={resolvedPosition} size={resolvedSize} className="window setup-wizard-window">
         <div className="setup-wizard"><div className="setup-wizard-content">Loading…</div></div>
       </Window>
     );
@@ -222,7 +226,7 @@ const SetupWizard = ({ id, title, onClose, position, template, openWindow, initi
   };
 
   return (
-    <Window id={id} title={title} onClose={onClose} position={position} size={resolvedSize} className="window setup-wizard-window">
+    <Window id={id} title={title} onClose={onClose} position={resolvedPosition} size={resolvedSize} className="window setup-wizard-window">
       <div className="setup-wizard">
         <div className="setup-wizard-body">
           <div className="setup-wizard-art">

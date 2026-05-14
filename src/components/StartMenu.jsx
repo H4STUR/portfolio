@@ -10,6 +10,7 @@ import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
 import myComputerIcon from '../assets/images/Icons/HD/My Computer.png';
 import myDocumentsIcon from '../assets/images/Icons/HD/My Documents.png';
 import runIcon from '../assets/images/Icons/run.ico';
+import controlPanelIcon from '../assets/images/Icons/installer.ico';
 import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
 import ShutdownModal from './ShutdownModal';
 
@@ -88,6 +89,9 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
 
                 <li onClick={() => onOpenWindow('My Computer', 'My Computer', 'MyComputerTemplate')}>
                   <img src={myComputerIcon} alt="My Computer" className="start-menu-icon" /> My Computer
+                </li>
+                <li onClick={() => onOpenWindow('Control Panel', 'Control Panel', 'ControlPanel')}>
+                  <img src={controlPanelIcon} alt="Control Panel" className="start-menu-icon" /> Control Panel
                 </li>
                 <hr />
                 <li onClick={() => onOpenWindow('Run', 'Run...', 'RunTemplate')} className='not-active-click'>

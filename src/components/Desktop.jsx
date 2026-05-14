@@ -20,6 +20,7 @@ import DSJ from './DSJ/DeluxeSkiJumpApp';
 import Email from './Email/EmailApp';
 import BlueScreen from './BlueScreen';
 import SetupWizard from './WindowTypes/SetupWizard';
+import ControlPanel from './WindowTypes/ControlPanel';
 
 
 // Images
@@ -206,6 +207,8 @@ const Desktop = () => {
             return <Email key={win.id} {...win} onClose={closeWindow} />;
           case 'Setup':
             return <SetupWizard key={win.id} {...win} onClose={closeWindow} template={win.template} openWindow={openWindow} />;
+          case 'Control Panel':
+            return <ControlPanel key={win.id} {...win} onClose={closeWindow} openWindow={openWindow} />;
           case 'Alert':
             return <AlertWindow key={win.id} {...win} onClose={closeWindow} />;
 

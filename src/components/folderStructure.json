@@ -74,6 +74,7 @@
                             "TS": { "type": "Image", "title": "TypeScript.jpg", "template": "typescript-original.svg", "image": "typescript-original.svg" },
                             "PHP": { "type": "Image", "title": "PHP.jpg", "template": "php-original.svg", "image": "php-original.svg" },
                             "SQL": { "type": "Image", "title": "MySQL.jpg", "template": "mysql-original-wordmark.svg", "image": "mysql-original-wordmark.svg" },
+                            "POSTGRESQL": { "type": "Image", "title": "PostgreSQL.jpg", "template": "postgresql-original.svg", "image": "postgresql-original.svg" },
                             "WP": { "type": "Image", "title": "Wordpress.jpg", "template": "wp.svg", "image": "wp.svg" },
                             "Laravel": { "type": "Image", "title": "Laravel.jpg", "template": "laravel.svg", "image": "laravel.svg" },
                             "React": { "type": "Image", "title": "React.jpg", "template": "react.svg", "image": "react.svg" },
