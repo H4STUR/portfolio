@@ -16,6 +16,7 @@ import CMDWindow from './CMD/CMDWindow';
 import PasswordPrompt from './WindowTypes/PasswordPrompt';
 import Paint from './Paint/PaintApp';
 import Minesweeper from './Minesweeper/MinesweeperApp';
+import Snake from './Snake/SnakeApp';
 import DSJ from './DSJ/DeluxeSkiJumpApp';
 import Email from './Email/EmailApp';
 import BlueScreen from './BlueScreen';
@@ -201,6 +202,8 @@ const Desktop = () => {
             return <Paint key={win.id} {...win} onClose={closeWindow} />;
           case 'Minesweeper':
             return <Minesweeper key={win.id} {...win} onClose={closeWindow} />;
+          case 'Snake':
+            return <Snake key={win.id} {...win} onClose={closeWindow} />;
           case 'DSJ':
             return <DSJ key={win.id} {...win} onClose={closeWindow} />;
           case 'Email':
