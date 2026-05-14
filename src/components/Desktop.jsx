@@ -19,6 +19,7 @@ import Minesweeper from './Minesweeper/MinesweeperApp';
 import DSJ from './DSJ/DeluxeSkiJumpApp';
 import Email from './Email/EmailApp';
 import BlueScreen from './BlueScreen';
+import SetupWizard from './WindowTypes/SetupWizard';
 
 
 // Images
@@ -203,6 +204,8 @@ const Desktop = () => {
             return <DSJ key={win.id} {...win} onClose={closeWindow} />;
           case 'Email':
             return <Email key={win.id} {...win} onClose={closeWindow} />;
+          case 'Setup':
+            return <SetupWizard key={win.id} {...win} onClose={closeWindow} template={win.template} openWindow={openWindow} />;
           case 'Alert':
             return <AlertWindow key={win.id} {...win} onClose={closeWindow} />;
 

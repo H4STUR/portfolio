@@ -51,53 +51,18 @@
                         }
                     },
 
-                    "Projects": { "type": "Folder", "title": "Projects", "initialPosition": { "x": 220, "y": 120 }, "template": "FolderTemplate",
+                    "Projects": { "type": "Folder", "title": "All Projects", "initialPosition": { "x": 420, "y": 420 }, "template": "FolderTemplate",
                         "icons": 
                         {
-                            "Online\nStore": { "type": "Folder", "title": "Online\nStore", "template": "FolderTemplate", "icons": {
-                                "agares.co.uk": { "type": "Link", "title": "agares.co.uk", "template": "https://agares.co.uk" },
-                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "agaresstoreTemplate" }
-                            } },
-                            "Custom\nCMS": { "type": "Folder", "title": "Custom\nCMS", "initialPosition": { "x": 220, "y": 220 }, "template": "FolderTemplate", "icons": {
-                                "demo.agares.co.uk": { "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
-                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "agarescmsTemplate" },
-                                "agares_cms_dashboard": { "type": "Image", "title": "dashboard.jpg", "template": "agares_cms_dashboard.jpg", "initialSize": { "width": 915, "height": 490 },"image": "agares_cms_dashboard.jpg" },
-                                "agares_cms_site": { "type": "Image", "title": "sites.jpg", "template": "agares_cms_sites.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_sites.jpg" },
-                                "agares_cms_edit": { "type": "Image", "title": "edit.jpg", "template": "agares_cms_edit.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_edit.jpg" },
-                                "agares_cms_menus": { "type": "Image", "title": "menus.jpg", "template": "agares_cms_menus.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_menus.jpg" },
-                                "agares_cms_media": { "type": "Image", "title": "media.jpg", "template": "agares_cms_media.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_media.jpg" },
-                                "agares_cms_cookies": { "type": "Image", "title": "cookies.jpg", "template": "agares_cms_cookies.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_cookies.jpg" },
-                               	"agares_cms_settings": {	"type":"Image","title":"settings.jpg","template":"agares_cms_settings.jpg","initialSize":{ "width": 978, "height": 615 },"image":"agares_cms_settings.jpg"}
-                            } },
-                            "Party\nApp": { "type": "Folder", "title": "Party\nApp", "template": "FolderTemplate", "icons": {
-                                "bender-app.eu": { "type": "Link", "title": "bender-app.eu", "template": "https://bender-app.eu/" },
-                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "benderTemplate" },
-                                "bender_home": { "type": "Image", "title": "home.jpg", "template": "bender_home.jpg", "initialSize": { "width": 600, "height": 465 }, "image": "bender_home.jpg" },
-                                "bender_nhie": { "type": "Image", "title": "game.jpg", "template": "bender_nhie.jpg", "initialSize": { "width": 600, "height": 480 }, "image": "bender_nhie.jpg" }
-                            } },
-                            "Cookie\nScanner": { "type": "Folder", "title": "Cookie\nScanner", "template": "FolderTemplate", "icons": {
-                                "github.com/H4STUR/cookie-scanner": { "type": "Link", "title": "Cookie\nScanner", "template": "https://github.com/H4STUR/cookie-scanner" },
-                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "cookiescannerTemplate" }
-                            } },
-                            "Websites": { "type": "Folder", "title": "Websites", "template": "FolderTemplate", "icons": {
-                                "PiesCiMordeLizal.pl": { "type": "Link", "title": "PiesCi\nMordeLizal.pl", "template": "https://piescimordelizal.pl" },
-                                "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "piescimordelizalTemplate" }
-                                
-                            } }
+                            "Agares SaaS.exe": { "type": "Setup", "title": "Agares SaaS\nSetup.exe", "template": "agaressaasSetup" },
+                            "Personal HQ.exe": { "type": "Setup", "title": "Personal HQ\nSetup.exe", "template": "personalhqSetup" },
+                            "Party APP.exe": { "type": "Setup", "title": "Party APP\nSetup.exe", "template": "benderSetup" },
+                            "Cookie Scanner.exe": { "type": "Setup", "title": "Cookie Scanner\nSetup.exe", "template": "cookiescannerSetup" },
+                            "RAG Chatbot.exe": { "type": "Setup", "title": "RAG Chatbot\nSetup.exe", "template": "ragchatbotSetup" },
+                            "PiesCiMordeLizal.exe": { "type": "Setup", "title": "PiesCiMordeLizal\nSetup.exe", "template": "piescimordelizalSetup" }
                             
                         }
                     },
-                    "Custom\nCMS": { "type": "Folder", "title": "Custom\nCMS", "initialPosition": { "x": 220, "y": 220 }, "template": "FolderTemplate", "icons": {
-                        "demo.agares.co.uk": { "type": "Link", "title": "demo.agares.co.uk", "template": "https://demo.agares.co.uk" },
-                        "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "agarescmsTemplate" },
-                        "agares_cms_dashboard": { "type": "Image", "title": "dashboard.jpg", "template": "agares_cms_dashboard.jpg", "initialSize": { "width": 915, "height": 490 },"image": "agares_cms_dashboard.jpg" },
-                        "agares_cms_site": { "type": "Image", "title": "sites.jpg", "template": "agares_cms_sites.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_sites.jpg" },
-                        "agares_cms_edit": { "type": "Image", "title": "edit.jpg", "template": "agares_cms_edit.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_edit.jpg" },
-                        "agares_cms_menus": { "type": "Image", "title": "menus.jpg", "template": "agares_cms_menus.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_menus.jpg" },
-                        "agares_cms_media": { "type": "Image", "title": "media.jpg", "template": "agares_cms_media.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_media.jpg" },
-                        "agares_cms_cookies": { "type": "Image", "title": "cookies.jpg", "template": "agares_cms_cookies.jpg", "initialSize": { "width": 978, "height": 615 },"image": "agares_cms_cookies.jpg" },
-                        "agares_cms_settings": {	"type":"Image","title":"settings.jpg","template":"agares_cms_settings.jpg","initialSize":{ "width": 978, "height": 615 },"image":"agares_cms_settings.jpg"}
-                    } },
                     
                     "TECH STACK": { "type": "Folder", "title": "Tech Stack", "initialPosition": { "x": 320, "y": 120 }, "template": "FolderTemplate",
                         "icons": 
@@ -118,6 +83,8 @@
                             "Docker": { "type": "Image", "title": "Docker.jpg", "template": "docker-original-wordmark.svg", "image": "docker-original-wordmark.svg" }
                         }
                     },
+
+                    "Custom CMS Setup.exe": { "type": "Setup", "title": "Custom CMS\nSetup.exe", "initialPosition": { "x": 320, "y": 420 }, "template": "agarescmsSetup" },
 
                     "CV.pdf": { "type": "PDF", "title": "CV.pdf", "initialPosition": { "x": 520, "y": 220 }, "template": "CV" },
 
