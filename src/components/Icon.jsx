@@ -17,6 +17,7 @@ import jpgIcon from '../assets/images/Icons/HD/JPG.png';
 import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
 import paintIcon from '../assets/images/Icons/Paint_XP.ico';
 import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
+import snakeIcon from '../assets/images/Snake/pepe-happy.png';
 import emailIcon from '../assets/images/Icons/HD/Email.png';
 import installerIcon from '../assets/images/Icons/installer.ico';
 
@@ -59,6 +60,8 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
         return paintIcon;
       case "Minesweeper":
         return minesweeperIcon;
+      case "Snake":
+        return snakeIcon;
       case "Email":
         return emailIcon;
       case "Setup":

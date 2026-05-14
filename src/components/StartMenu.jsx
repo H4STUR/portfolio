@@ -12,6 +12,7 @@ import myDocumentsIcon from '../assets/images/Icons/HD/My Documents.png';
 import runIcon from '../assets/images/Icons/run.ico';
 import controlPanelIcon from '../assets/images/Icons/installer.ico';
 import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
+import snakeIcon from '../assets/images/Snake/pepe-happy.png';
 import ShutdownModal from './ShutdownModal';
 
 const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
@@ -56,6 +57,9 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
               <ul className="start-menu-elements">
                 <li onClick={() => onOpenWindow('Minesweeper', 'Minesweeper', 'MinesweeperApp')}>
                   <img src={minesweeperIcon} alt="Minesweeper" className="start-menu-icon" /> Minesweeper
+                </li>
+                <li onClick={() => onOpenWindow('Snake', 'Snake', 'SnakeApp')}>
+                  <img src={snakeIcon} alt="Snake" className="start-menu-icon" /> Snake
                 </li>
                 <li onClick={() => onOpenWindow('CMD', 'Command Prompt', 'CMDTemplate')}>
                   <img src={cmdIcon} alt="CMD" className="start-menu-icon" /> Command Prompt
