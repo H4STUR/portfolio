@@ -17,7 +17,23 @@ const loadTemplate = async (template) => {
       case 'piescimordelizalTemplate':
         return (await import('../Templates/File/projects/piescimordelizalTemplate')).default;
 
-      
+    //Setup wizards
+      case 'agarescmsSetup':
+        return (await import('../Templates/Setup/agarescmsSetup')).default;
+      case 'benderSetup':
+        return (await import('../Templates/Setup/benderSetup')).default;
+      case 'cookiescannerSetup':
+        return (await import('../Templates/Setup/cookiescannerSetup')).default;
+      case 'agaressaasSetup':
+        return (await import('../Templates/Setup/agaressaasSetup')).default;
+      case 'ragchatbotSetup':
+        return (await import('../Templates/Setup/ragchatbotSetup')).default;
+      case 'piescimordelizalSetup':
+        return (await import('../Templates/Setup/piescimordelizalSetup')).default;
+      case 'personalhqSetup':
+        return (await import('../Templates/Setup/personalhqSetup')).default;
+
+
       case 'readmeTemplate':
         return (await import('../Templates/File/readmeTemplate')).default;
       case 'todoTemplate':

@@ -18,6 +18,7 @@ import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
 import paintIcon from '../assets/images/Icons/Paint_XP.ico';
 import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
 import emailIcon from '../assets/images/Icons/HD/Email.png';
+import installerIcon from '../assets/images/Icons/installer.ico';
 
 const GRID_SIZE = 80;
 const CELL_MARGIN = 20;
@@ -60,6 +61,8 @@ const Icon = ({ type, title, initialPosition, onClick, onDoubleClick, moveIcon, 
         return minesweeperIcon;
       case "Email":
         return emailIcon;
+      case "Setup":
+        return installerIcon;
       default:
         return defaultIcon;
     }
