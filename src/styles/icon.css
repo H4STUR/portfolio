@@ -53,13 +53,14 @@
   text-align: center;
   font-size: 1em;
   line-height: 1.2;
-  white-space: pre-wrap; /* handles \n line breaks if you use them */
+  font-weight: 500;
+  white-space: pre-wrap;
   text-shadow:
-    0 0 3px rgba(44, 44, 44, 0.6),
-    1px 1px 1px rgb(32, 32, 32, 0.6),
-    -1px -1px 1px rgb(32, 32, 32, 0.6),
-    1px -1px 1px rgb(32, 32, 32, 0.6),
-    -1px 1px 1px rgb(32, 32, 32, 0.6);
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0 0 4px rgba(0, 0, 0, 0.7);
 }
 
 

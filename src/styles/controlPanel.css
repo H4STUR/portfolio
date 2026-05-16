@@ -266,7 +266,7 @@
     padding: 4px 12px;
     background: #f0f0f0;
     border: 1px solid #707070;
-    box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #a3a3a3;
+    box-shadow: var(--xp-bevel);
     font-family: 'Tahoma', 'Segoe UI', Arial, sans-serif;
     font-size: 0.82rem;
     color: #000;
@@ -278,7 +278,7 @@
 }
 
 .control-panel-button:active {
-    box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #a3a3a3;
+    box-shadow: var(--xp-bevel-pressed);
 }
 
 .control-panel-button.primary {

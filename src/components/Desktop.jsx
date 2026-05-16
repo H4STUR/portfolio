@@ -1,27 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from './Icon';
 import Taskbar from './Taskbar';
 import LoadingScreen from './LoadingScreen';
+import { useWindows } from '../hooks/useWindows';
+import { useDesktopIcons } from '../hooks/useDesktopIcons';
 import '../styles/desktop.css';
 
-// Window types
-import FolderWindow from './WindowTypes/FolderWindow';
-import PDFWindow from './WindowTypes/PDFWindow';
-import FileWindow from './WindowTypes/FileWindow';
-import ImageWindow from './WindowTypes/ImageWindow';
-import RecycleBin from './WindowTypes/RecycleBin';
-import MyComputer from './WindowTypes/MyComputer';
-import AlertWindow from './WindowTypes/AlertWindow';
-import CMDWindow from './CMD/CMDWindow';
 import PasswordPrompt from './WindowTypes/PasswordPrompt';
-import Paint from './Paint/PaintApp';
-import Minesweeper from './Minesweeper/MinesweeperApp';
-import Snake from './Snake/SnakeApp';
-import DSJ from './DSJ/DeluxeSkiJumpApp';
-import Email from './Email/EmailApp';
 import BlueScreen from './BlueScreen';
-import SetupWizard from './WindowTypes/SetupWizard';
-import ControlPanel from './WindowTypes/ControlPanel';
+import { windowRegistry } from './WindowTypes/registry';
 
 
 // Images
@@ -33,115 +20,56 @@ import folderStructure from './folderStructure.json';
 
 const Desktop = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [windows, setWindows] = useState([]);
-  const [desktopIcons, setDesktopIcons] = useState([]);
   const [isCrashed, setIsCrashed] = useState(false);
-  const cascadeIndexRef = useRef(0);
+  const { windows, openWindow: rawOpenWindow, closeWindow, focusWindow } = useWindows();
+  const { desktopIcons, isPositionOccupied, moveIcon, error: iconsError } = useDesktopIcons();
+
+  const openWindow = (type, ...args) => {
+    if (type === 'Crush') {
+      triggerCrash();
+      return;
+    }
+    rawOpenWindow(type, ...args);
+  };
 
   useEffect(() => {
-    try {
-      // Fetch desktop items from the imported JSON data
-      const desktopItems = folderStructure.C.Users.Danio.Desktop;
-      const parsedIcons = parseFolderStructure(desktopItems);
-      setDesktopIcons(parsedIcons);
-  
-      // Set a timeout for 3 seconds before setting isLoading to false
-      const loadingTimeout = setTimeout(() => {
-        setIsLoading(false);
-      }, 3000); // 3000 milliseconds = 3 seconds
-  
-      // Cleanup function to clear the timeout if the component unmounts
-      return () => clearTimeout(loadingTimeout);
-    } catch (error) {
-      console.error('Error loading folder structure:', error);
+    if (iconsError) {
       setIsLoading(false);
+      return;
     }
-  }, []);
-  
+    const loadingTimeout = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(loadingTimeout);
+  }, [iconsError]);
 
-  // Recursive function to parse the folder structure and create icons
-  const parseFolderStructure = (items) => {
-    let icons = [];
+  const triggerCrash = () => {
+    const errorCount = 8;
+    const alertWidth = 350;
+    const alertHeight = 200;
 
-    // Iterate through each key in the items object
-    Object.entries(items).forEach(([key, value]) => {
-      if (value.type) {
-        // If the object has a 'type', it's an icon; add it to the icons array
-        icons.push({
-          id: `${key}-${Math.random()}`, // Generate unique id from key + random
-          type: value.type,
-          title: value.title || key,
-          initialPosition: value.initialPosition || { x: 0, y: 0 },
-          initialSize: value.initialSize || null,
-          template: value.template || '',
-          imageOverride: value.image || null,
-          icons: value.icons ? parseFolderStructure(value.icons) : [] // Recursively parse nested icons
-        });
-      }
-    });
+    for (let i = 0; i < errorCount; i++) {
+      setTimeout(() => {
+        const randomX = Math.floor(Math.random() * (window.innerWidth - alertWidth - 40));
+        const randomY = Math.floor(Math.random() * (window.innerHeight - alertHeight - 40));
+        openWindow('Alert', `System Error ${i + 1}`, '', [], { x: randomX, y: randomY });
+      }, i * 200);
+    }
 
-    return icons;
+    setTimeout(() => setIsCrashed(true), errorCount * 200 + 1000);
   };
 
-  const openWindow = (type, title, template, icons = [], position = { x: 100, y: 100 }, initialSize = null) => {
-    setWindows((prev) => {
-      const alreadyOpen = prev.some(
-        (w) => w.type === type && w.title === title
-      );
-      if (alreadyOpen) {
-        console.log(`[openWindow BLOCKED] ${type} - ${title}`);
-        return prev;
-      }
-
-      // Calculate cascade offset if other windows are open
-      const cascadeOffset = 30;
-      const cascadeStep = cascadeIndexRef.current % 5;
-      const cascadedPosition = prev.length > 0
-        ? { x: position.x + cascadeStep * cascadeOffset, y: position.y + cascadeStep * cascadeOffset }
-        : position;
-
-      // Increment cascade index for next window
-      cascadeIndexRef.current += 1;
-
-      console.log(`[openWindow ALLOWED] ${type} - ${title}`);
-      return [
-        ...prev,
-        {
-          id: prev.length,
-          type,
-          title,
-          position: cascadedPosition,
-          template,
-          icons,
-          ...(initialSize && { initialSize }),
-        },
-      ];
-    });
-  };
-  
-
-  const closeWindow = (id) => {
-    setWindows(windows.filter((window) => window.id !== id));
+  const handleIconDoubleClick = (icon) => {
+    if (icon.type === 'Link') {
+      window.open(icon.template, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    openWindow(icon.type, icon.title, icon.template, icon.icons, icon.initialPosition, icon.initialSize);
   };
 
-  // Check if a grid position is already occupied by another icon
-  const isPositionOccupied = (excludeId, x, y) => {
-    const CELL_SIZE = 100;
-    return desktopIcons.some((icon) => {
-      if (icon.id === excludeId) return false;
-      // Normalize positions to grid (handles both JSON format with margin and moved format without)
-      const iconGridX = Math.round(icon.initialPosition.x / CELL_SIZE) * CELL_SIZE;
-      const iconGridY = Math.round(icon.initialPosition.y / CELL_SIZE) * CELL_SIZE;
-      return iconGridX === x && iconGridY === y;
-    });
-  };
-
-  const moveIcon = (id, x, y) => {
-    setDesktopIcons((prevIcons) =>
-      prevIcons.map((icon) =>
-        icon.id === id ? { ...icon, initialPosition: { x, y } } : icon
-      )
-    );
+  const handleWindowMouseDown = (e) => {
+    const winEl = e.target.closest('[data-window-id]');
+    if (!winEl) return;
+    const id = Number(winEl.dataset.windowId);
+    if (!Number.isNaN(id)) focusWindow(id);
   };
 
   const handlePasswordSubmit = (password, win) => {
@@ -165,82 +93,35 @@ const Desktop = () => {
   }
 
   return (
-    <div className="desktop" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
+    <div
+      className="desktop"
+      style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}
+      onMouseDownCapture={handleWindowMouseDown}
+    >
       {desktopIcons.map((icon) => (
         <Icon
         key={icon.id}
         {...icon}
         imageOverride={icon.imageOverride}
-        onDoubleClick={() =>
-          icon.type === 'Link'
-            ? window.open(icon.template, '_blank', 'noopener,noreferrer')
-            : openWindow(icon.type, icon.title, icon.template, icon.icons, icon.initialPosition, icon.initialSize)
-        }
+        onDoubleClick={() => handleIconDoubleClick(icon)}
         isPositionOccupied={(x, y) => isPositionOccupied(icon.id, x, y)}
         moveIcon={(x, y) => moveIcon(icon.id, x, y)}
       />
       ))}
       {windows.map((win) => {
-        switch (win.type) {
-          case 'Recycle Bin':
-            return <RecycleBin key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
-          case 'My Computer':
-            return <MyComputer key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow}/>;
-          case 'Folder':
-            return <FolderWindow key={win.id} {...win} onClose={closeWindow} icons={win.icons} openWindow={openWindow} />;
-          case 'FolderLocked':
-            return <PasswordPrompt key={win.id} {...win} onClose={closeWindow} onSubmit={(password) => handlePasswordSubmit(password, win)} />;
-          case 'CMD':
-            return <CMDWindow key={win.id} {...win} onClose={closeWindow} openWindow={openWindow}/>;
-          case 'File':
-            return <FileWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
-          case 'Image':
-            return <ImageWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
-          case 'PDF':
-            return <PDFWindow key={win.id} {...win} onClose={closeWindow} template={win.template} />;
-          case 'Paint':
-            return <Paint key={win.id} {...win} onClose={closeWindow} />;
-          case 'Minesweeper':
-            return <Minesweeper key={win.id} {...win} onClose={closeWindow} />;
-          case 'Snake':
-            return <Snake key={win.id} {...win} onClose={closeWindow} />;
-          case 'DSJ':
-            return <DSJ key={win.id} {...win} onClose={closeWindow} />;
-          case 'Email':
-            return <Email key={win.id} {...win} onClose={closeWindow} />;
-          case 'Setup':
-            return <SetupWizard key={win.id} {...win} onClose={closeWindow} template={win.template} openWindow={openWindow} />;
-          case 'Control Panel':
-            return <ControlPanel key={win.id} {...win} onClose={closeWindow} openWindow={openWindow} />;
-          case 'Alert':
-            return <AlertWindow key={win.id} {...win} onClose={closeWindow} />;
-
-          case 'Crush':
-            const errorCount = 8;
-
-            for (let i = 0; i < errorCount; i++) {
-              setTimeout(() => {
-                const alertWidth = 350;
-                const alertHeight = 200;
-
-                const randomX = Math.floor(Math.random() * (window.innerWidth - alertWidth - 40));
-                const randomY = Math.floor(Math.random() * (window.innerHeight - alertHeight - 40));
-
-                openWindow('Alert', `System Error ${i + 1}`, '', [], { x: randomX, y: randomY });
-              }, i * 200);
-            }
-
-            // Trigger bluescreen after all errors popped
-            setTimeout(() => {
-              setIsCrashed(true);
-            }, errorCount * 200 + 1000);
-
-            return null;
-
-            
-          default:
-            return null;
+        if (win.type === 'FolderLocked') {
+          return (
+            <PasswordPrompt
+              key={win.id}
+              {...win}
+              onClose={closeWindow}
+              onSubmit={(password) => handlePasswordSubmit(password, win)}
+            />
+          );
         }
+        const Component = windowRegistry[win.type];
+        if (!Component) return null;
+        return <Component key={win.id} {...win} onClose={closeWindow} openWindow={openWindow} />;
       })}
 
       {isCrashed && <BlueScreen />}

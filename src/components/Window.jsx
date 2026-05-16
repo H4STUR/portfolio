@@ -30,6 +30,7 @@ const Window = ({ id, title, onClose, position, size = { width: 600, height: 400
     <Rnd
       className={className ? className : "window"}
       id={id}
+      data-window-id={id}
       position={windowPosition}
       size={windowSize}
       bounds="parent"

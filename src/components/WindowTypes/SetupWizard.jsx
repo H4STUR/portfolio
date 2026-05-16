@@ -147,11 +147,11 @@ const computeDefaultSize = () => ({
 });
 
 const SetupWizard = ({ id, title, onClose, position, template, openWindow, initialSize }) => {
-  const resolvedSize = initialSize || computeDefaultSize();
-  const resolvedPosition = {
+  const [resolvedSize] = useState(() => initialSize || computeDefaultSize());
+  const [resolvedPosition] = useState(() => ({
     x: Math.max(0, Math.round((window.innerWidth - resolvedSize.width) / 2)),
     y: Math.max(0, Math.round((window.innerHeight - resolvedSize.height) / 2)),
-  };
+  }));
   const [data, setData] = useState(null);
   const [step, setStep] = useState(0);
   const [progress, setProgress] = useState(0);
