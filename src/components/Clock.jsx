@@ -12,7 +12,7 @@ const Clock = () => {
   }, []);
 
   const formattedTime = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  const formattedDate = time.toLocaleDateString();
+  const formattedDate = time.toLocaleDateString('en-GB');
 
   return (
     <div>

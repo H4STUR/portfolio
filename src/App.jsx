@@ -3,7 +3,6 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Desktop from './components/Desktop';
 import Mobile from './components/Mobile/Mobile';
-import './App.css';
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);

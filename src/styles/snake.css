@@ -36,9 +36,7 @@
   text-align: center;
   cursor: pointer;
   outline: none;
-  box-shadow: inset 1px 1px 0 #fff,
-              inset -1px -1px 0 #a3a3a3,
-              1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--xp-bevel), 1px 1px 2px rgba(0, 0, 0, 0.2);
   transition: background-color 0.2s, transform 0.1s;
   transform: translateY(1px);
 }
@@ -50,9 +48,7 @@
 
 .snake-menu-header *:active {
   background-color: #d0d0d0;
-  box-shadow: inset -1px -1px 0 #fff,
-              inset 1px 1px 0 #a3a3a3,
-              1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--xp-bevel-pressed), 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .snake-game-container {
@@ -94,9 +90,7 @@
   font-family: Tahoma, sans-serif;
   font-size: 14px;
   color: #000;
-  box-shadow: inset 1px 1px 0 #fff,
-              inset -1px -1px 0 #a3a3a3,
-              1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--xp-bevel), 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .snake-reset-btn:hover {
@@ -106,9 +100,7 @@
 
 .snake-reset-btn:active {
   background-color: #d0d0d0;
-  box-shadow: inset -1px -1px 0 #fff,
-              inset 1px 1px 0 #a3a3a3,
-              1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--xp-bevel-pressed), 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .snake-board {

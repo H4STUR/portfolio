@@ -36,9 +36,7 @@
   color: #000;
   cursor: pointer;
   outline: none;
-  box-shadow: inset 1px 1px 0 #fff,
-              inset -1px -1px 0 #a3a3a3,
-              1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--xp-bevel), 1px 1px 2px rgba(0, 0, 0, 0.2);
   transition: background-color 0.1s;
 }
 
@@ -49,9 +47,7 @@
 
 .paint-action-btn:active {
   background-color: #d0d0d0;
-  box-shadow: inset -1px -1px 0 #fff,
-              inset 1px 1px 0 #a3a3a3,
-              1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--xp-bevel-pressed), 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .paint-action-btn:disabled {
@@ -84,8 +80,7 @@
   background: #b0b0b0;
   border: 1px solid #808080;
   padding: 3px;
-  box-shadow: inset -1px -1px 0 #fff,
-              inset 1px 1px 0 #a3a3a3;
+  box-shadow: var(--xp-bevel-pressed);
 }
 
 .paint-tool-btn {
@@ -99,8 +94,7 @@
   justify-content: center;
   font-size: 14px;
   padding: 0;
-  box-shadow: inset 1px 1px 0 #fff,
-              inset -1px -1px 0 #a3a3a3;
+  box-shadow: var(--xp-bevel);
 }
 
 .paint-tool-btn:hover {
@@ -110,8 +104,7 @@
 
 .paint-tool-btn.active {
   background: #9b9b9b;
-  box-shadow: inset -1px -1px 0 #fff,
-              inset 1px 1px 0 #a3a3a3;
+  box-shadow: var(--xp-bevel-pressed);
 }
 
 /* Brush Sizes */
@@ -119,8 +112,7 @@
   background: #b0b0b0;
   border: 1px solid #808080;
   padding: 4px;
-  box-shadow: inset -1px -1px 0 #fff,
-              inset 1px 1px 0 #a3a3a3;
+  box-shadow: var(--xp-bevel-pressed);
 }
 
 .paint-section-label {
@@ -147,8 +139,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 1px 1px 0 #fff,
-              inset -1px -1px 0 #a3a3a3;
+  box-shadow: var(--xp-bevel);
 }
 
 .paint-size-btn:hover {
@@ -157,8 +148,7 @@
 
 .paint-size-btn.active {
   background: #9b9b9b;
-  box-shadow: inset -1px -1px 0 #fff,
-              inset 1px 1px 0 #a3a3a3;
+  box-shadow: var(--xp-bevel-pressed);
 }
 
 .paint-size-dot {
@@ -279,8 +269,7 @@
   padding: 0;
   cursor: pointer;
   background: none;
-  box-shadow: inset -1px -1px 0 #fff,
-              inset 1px 1px 0 #a3a3a3;
+  box-shadow: var(--xp-bevel-pressed);
 }
 
 .paint-color-input::-webkit-color-swatch-wrapper {

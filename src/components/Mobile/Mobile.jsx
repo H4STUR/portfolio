@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../../App.css';
 import './Mobile.css';
 import wallpaper from '../../assets/images/Mobile/mobile-wallpaper.png';
 
