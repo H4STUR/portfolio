@@ -11,11 +11,11 @@ const Clock = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const formattedTime = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const formattedTime = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
   const formattedDate = time.toLocaleDateString('en-GB');
 
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       <span>{formattedTime}</span>
       <br />
       <span>{formattedDate}</span>
