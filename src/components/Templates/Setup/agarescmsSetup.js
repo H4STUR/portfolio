@@ -59,6 +59,14 @@ const AgaresCMSSetup = {
         'Per-category cookie scanner, consent snapshots stored against subscribers (text, IP, user-agent). Built to actually pass a legal audit.',
     },
     {
+      name: 'Two-Factor Authentication',
+      description:
+        'TOTP authenticator app (Google Authenticator, Authy, Bitwarden, 1Password) with email-OTP fallback. ' +
+        'Self-service enrolment, one-time recovery codes, and admin "Reset 2FA" on the user profile page. ' +
+        'OAuth logins (Google/Facebook) go through the 2FA challenge too. ' +
+        'Every event — enrol, disable, failed attempt, OAuth challenge — is written to a security audit log visible on the user\'s profile.',
+    },
+    {
       name: 'GitHub Actions auto-deploy',
       description:
         'Push to a branch, deploys to that branch\'s domain. SFTP package, post-deploy migrate, never overwrites uploads.',
@@ -77,13 +85,14 @@ const AgaresCMSSetup = {
   ],
 
   screenshots: [
-    { file: 'agares_cms_dashboard.jpg', caption: 'Admin dashboard - live stats, GA4 integration, recent activity at a glance.' },
-    { file: 'agares_cms_sites.jpg', caption: 'Multi-site selector - every client website managed from one place.' },
-    { file: 'agares_cms_edit.jpg', caption: 'Content editor with TinyMCE, custom field support, scheduling, drafts.' },
-    { file: 'agares_cms_menus.jpg', caption: 'Drag-and-drop menu builder. Multi-level navigation, per-site.' },
-    { file: 'agares_cms_media.jpg', caption: 'Media library - bulk upload, MIME allowlist, gallery picker, image transforms.' },
-    { file: 'agares_cms_cookies.jpg', caption: 'Cookie consent manager - per-category, GDPR-compliant, auditable.' },
-    { file: 'agares_cms_settings.jpg', caption: 'Site-scoped settings - SEO, analytics, integrations, feature flags.' },
+    { file: 'agares_cms_dashboard.jpg', caption: 'Admin dashboard — GA4 traffic chart, realtime active users, and live eCommerce sales stats.' },
+    { file: 'agares_cms_sites.jpg', caption: 'Multi-site manager — every client website in one place, published status at a glance.' },
+    { file: 'agares_cms_edit.jpg', caption: 'Content editor — TinyMCE, custom field blocks (gallery, header, rich text), Content/Settings/SEO tabs.' },
+    { file: 'agares_cms_cookies.jpg', caption: 'Cookie & GDPR module — SaaS scanner integration, consent configuration, and scan history.' },
+    { file: 'agares_cms_permissions.jpg', caption: 'Role-based access control — per-site View/Edit/Categories/Articles matrix + granular CMS permission tabs.' },
+    { file: 'agares_cms_payments.jpg', caption: 'Payment gateways — Stripe, PayU, P24, PayPal, and Manual configured per-environment from the admin.' },
+    { file: 'agares_cms_settings.jpg', caption: 'Site settings — General, Security, Social Media, SEO, Add-ons, and Custom tabs per site.' },
+    { file: 'agares_cms_settings_addons.jpg', caption: 'Add-ons panel — feature-flag toggles for eCommerce, Newsletter, API, Forum, reservations, and more.' },
   ],
 
   links: {

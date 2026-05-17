@@ -3,7 +3,7 @@ const AgaresSaaSSetup = {
   publisher: 'Lucas Majerski',
   version: '2026.1',
   tagline: 'Multi-tenant AI platform. The spine that powers everything else.',
-  banner: null,
+  banner: 'saas-dashboard.jpg',
 
   about:
     "Agares SaaS is the multi-tenant AI platform that hosts everything else I've built - Cookie Scanner, AI Chat, RAG, and Newsletter - and exposes them as managed services to my own products (Agares CMS) and third-party callers via scoped `agr_` API keys.\n\n" +
@@ -11,7 +11,7 @@ const AgaresSaaSSetup = {
     "Live in production at api.agares.co.uk, actively developed. Built on Laravel 13 + PostgreSQL with pgvector for the RAG layer.",
 
   highlights: [
-    { number: '4', label: 'Services hosted (Cookies, AI Chat, RAG, Newsletter)' },
+    { number: '5', label: 'Services hosted (Cookies, AI Chat, RAG, Newsletter, AI SEO)' },
     { number: '∞', label: 'Tenants per install' },
     { number: '1536', label: 'pgvector embedding dimensions' },
     { number: 'agr_', label: 'Scoped tenant API key prefix' },
@@ -46,7 +46,18 @@ const AgaresSaaSSetup = {
     {
       name: 'Newsletter engine with queued bulk send',
       description:
-        'Tenants delegate campaigns over the API; SaaS dedupes, suppression-filters, snapshots the recipient list, and dispatches a `newsletter` queue. Atomic counters, idempotent per-recipient sends, HMAC-SHA256-signed callback webhooks to the originating system on status transitions.',
+        'Tenants delegate campaigns over the API; SaaS dedupes, suppression-filters, snapshots the recipient list, and dispatches a `newsletter` queue. ' +
+        'Atomic counters, idempotent per-recipient sends, HMAC-SHA256-signed callback webhooks on status transitions. ' +
+        'RFC 8058 one-click unsubscribe headers, per-tenant sender identity table with SPF/DMARC/DKIM auto-verification via DNS, ' +
+        'bounce mailbox IMAP parsing (hard/soft DSN classification → auto-suppression), per-minute/per-hour rate limiting, ' +
+        'and provider inbound webhook handlers for bounce and complaint events.',
+    },
+    {
+      name: 'AI SEO Generator',
+      description:
+        'POST /api/v1/services/ai-seo/generate — produces meta_title (≤60 chars), meta_description (≤160 chars), slug, og_title, og_description, schema_jsonld, and image_alt from content sent by the CMS. ' +
+        'CMS strips HTML and sends ≤2000 chars so the SaaS stays content-type-agnostic — the same endpoint will serve a future WordPress plugin. ' +
+        'Per-API-key model override via api_keys.service_settings; output validator with one retry on overflow; real token counts from Ollama.',
     },
     {
       name: 'Service catalog with usage tracking & quotas',
@@ -83,7 +94,13 @@ const AgaresSaaSSetup = {
     { name: 'GitHub Actions', reason: 'SFTP + SSH deploy with `queue:restart` post-deploy signal. Same pipeline shape as the Cookie Scanner and CMS deployments.' },
   ],
 
-  screenshots: [],
+  screenshots: [
+    { file: 'saas-dashboard.jpg', caption: 'Platform dashboard — tenant/service overview, sidebar split between Platform, Services, and Workspace.' },
+    { file: 'saas-tenants.jpg', caption: 'Tenants — client accounts with member counts, agent counts, and knowledge base counts at a glance.' },
+    { file: 'saas-rag.jpg', caption: 'RAG Chat service — 3-step pipeline overview (Ingest → Configure → Query) with technical spec panel.' },
+    { file: 'saas-agents.jpg', caption: 'Agents — per-tenant chatbot agents with active/inactive status and knowledge base assignments.' },
+    { file: 'saas-cookies.jpg', caption: 'Cookie Scanner — trigger scans per tenant, scan history with status, grade, and cookie/tracker counts.' },
+  ],
 
   links: {
     demo: { label: 'Live deployment at api.agares.co.uk', url: 'https://www.api.agares.co.uk/' },

@@ -22,9 +22,31 @@ import agares_cms_menus from '../assets/images/projects/agarescms/agares_cms_men
 import agares_cms_media from '../assets/images/projects/agarescms/agares_cms_media.jpg';
 import agares_cms_cookies from '../assets/images/projects/agarescms/agares_cms_cookies.jpg';
 import agares_cms_settings from '../assets/images/projects/agarescms/agares_cms_settings.jpg';
+import agares_cms_settings_addons from '../assets/images/projects/agarescms/agares_cms_settings_addons.jpg';
 import agares_cms_sites from '../assets/images/projects/agarescms/agares_cms_sites.jpg';
-import bender_home from '../assets/images/projects/bender/bender-home.jpg';
-import bender_nhie from '../assets/images/projects/bender/bender-nhie.jpg';
+import agares_cms_permissions from '../assets/images/projects/agarescms/agares_cms_permissions.jpg';
+import agares_cms_payments from '../assets/images/projects/agarescms/agares_cms_payments.jpg';
+import bender_landing_raw from '../assets/images/projects/bender/bender_landing_raw.jpg';
+import bender_home_raw from '../assets/images/projects/bender/bender_home_raw.jpg';
+import bender_nhie_raw from '../assets/images/projects/bender/bender_nhie_raw.jpg';
+import bender_nhie_card_raw from '../assets/images/projects/bender/bender_nhie_card_raw.jpg';
+import bender_tod_raw from '../assets/images/projects/bender/bender_tod_raw.jpg';
+import bender_admin_raw from '../assets/images/projects/bender/bender_admin_raw.jpg';
+import bender_admin_questions_raw from '../assets/images/projects/bender/bender_admin_questions_raw.jpg';
+
+// piescimordelizal
+import pcml_home from '../assets/images/projects/piescimordelizal/pcml-home.jpg';
+import pcml_oferta from '../assets/images/projects/piescimordelizal/pcml-oferta.jpg';
+import pcml_omnie from '../assets/images/projects/piescimordelizal/pcml-omnie.jpg';
+import pcml_petcamp from '../assets/images/projects/piescimordelizal/pcml-petcamp.jpg';
+import pcml_hotel from '../assets/images/projects/piescimordelizal/pcml-hotel.jpg';
+
+// agares saas
+import saas_dashboard from '../assets/images/projects/agaressas/saas-dashboard.jpg';
+import saas_tenants from '../assets/images/projects/agaressas/saas-tenants.jpg';
+import saas_cookies from '../assets/images/projects/agaressas/saas-cookies.jpg';
+import saas_rag from '../assets/images/projects/agaressas/saas-rag.jpg';
+import saas_agents from '../assets/images/projects/agaressas/saas-agents.jpg';
 
 // memes
 import dachshund_jpg from '../assets/images/memes/dachshund.jpg';
@@ -64,10 +86,31 @@ const imageMap = {
   'agares_cms_media.jpg': agares_cms_media,
   'agares_cms_cookies.jpg': agares_cms_cookies,
   'agares_cms_settings.jpg': agares_cms_settings,
+  'agares_cms_settings_addons.jpg': agares_cms_settings_addons,
   'agares_cms_sites.jpg': agares_cms_sites,
-  'bender_home.jpg': bender_home,
-  'bender_nhie.jpg': bender_nhie,
+  'agares_cms_permissions.jpg': agares_cms_permissions,
+  'agares_cms_payments.jpg': agares_cms_payments,
+  'bender_landing_raw.jpg': bender_landing_raw,
+  'bender_home_raw.jpg': bender_home_raw,
+  'bender_nhie_raw.jpg': bender_nhie_raw,
+  'bender_nhie_card_raw.jpg': bender_nhie_card_raw,
+  'bender_tod_raw.jpg': bender_tod_raw,
+  'bender_admin_raw.jpg': bender_admin_raw,
+  'bender_admin_questions_raw.jpg': bender_admin_questions_raw,
 
+// piescimordelizal
+  'pcml-home.jpg': pcml_home,
+  'pcml-oferta.jpg': pcml_oferta,
+  'pcml-omnie.jpg': pcml_omnie,
+  'pcml-petcamp.jpg': pcml_petcamp,
+  'pcml-hotel.jpg': pcml_hotel,
+
+// agares saas
+  'saas-dashboard.jpg': saas_dashboard,
+  'saas-tenants.jpg': saas_tenants,
+  'saas-cookies.jpg': saas_cookies,
+  'saas-rag.jpg': saas_rag,
+  'saas-agents.jpg': saas_agents,
 
 // memes
   'dachshund.jpg': dachshund_jpg,

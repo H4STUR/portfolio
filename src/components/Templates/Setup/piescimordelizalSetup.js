@@ -3,18 +3,18 @@ const PiesCiMordeLizalSetup = {
   publisher: 'Lucas Majerski',
   version: '1.0',
   tagline: 'Live commercial website. First real-world deployment of Agares CMS.',
-  banner: null,
+  banner: 'pcml-home.jpg',
 
   about:
     "PiesCiMordeLizal.pl is a live commercial website for a Polish dog-services brand - and the first real-world validation of Agares CMS in a paying-client context.\n\n" +
     "The site went live in early 2026 and the client has been managing all their own content through the CMS admin panel ever since: pages, articles, media, menus, settings. My job after handover has been keeping the engine running - the editorial side has been entirely self-served, which is exactly the bar I built the CMS for.\n\n" +
-    "This deployment also drove improvements back into the platform - the Polish cookie-consent detection in the [Cookie Scanner](#) microservice was partly developed against this site's consent banner.",
+    "This deployment also drove improvements back into the platform - Polish cookie-consent detection in the Cookie Scanner microservice was partly developed against this site's consent banner.",
 
   highlights: [
     { number: '01.2026', label: 'Launched and live' },
     { number: 'PL', label: 'Polish-market site' },
     { number: '1st', label: 'Commercial deployment of Agares CMS' },
-    { number: '0', label: 'Dev emails to add a page' },
+    { number: '9', label: 'Individual pages' },
   ],
 
   features: [
@@ -59,7 +59,13 @@ const PiesCiMordeLizalSetup = {
     { name: 'GitHub Actions\n(SFTP + SSH deploy)', reason: "Push to a branch, deploys to that branch's domain. Same pipeline pattern as Agares CMS, Cookie Scanner, and Agares SaaS." },
   ],
 
-  screenshots: [],
+  screenshots: [
+    { file: 'pcml-home.jpg', caption: 'Homepage — bold neon typography, service highlights, and mobile-first hero section.' },
+    { file: 'pcml-oferta.jpg', caption: 'Oferta — three service cards: individual sessions, online, and group training.' },
+    { file: 'pcml-omnie.jpg', caption: 'O mnie — trainer bio and credentials page, client-managed via Agares CMS.' },
+    { file: 'pcml-petcamp.jpg', caption: 'PetCamp — dedicated page for the camp programme, content self-served by the client.' },
+    { file: 'pcml-hotel.jpg', caption: 'Hotel — dog hotel service page, published and updated independently by the owner.' },
+  ],
 
   links: {
     demo: { label: 'Visit the live site at piescimordelizal.pl', url: 'https://piescimordelizal.pl' },

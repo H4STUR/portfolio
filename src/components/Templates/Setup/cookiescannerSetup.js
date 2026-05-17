@@ -3,7 +3,7 @@ const CookieScannerSetup = {
   publisher: 'Lucas Majerski',
   version: '1.1',
   tagline: 'Headless microservice that audits any website for GDPR/CCPA compliance.',
-  banner: null,
+  banner: 'saas-cookies.jpg',
 
   about:
     "Cookie Scanner is a stateless Node.js microservice that visits any URL, drives a real headless Chromium through the page, auto-clicks the consent banner, and reports back every cookie, localStorage entry, and tracking script it spots - with a GDPR/CCPA-friendly privacy grade attached.\n\n" +
@@ -82,7 +82,10 @@ const CookieScannerSetup = {
     { name: 'Agares SaaS wrapper\n(Laravel 13 + PostgreSQL)', reason: 'Adds tenant auth, scoped `agr_` API keys, async job queue, per-tenant scan history, admin UI - all the stateful concerns the microservice deliberately skips.' },
   ],
 
-  screenshots: [],
+  screenshots: [
+    { file: 'saas-cookies.jpg', caption: 'Agares SaaS — Cookie Scanner service panel: trigger scans per tenant, scan history with status, grade, and cookie/tracker counts.' },
+    { file: 'agares_cms_cookies.jpg', caption: 'Agares CMS — Cookie & GDPR module: SaaS scanner integration, consent configuration, and scan history for a client site.' },
+  ],
 
   links: {
     demo: { label: 'View source on GitHub', url: 'https://github.com/H4STUR/cookie-scanner' },

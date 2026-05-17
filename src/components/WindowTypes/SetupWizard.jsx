@@ -156,12 +156,13 @@ const SetupWizard = ({ id, title, onClose, position, template, openWindow, initi
   const [step, setStep] = useState(0);
   const [progress, setProgress] = useState(0);
   const [shotIdx, setShotIdx] = useState(0);
+  const [galleryIdx, setGalleryIdx] = useState(0);
   const intervalRef = useRef(null);
 
   useEffect(() => {
     let cancelled = false;
     loadTemplate(template)
-      .then((d) => { if (!cancelled) setData(d); })
+      .then((d) => { if (!cancelled) { setData(d); setGalleryIdx(0); } })
       .catch((e) => console.error('[SetupWizard] template load failed:', e));
     return () => { cancelled = true; };
   }, [template]);
@@ -216,13 +217,25 @@ const SetupWizard = ({ id, title, onClose, position, template, openWindow, initi
     else setStep((s) => s + 1);
   };
 
-  const bannerSrc = data.banner ? imageMap[data.banner] : null;
   const shots = data.screenshots || [];
   const currentShot = shots.length ? shots[shotIdx] : null;
 
+  const galleryList = shots.length > 0
+    ? shots
+    : data.banner ? [{ file: data.banner }] : [];
+  const currentGalleryShot = galleryList[galleryIdx] || null;
+  const currentGalleryFile = currentGalleryShot
+    ? (typeof currentGalleryShot === 'string' ? currentGalleryShot : currentGalleryShot.file)
+    : null;
+  const galleryImgSrc = currentGalleryFile ? imageMap[currentGalleryFile] : null;
+
   const openImage = (filename) => {
     if (!openWindow || !filename) return;
-    openWindow('Image', filename, filename, [], { x: 200, y: 120 }, { width: 900, height: 580 });
+    const siblings = galleryList.map(s => ({
+      title: typeof s === 'string' ? s : s.file,
+      template: typeof s === 'string' ? s : s.file,
+    }));
+    openWindow('Image', filename, filename, siblings, { x: 200, y: 120 }, { width: 900, height: 580 });
   };
 
   return (
@@ -232,14 +245,31 @@ const SetupWizard = ({ id, title, onClose, position, template, openWindow, initi
           <div className="setup-wizard-art">
             <div className="setup-wizard-art-title">{data.projectName}</div>
             {data.tagline && <div className="setup-wizard-art-tag">{data.tagline}</div>}
-            {bannerSrc ? (
-              <img
-                className="setup-wizard-art-image clickable"
-                src={bannerSrc}
-                alt={data.banner}
-                title="Click to open"
-                onClick={() => openImage(data.banner)}
-              />
+            {galleryList.length > 0 ? (
+              <div className="setup-wizard-art-gallery">
+                {galleryImgSrc && (
+                  <img
+                    className="setup-wizard-art-image clickable"
+                    src={galleryImgSrc}
+                    alt={currentGalleryFile}
+                    title="Click to open"
+                    onClick={() => openImage(currentGalleryFile)}
+                  />
+                )}
+                {galleryList.length > 1 && (
+                  <div className="setup-wizard-art-gallery-nav">
+                    <button
+                      onClick={() => setGalleryIdx(i => Math.max(0, i - 1))}
+                      disabled={galleryIdx === 0}
+                    >◄</button>
+                    <span>{galleryIdx + 1} / {galleryList.length}</span>
+                    <button
+                      onClick={() => setGalleryIdx(i => Math.min(galleryList.length - 1, i + 1))}
+                      disabled={galleryIdx === galleryList.length - 1}
+                    >►</button>
+                  </div>
+                )}
+              </div>
             ) : (
               <div className="setup-wizard-art-image-placeholder">
                 <span>No preview yet</span>
