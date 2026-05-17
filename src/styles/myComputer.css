@@ -22,6 +22,7 @@
 {
     width: 70%;
     padding: 10px;
+    overflow-y: auto;
 }
 
 .my-computer-title
@@ -98,6 +99,11 @@
   
   .my-computer-nav:hover {
     background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .my-computer-nav.active {
+    background-color: rgba(255, 255, 255, 0.25);
+    font-weight: bold;
   }
   
   .my-computer-nav img {
