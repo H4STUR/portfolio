@@ -93,6 +93,53 @@
 
                     "GitHub": { "type": "Link", "title": "GitHub", "initialPosition": { "x": 20, "y": 520 }, "template": "https://github.com/H4STUR" }
                 },
+                "Pictures": { "type": "Folder", "title": "My Pictures", "template": "FolderTemplate",
+                    "icons": {
+                        "Agares CMS": { "type": "Folder", "title": "Agares CMS", "template": "FolderTemplate",
+                            "icons": {
+                                "agares_cms_dashboard":      { "type": "Image", "title": "dashboard.jpg",        "template": "agares_cms_dashboard.jpg",      "image": "agares_cms_dashboard.jpg" },
+                                "agares_cms_edit":           { "type": "Image", "title": "editor.jpg",           "template": "agares_cms_edit.jpg",           "image": "agares_cms_edit.jpg" },
+                                "agares_cms_menus":          { "type": "Image", "title": "menus.jpg",            "template": "agares_cms_menus.jpg",          "image": "agares_cms_menus.jpg" },
+                                "agares_cms_media":          { "type": "Image", "title": "media.jpg",            "template": "agares_cms_media.jpg",          "image": "agares_cms_media.jpg" },
+                                "agares_cms_cookies":        { "type": "Image", "title": "cookies.jpg",          "template": "agares_cms_cookies.jpg",        "image": "agares_cms_cookies.jpg" },
+                                "agares_cms_settings":       { "type": "Image", "title": "settings.jpg",         "template": "agares_cms_settings.jpg",       "image": "agares_cms_settings.jpg" },
+                                "agares_cms_settings_addons":{ "type": "Image", "title": "settings\naddons.jpg", "template": "agares_cms_settings_addons.jpg","image": "agares_cms_settings_addons.jpg" },
+                                "agares_cms_sites":          { "type": "Image", "title": "sites.jpg",            "template": "agares_cms_sites.jpg",          "image": "agares_cms_sites.jpg" },
+                                "agares_cms_permissions":    { "type": "Image", "title": "permissions.jpg",      "template": "agares_cms_permissions.jpg",    "image": "agares_cms_permissions.jpg" },
+                                "agares_cms_payments":       { "type": "Image", "title": "payments.jpg",         "template": "agares_cms_payments.jpg",       "image": "agares_cms_payments.jpg" }
+                            }
+                        },
+                        "Bender": { "type": "Folder", "title": "Bender", "template": "FolderTemplate",
+                            "icons": {
+                                "bender_landing":           { "type": "Image", "title": "landing.jpg",         "template": "bender_landing_raw.jpg",         "image": "bender_landing_raw.jpg" },
+                                "bender_home":              { "type": "Image", "title": "home.jpg",            "template": "bender_home_raw.jpg",            "image": "bender_home_raw.jpg" },
+                                "bender_nhie":              { "type": "Image", "title": "nhie.jpg",            "template": "bender_nhie_raw.jpg",            "image": "bender_nhie_raw.jpg" },
+                                "bender_nhie_card":         { "type": "Image", "title": "nhie\ncard.jpg",      "template": "bender_nhie_card_raw.jpg",       "image": "bender_nhie_card_raw.jpg" },
+                                "bender_tod":               { "type": "Image", "title": "tod.jpg",             "template": "bender_tod_raw.jpg",             "image": "bender_tod_raw.jpg" },
+                                "bender_admin":             { "type": "Image", "title": "admin.jpg",           "template": "bender_admin_raw.jpg",           "image": "bender_admin_raw.jpg" },
+                                "bender_admin_questions":   { "type": "Image", "title": "admin\nquestions.jpg","template": "bender_admin_questions_raw.jpg", "image": "bender_admin_questions_raw.jpg" }
+                            }
+                        },
+                        "PiesCiMordeLizal": { "type": "Folder", "title": "PiesCiMordeLizal", "template": "FolderTemplate",
+                            "icons": {
+                                "pcml_home":    { "type": "Image", "title": "home.jpg",     "template": "pcml-home.jpg",    "image": "pcml-home.jpg" },
+                                "pcml_oferta":  { "type": "Image", "title": "oferta.jpg",   "template": "pcml-oferta.jpg",  "image": "pcml-oferta.jpg" },
+                                "pcml_omnie":   { "type": "Image", "title": "o mnie.jpg",   "template": "pcml-omnie.jpg",   "image": "pcml-omnie.jpg" },
+                                "pcml_petcamp": { "type": "Image", "title": "petcamp.jpg",  "template": "pcml-petcamp.jpg", "image": "pcml-petcamp.jpg" },
+                                "pcml_hotel":   { "type": "Image", "title": "hotel.jpg",    "template": "pcml-hotel.jpg",   "image": "pcml-hotel.jpg" }
+                            }
+                        },
+                        "Agares SaaS": { "type": "Folder", "title": "Agares SaaS", "template": "FolderTemplate",
+                            "icons": {
+                                "saas_dashboard": { "type": "Image", "title": "dashboard.jpg", "template": "saas-dashboard.jpg", "image": "saas-dashboard.jpg" },
+                                "saas_tenants":   { "type": "Image", "title": "tenants.jpg",   "template": "saas-tenants.jpg",   "image": "saas-tenants.jpg" },
+                                "saas_cookies":   { "type": "Image", "title": "cookies.jpg",   "template": "saas-cookies.jpg",   "image": "saas-cookies.jpg" },
+                                "saas_rag":       { "type": "Image", "title": "rag.jpg",        "template": "saas-rag.jpg",       "image": "saas-rag.jpg" },
+                                "saas_agents":    { "type": "Image", "title": "agents.jpg",    "template": "saas-agents.jpg",    "image": "saas-agents.jpg" }
+                            }
+                        }
+                    }
+                },
                 "My Documents": { "type": "Folder", "title": "My Documents", "template": "FolderTemplate",
                 "icons": 
                 {

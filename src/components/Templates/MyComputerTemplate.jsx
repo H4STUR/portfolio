@@ -2,6 +2,7 @@ import React from 'react';
 import hardDriveIcon from '../../assets/images/Icons/HD/Local Disk.png';
 import floppyIcon from '../../assets/images/Icons/HD/Floppy Disk.png';
 import myDocumentsIcon from '../../assets/images/Icons/HD/My Documents.png';
+import myPicturesIcon from '../../assets/images/Icons/HD/My Pictures.png';
 
 import folderStructure from '../folderStructure.json'; // adjust path as needed
 import '../../styles/myComputer.css';
@@ -26,10 +27,17 @@ const MyComputerTemplate = ({ onOpenWindow }) => {
     const myDocs = folderStructure?.C?.Users?.Danio?.['My Documents'];
     if (myDocs && myDocs.icons) {
       const parsedIcons = parseFolderStructure(myDocs.icons);
-      console.log('[MyComputerTemplate] parsedIcons:', parsedIcons);
       onOpenWindow('Folder', 'My Documents', 'FolderTemplate', parsedIcons);
     } else {
       console.warn('My Documents not found or has no icons');
+    }
+  };
+
+  const openMyPictures = () => {
+    const pics = folderStructure?.C?.Users?.Danio?.['Pictures'];
+    if (pics && pics.icons) {
+      const parsedIcons = parseFolderStructure(pics.icons);
+      onOpenWindow('Folder', 'My Pictures', 'FolderTemplate', parsedIcons);
     }
   };
   
@@ -53,6 +61,10 @@ const MyComputerTemplate = ({ onOpenWindow }) => {
         <div className='my-computer-nav' onClick={openMyDocuments}>
           <img src={myDocumentsIcon} alt="My Documents" className="start-menu-icon" />
           <p>My Documents</p>
+        </div>
+        <div className='my-computer-nav' onClick={openMyPictures}>
+          <img src={myPicturesIcon} alt="My Pictures" className="start-menu-icon" />
+          <p>My Pictures</p>
         </div>
       </div>
       <div className="my-computer-right-panel">

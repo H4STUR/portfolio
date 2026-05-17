@@ -77,7 +77,7 @@ body {
 .notepad-window > .window-content
 {
   padding: 0px;
-  height: calc(100% - 18px);
+  height: calc(100% - 40px);
 }
 
 .notepad-window textarea

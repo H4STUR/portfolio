@@ -9,6 +9,7 @@ import restart_btn from '../assets/images/restart-button-xp.png';
 import cmdIcon from '../assets/images/Icons/HD/Command Prompt.png';
 import myComputerIcon from '../assets/images/Icons/HD/My Computer.png';
 import myDocumentsIcon from '../assets/images/Icons/HD/My Documents.png';
+import myPicturesIcon from '../assets/images/Icons/HD/My Pictures.png';
 import runIcon from '../assets/images/Icons/run.ico';
 import controlPanelIcon from '../assets/images/Icons/installer.ico';
 import minesweeperIcon from '../assets/images/Icons/HD/Minesweeper.png';
@@ -87,6 +88,17 @@ const StartMenu = forwardRef(({ onOpenWindow }, ref) => {
                 }}
               >
                 <img src={myDocumentsIcon} alt="My Documents" className="start-menu-icon" /> My Documents
+              </li>
+              <li
+                onClick={() => {
+                  const pics = folderStructure?.C?.Users?.Danio?.['Pictures'];
+                  if (pics && pics.icons) {
+                    const parsedIcons = parseFolderStructure(pics.icons);
+                    onOpenWindow('Folder', 'My Pictures', 'FolderTemplate', parsedIcons);
+                  }
+                }}
+              >
+                <img src={myPicturesIcon} alt="My Pictures" className="start-menu-icon" /> My Pictures
               </li>
 
 
