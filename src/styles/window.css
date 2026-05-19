@@ -30,7 +30,7 @@ body {
   overflow: hidden; /* Enable scrolling within the content area */
   cursor: default; /* Default cursor for non-draggable area */
   color: black;
-  height: calc(100% - 22px);
+  height: calc(100% - 40px); /* subtract actual header height (5px pad + 30px close-button + 5px pad) */
 }
 
 .close-button {

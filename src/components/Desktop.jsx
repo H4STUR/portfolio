@@ -121,7 +121,8 @@ const Desktop = () => {
         }
         const Component = windowRegistry[win.type];
         if (!Component) return null;
-        return <Component key={win.id} {...win} onClose={closeWindow} openWindow={openWindow} />;
+        const isActive = windows[windows.length - 1]?.id === win.id;
+        return <Component key={win.id} {...win} onClose={closeWindow} openWindow={openWindow} isActive={isActive} />;
       })}
 
       {isCrashed && <BlueScreen />}

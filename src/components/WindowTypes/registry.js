@@ -9,10 +9,10 @@ import CMDWindow from '../CMD/CMDWindow';
 import Paint from '../Paint/PaintApp';
 import Minesweeper from '../Minesweeper/MinesweeperApp';
 import Snake from '../Snake/SnakeApp';
-import DSJ from '../DSJ/DeluxeSkiJumpApp';
 import Email from '../Email/EmailApp';
 import SetupWizard from './SetupWizard';
 import ControlPanel from './ControlPanel';
+import Game from './Game';
 
 export const windowRegistry = {
   'Recycle Bin': RecycleBin,
@@ -25,9 +25,9 @@ export const windowRegistry = {
   'Paint': Paint,
   'Minesweeper': Minesweeper,
   'Snake': Snake,
-  'DSJ': DSJ,
   'Email': Email,
   'Setup': SetupWizard,
   'Control Panel': ControlPanel,
+  'Game': Game,
   'Alert': AlertWindow,
 };

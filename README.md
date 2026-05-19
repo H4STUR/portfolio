@@ -40,7 +40,7 @@ Explore the desktop to discover hidden surprises, password-protected folders, an
 
 ## Tech Stack
 
-**Frontend:** React 18 , Vite, react-rnd, react-dnd, Phaser
+**Frontend:** React 18, Vite, react-rnd, react-dnd
 
 **Backend:** Laravel 11, PHP 8.2, SQLite
 

@@ -139,10 +139,31 @@ const CMDWindow = ({ id, title, onClose, position, openWindow }) => {
         output = `Opening Minesweeper...`;
         openWindow('Minesweeper', 'Minesweeper', 'MinesweeperApp');
         break;
-      case 'dsj':
-        output = `Opening Deluxe Ski Jump...`;
-        openWindow('DSJ', 'Deluxe Ski Jump', 'DeluxeSkiJumpApp');
+      case 'snake':
+        output = `Opening Snake...`;
+        openWindow('Snake', 'Snake', 'SnakeApp');
         break;
+      case 'hellogame':
+        output = `Opening Hello Game...`;
+        openWindow('Game', 'Hello Game', 'HelloGame');
+        break;
+      case 'doom': {
+        // Size at 70% viewport height, compute width to preserve Doom's 1.6:1 canvas aspect.
+        // Cap at 80% viewport width so ultrawide monitors don't get an oversized window.
+        // Chrome subtracted: 10px (border) horizontal + 50px (border + header) vertical.
+        const vh = window.innerHeight;
+        const vw = window.innerWidth;
+        let h = Math.floor(vh * 0.7);
+        let w = Math.floor((h - 50) * 1.6 + 10);
+        const maxW = Math.floor(vw * 0.8);
+        if (w > maxW) {
+          w = maxW;
+          h = Math.floor((w - 10) / 1.6 + 50);
+        }
+        output = `Opening Doom...`;
+        openWindow('Game', 'Doom', 'Doom', [], undefined, { width: w, height: h });
+        break;
+      }
       case 'exit':
         onClose(id);
         return;
