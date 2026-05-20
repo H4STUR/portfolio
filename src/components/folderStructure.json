@@ -87,6 +87,8 @@
 
                     "Custom CMS Setup.exe": { "type": "Setup", "title": "Custom CMS\nSetup.exe", "initialPosition": { "x": 320, "y": 420 }, "template": "agarescmsSetup" },
 
+                    "Doom": { "type": "Game", "title": "Doom", "initialPosition": { "x": 120, "y": 520 }, "template": "Doom", "image": "doom-icon.png", "initialSize": { "width": 960, "height": 680 } },
+
                     "CV.pdf": { "type": "PDF", "title": "CV.pdf", "initialPosition": { "x": 520, "y": 220 }, "template": "CV" },
 
                     "README.md": { "type": "File", "title": "README.md", "initialPosition": { "x": 20, "y": 420 }, "template": "readmeTemplate" },

@@ -19,6 +19,18 @@ export const useWindows = () => {
           ? { x: position.x + cascadeStep * cascadeOffset, y: position.y + cascadeStep * cascadeOffset }
           : position;
 
+        // Clamp into the viewport so big windows opened from bottom/right
+        // icons don't appear half off-screen. Icon position is used as a hint;
+        // window slides back into view if it would overflow.
+        const w = initialSize?.width || 600;
+        const h = initialSize?.height || 400;
+        const maxX = Math.max(0, window.innerWidth - w);
+        const maxY = Math.max(0, window.innerHeight - h);
+        const finalPosition = {
+          x: Math.min(Math.max(0, cascadedPosition.x), maxX),
+          y: Math.min(Math.max(0, cascadedPosition.y), maxY),
+        };
+
         cascadeIndexRef.current += 1;
 
         console.log(`[openWindow ALLOWED] ${type} - ${title}`);
@@ -28,7 +40,7 @@ export const useWindows = () => {
             id: prev.length,
             type,
             title,
-            position: cascadedPosition,
+            position: finalPosition,
             template,
             icons,
             ...(initialSize && { initialSize }),

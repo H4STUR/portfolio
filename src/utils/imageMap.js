@@ -61,6 +61,9 @@ import turkish_cone_png from '../assets/images/memes/turkish-cone.png';
 import yawn from '../assets/images/memes/yawn.jpg';
 import pepenolif_jpg from '../assets/images/pepenolif.jpg';
 
+// game icons
+import doom_icon from '../assets/games/doom/doom-icon.png';
+
 const imageMap = {
 // techstack
   'c-original.svg': c_original_svg,
@@ -124,6 +127,9 @@ const imageMap = {
   'turkish-cone.png': turkish_cone_png,
   'yawn.jpg': yawn,
   'pepenolif.jpg': pepenolif_jpg,
+
+// game icons
+  'doom-icon.png': doom_icon,
 };
 
 export default imageMap;
