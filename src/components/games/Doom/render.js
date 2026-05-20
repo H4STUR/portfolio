@@ -1,5 +1,5 @@
 import { RENDER_WIDTH, RENDER_HEIGHT, FOV, CEILING_COLOR, FLOOR_COLOR } from './constants.js';
-import { MAP, MAP_W, MAP_H, ENEMY_TYPES } from './map.js';
+import { MAP, MAP_W, MAP_H, ENEMY_TYPES, PROJECTILE_TYPES, PICKUP_TYPES } from './map.js';
 
 const tanHalfFov = Math.tan(FOV / 2);
 const TAU = Math.PI * 2;
@@ -16,15 +16,14 @@ function darken(c) {
 }
 
 // Doom 8-rotation sprite picker. Rotation 1 = enemy facing camera (we see its front),
-// rotation 5 = enemy facing away (we see its back), 3 = camera at enemy's right side,
-// 7 = camera at enemy's left side. Each bucket spans 45°, centered on its rotation.
-// Sign convention: subtract atan2(entity->player) from entity.angle (NOT the reverse) —
-// the rotation number indexes the side WE see, which is opposite the camera-from-entity
-// direction. Got this wrong initially; verified visually against POSSA3/POSSA7 sprites.
+// rotation 5 = enemy facing away (back), other digits cycle around.
+// Sign convention: `atan2(entity->player) - entity.angle`. This matched the user's
+// visual expectation; Freedoom's sprite naming for mirrored pairs appears to use the
+// opposite convention from what id Doom's source code would imply.
 function pickRotation(entity, player) {
   const dx = player.x - entity.x;
   const dy = player.y - entity.y;
-  let diff = entity.angle - Math.atan2(dy, dx);
+  let diff = Math.atan2(dy, dx) - entity.angle;
   diff = ((diff % TAU) + TAU) % TAU; // normalize to [0, 2π)
   return (Math.floor((diff + Math.PI / 8) / (Math.PI / 4)) % 8) + 1;
 }
@@ -76,7 +75,49 @@ export function createRenderer(canvas) {
     }
   }
 
-  function renderSprites(player, entities, sprites, deathFrames) {
+  // Picks the right sprite name based on the entity's kind + state machine.
+  // Returns null if the entity is in a state with no visible sprite (e.g., dead
+  // projectile waiting to be GC'd).
+  function pickSpriteName(entity, player, sprites) {
+    if (entity.kind === 'pickup') {
+      return PICKUP_TYPES[entity.type]?.spriteName ?? null;
+    }
+    if (entity.kind === 'projectile') {
+      const config = PROJECTILE_TYPES[entity.type];
+      if (!config) return null;
+      const prefix = config.spritePrefix;
+      if (entity.state === 'flying') {
+        const letter = config.flyFrames[entity.frame % config.flyFrames.length];
+        return `${prefix}${letter}0`;
+      }
+      if (entity.state === 'exploding') {
+        const letter = config.explodeFrames[Math.min(entity.frame, config.explodeFrames.length - 1)];
+        return `${prefix}${letter}0`;
+      }
+      return null;
+    }
+    const config = ENEMY_TYPES[entity.type];
+    if (!config) return null;
+    const prefix = config.spritePrefix;
+    if (entity.state === 'dying') {
+      const letter = config.deathFrames[entity.deathFrame] || config.deathFrames[config.deathFrames.length - 1];
+      return sprites[`${prefix}${letter}0`] ? `${prefix}${letter}0` : `${prefix}${letter}1`;
+    }
+    if (entity.state === 'pain') {
+      return sprites[`${prefix}${config.painFrame}0`] ? `${prefix}${config.painFrame}0` : `${prefix}${config.painFrame}1`;
+    }
+    const rotation = pickRotation(entity, player);
+    if (entity.state === 'attack') {
+      return `${prefix}${config.attackFrame}${rotation}`;
+    }
+    if (entity.state === 'chase') {
+      const letter = config.walkFrames[entity.walkFrame % config.walkFrames.length];
+      return `${prefix}${letter}${rotation}`;
+    }
+    return `${prefix}A${rotation}`;
+  }
+
+  function renderSprites(player, entities, sprites) {
     const dirX = Math.cos(player.angle);
     const dirY = Math.sin(player.angle);
     const planeX = -dirY * tanHalfFov;
@@ -100,33 +141,27 @@ export function createRenderer(canvas) {
       const transformY = invDet * (-planeY * spriteX + planeX * spriteY);
       if (transformY <= 0.05) continue; // behind camera or too close
 
-      const prefix = ENEMY_TYPES[entity.type].spritePrefix;
-      let spriteName;
-      if (entity.dying) {
-        // Death frames are single-orientation (Doom convention: corpses don't rotate).
-        const letter = deathFrames[entity.deathFrame] || deathFrames[deathFrames.length - 1];
-        spriteName = `${prefix}${letter}0`;
-      } else {
-        const rotation = pickRotation(entity, player);
-        spriteName = `${prefix}A${rotation}`;
-      }
-      const sprite = sprites[spriteName];
+      const spriteName = pickSpriteName(entity, player, sprites);
+      if (!spriteName) continue;
+      const sprite = sprites[spriteName] || sprites[entity.kind === 'enemy' ? `${ENEMY_TYPES[entity.type].spritePrefix}A1` : null];
       if (!sprite) continue;
 
       const spriteScreenX = Math.floor((RENDER_WIDTH / 2) * (1 + transformX / transformY));
-
-      // Scale sprite by its own pixel size (Doom: 64 px = 1 tile world height).
-      // This way a 30-px corpse renders shorter than a 57-px standing zombieman.
       const scale = RENDER_HEIGHT / (transformY * SPRITE_PIXELS_PER_TILE);
       const spriteHeight = Math.abs(Math.floor(sprite.height * scale));
       const spriteWidth = Math.abs(Math.floor(sprite.width * scale));
 
-      // Floor anchor: sprite bottom sits on the perspective floor line at this depth.
-      // Floor line = horizon (RENDER_HEIGHT/2) + half the 1-tile-wall lineHeight at this depth.
-      const floorY = Math.floor(RENDER_HEIGHT / 2 + RENDER_HEIGHT / (2 * transformY));
-      const spriteTop = floorY - spriteHeight;
+      // Vertical anchor: enemies sit on the floor; projectiles hover mid-air
+      // (centered on the horizon — close enough for Phase 5a, polish later).
+      let spriteTop;
+      if (entity.kind === 'projectile') {
+        spriteTop = Math.floor(RENDER_HEIGHT / 2 - spriteHeight / 2);
+      } else {
+        const floorY = Math.floor(RENDER_HEIGHT / 2 + RENDER_HEIGHT / (2 * transformY));
+        spriteTop = floorY - spriteHeight;
+      }
       const drawStartY = Math.max(0, spriteTop);
-      const drawEndY = Math.min(RENDER_HEIGHT, floorY);
+      const drawEndY = Math.min(RENDER_HEIGHT, spriteTop + spriteHeight);
 
       const drawStartX = Math.floor(-spriteWidth / 2 + spriteScreenX);
       const drawEndX = Math.floor(spriteWidth / 2 + spriteScreenX);
@@ -152,7 +187,7 @@ export function createRenderer(canvas) {
 
   return {
     zBuffer,
-    render(player, textures, entities, sprites, hudState, deathFrames) {
+    render(player, textures, entities, sprites, hudState) {
       // Pre-fill ceiling (top half) + floor (bottom half) in one shot.
       // SIMD-backed memset, ~10x faster than per-column loops + cache-friendly.
       // The wall pass below overdraws the wall slice; non-wall pixels keep their fill colour.
@@ -231,7 +266,7 @@ export function createRenderer(canvas) {
       }
 
       // Sprite pass — walls + Z-buffer already populated by the column loop above.
-      if (entities && sprites) renderSprites(player, entities, sprites, deathFrames);
+      if (entities && sprites) renderSprites(player, entities, sprites);
 
       // HUD overlay (pistol + muzzle flash) — drawn last so it sits on top of everything.
       if (hudState && sprites) renderHud(hudState, sprites);

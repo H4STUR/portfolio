@@ -73,11 +73,14 @@ export async function loadTextures(names) {
   return result;
 }
 
+// Tolerant of missing names — silently skips so callers can ask for
+// "all variants we might need" without breaking when Freedoom doesn't
+// happen to have a particular rotation/frame.
 export async function loadSprites(names) {
   const result = {};
   await Promise.all(names.map(async (name) => {
     const url = SPRITE_URLS[name];
-    if (!url) throw new Error(`Sprite not found in glob: ${name}`);
+    if (!url) return;
     result[name] = await loadImageToBuffer(url);
   }));
   return result;

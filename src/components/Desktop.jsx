@@ -62,7 +62,18 @@ const Desktop = () => {
       window.open(icon.template, '_blank', 'noopener,noreferrer');
       return;
     }
-    openWindow(icon.type, icon.title, icon.template, icon.icons, icon.initialPosition, icon.initialSize);
+    // Game-type windows are big and immersive — center them on the viewport
+    // (slightly above center) instead of opening near the source icon.
+    let position = icon.initialPosition;
+    if (icon.type === 'Game' && icon.initialSize) {
+      const w = icon.initialSize.width;
+      const h = icon.initialSize.height;
+      position = {
+        x: Math.max(20, Math.floor((window.innerWidth - w) / 2)),
+        y: Math.max(20, Math.floor((window.innerHeight - h) * 0.35)),
+      };
+    }
+    openWindow(icon.type, icon.title, icon.template, icon.icons, position, icon.initialSize);
   };
 
   const handleWindowMouseDown = (e) => {
